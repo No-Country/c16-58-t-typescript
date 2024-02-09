@@ -1,0 +1,3 @@
+{
+  "extends": "@c16-58-t-typescript/typescript-config/base.json"
+}

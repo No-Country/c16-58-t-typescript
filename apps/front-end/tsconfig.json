@@ -1,0 +1,10 @@
+{
+  "extends": "@c16-58-t-typescript/typescript-config/nextjs.json",
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": [".", ".next/types/**/*.ts"],
+  "exclude": ["dist", "build", "node_modules"]
+}

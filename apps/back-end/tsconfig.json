@@ -1,0 +1,10 @@
+{
+  "extends": "@c16-58-t-typescript/typescript-config/nestjs.json",
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["."],
+  "exclude": ["dist", "build", "node_modules"]
+}

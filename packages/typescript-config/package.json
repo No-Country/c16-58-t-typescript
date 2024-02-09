@@ -1,0 +1,12 @@
+{
+  "name": "@c16-58-t-typescript/typescript-config",
+  "description": "A TypeScript configuration for React applications",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf dist .turbo .next node_modules"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

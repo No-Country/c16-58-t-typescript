@@ -1,0 +1,34 @@
+{
+  "name": "@c16-58-t-typescript/core",
+  "private": true,
+  "scripts": {
+    "build": "pnpm run format:write && turbo run build",
+    "build:packages": "pnpm run format:write && turbo run build --filter=!./apps/* ",
+    "build:apps": "pnpm run format:write && turbo run build --filter=!./packages/* ",
+    "start": "turbo start",
+    "dev": "pnpm run format:write && turbo dev",
+    "dev:backend": "pnpm run format:write && turbo dev --filter=!./apps/frontend/*",
+    "dev:frontend": "pnpm run format:write && turbo dev --filter=!./apps/server/*",
+    "lint": "pnpm run format:write && turbo lint",
+    "depcheck": "pnpm run format:write && turbo run depcheck",
+    "clean": "turbo run clean && rimraf dist .turbo node_modules pnpm-lock.yaml",
+    "clean:docs": "turbo run clean:docs",
+    "format:write": "prettier --write \"**/*.{ts,tsx,md,json, html, css}\" --cache",
+    "format:check": "prettier --check \"**/*.{ts,tsx,md,json, html, css}\" --cache",
+    "generateDocs": "turbo generateDocs"
+  },
+  "devDependencies": {
+    "@c16-58-t-typescript/eslint-config": "workspace:*",
+    "@c16-58-t-typescript/typescript-config": "workspace:*",
+    "prettier": "^3.1.1",
+    "turbo": "latest"
+  },
+  "packageManager": "pnpm@8.9.0",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "depcheck": "^1.4.7",
+    "rimraf": "^5.0.5"
+  }
+}
