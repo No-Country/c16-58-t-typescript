@@ -12,10 +12,18 @@ interface IError {
   code_error: string;
 }
 
+/**
+ * Exception filter that handles all exceptions thrown in the application.
+ */
 @Catch()
 export class AllExceptionFilter implements ExceptionFilter {
   constructor(private readonly logger: LoggerService) {}
 
+  /**
+   * Handles the caught exception and sends an appropriate response to the client.
+   * @param exception - The caught exception.
+   * @param host - The arguments host object.
+   */
   catch(exception: any, host: ArgumentsHost) {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse();
@@ -32,12 +40,19 @@ export class AllExceptionFilter implements ExceptionFilter {
 
     this.logMessage(request, message, status, exception);
 
-    response.status(status).json({
-      code: 400,
-      errors: 'could not be connect to db',
+    response.status(status).send({
+      code_error: message.code_error,
+      message: message.message,
     });
   }
 
+  /**
+   * Logs the error message and details.
+   * @param request - The request object.
+   * @param message - The error message.
+   * @param status - The HTTP status code.
+   * @param exception - The caught exception.
+   */
   private logMessage(
     request: any,
     message: IError,

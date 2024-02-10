@@ -1,6 +1,5 @@
 Para ejecutar estos scripts, asegúrate de tener `pnpm` y las dependencias necesarias instaladas en tu sistema. Si `pnpm` no está instalado, puedes instalarlo utilizando `npm install -g pnpm`. Además, asegúrate de tener las dependencias locales instaladas ejecutando `pnpm install` o `pnpm i` en el directorio del proyecto antes de ejecutar los scripts.
 
-
 ---
 
 ### Script: `build`
@@ -143,8 +142,6 @@ Para ejecutar estos scripts, asegúrate de tener `pnpm` y las dependencias neces
 - Dependencias: `turbo`
 
 ---
-
-
 
 ## Levantando el archivo docker-compose.yml
 

@@ -1,6 +1,10 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { ILogger } from '../../domain/logger/logger.interface';
 
+/**
+ * LoggerService class that extends Logger and implements ILogger.
+ * Provides logging functionality for debug, log, error, warning, and verbose messages.
+ */
 @Injectable()
 export class LoggerService extends Logger implements ILogger {
   constructor() {
