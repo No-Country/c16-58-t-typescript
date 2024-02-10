@@ -3,12 +3,12 @@
   "private": true,
   "scripts": {
     "build": "pnpm run format:write && turbo run build",
-    "build:packages": "pnpm run format:write && turbo run build --filter=!./back-end/** --filter=!./front-end/**",
-    "build:apps": "pnpm run format:write && turbo run build --filter=!./packages/* ",
+    "build:packages": "pnpm run format:write && turbo run build --filter=!./api/** --filter=!./client/**",
+    "build:": "pnpm run format:write && turbo run build --filter=!./packages/* ",
     "start": "turbo start",
     "dev": "pnpm run format:write && turbo dev",
-    "dev:backend": "pnpm run format:write && turbo dev --filter=!./front-end/**",
-    "dev:frontend": "pnpm run format:write && turbo dev --filter=!./back-end/**",
+    "dev:api": "pnpm run format:write && turbo dev --filter=!./client/**",
+    "dev:client": "pnpm run format:write && turbo dev --filter=!./api/**",
     "lint": "pnpm run format:write && turbo lint",
     "depcheck": "pnpm run format:write && turbo run depcheck",
     "clean": "turbo run clean && rimraf dist .turbo node_modules pnpm-lock.yaml",
@@ -20,6 +20,7 @@
   "devDependencies": {
     "@c16-58-t-typescript/eslint-config": "workspace:*",
     "@c16-58-t-typescript/typescript-config": "workspace:*",
+    "dotenv-cli": "^7.3.0",
     "prettier": "^3.1.1",
     "turbo": "latest"
   },

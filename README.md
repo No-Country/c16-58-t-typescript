@@ -1,3 +1,13 @@
+## Archivo ENV (api)
+
+```env
+# Configuración del servidor
+PORT=3001
+NODE_ENV=development
+```
+
+## Scripts, explicaciones y comandos útiles
+
 Para ejecutar estos scripts, asegúrate de tener `pnpm` y las dependencias necesarias instaladas en tu sistema. Si `pnpm` no está instalado, puedes instalarlo utilizando `npm install -g pnpm`. Además, asegúrate de tener las dependencias locales instaladas ejecutando `pnpm install` o `pnpm i` en el directorio del proyecto antes de ejecutar los scripts.
 
 ---
@@ -15,12 +25,12 @@ Para ejecutar estos scripts, asegúrate de tener `pnpm` y las dependencias neces
 
 ### Script: `build:packages`
 
-- Descripción: Este script construye los paquetes del proyecto, excluyendo los directorios de back-end y front-end, y formatea el código antes de la compilación.
+- Descripción: Este script construye los paquetes del proyecto, excluyendo los directorios de api y client, y formatea el código antes de la compilación.
 - Comando: `pnpm run build:packages`
 - Dependencias: `turbo`
 - Tareas realizadas:
   1. Ejecuta `pnpm run format:write` para formatear el código.
-  2. Ejecuta `turbo run build --filter=!./back-end/** --filter=!./front-end/**` para compilar los paquetes excluyendo los directorios de back-end y front-end.
+  2. Ejecuta `turbo run build --filter=!./api/** --filter=!./client/**` para compilar los paquetes excluyendo los directorios de api y client.
 
 ---
 
@@ -54,25 +64,25 @@ Para ejecutar estos scripts, asegúrate de tener `pnpm` y las dependencias neces
 
 ---
 
-### Script: `dev:backend`
+### Script: `dev:api`
 
-- Descripción: Este script inicia el modo de desarrollo del proyecto, excluyendo el front-end, utilizando Turbo y formatea el código antes de iniciar el servidor.
-- Comando: `pnpm run dev:backend`
+- Descripción: Este script inicia el modo de desarrollo del proyecto, excluyendo el client, utilizando Turbo y formatea el código antes de iniciar el servidor.
+- Comando: `pnpm run dev:api`
 - Dependencias: `turbo`
 - Tareas realizadas:
   1. Ejecuta `pnpm run format:write` para formatear el código.
-  2. Ejecuta `turbo dev --filter=!./front-end/**` para iniciar el modo de desarrollo excluyendo el front-end.
+  2. Ejecuta `turbo dev --filter=!./client/**` para iniciar el modo de desarrollo excluyendo el client.
 
 ---
 
-### Script: `dev:frontend`
+### Script: `dev:client`
 
-- Descripción: Este script inicia el modo de desarrollo del proyecto, excluyendo el back-end, utilizando Turbo y formatea el código antes de iniciar el servidor.
-- Comando: `pnpm run dev:frontend`
+- Descripción: Este script inicia el modo de desarrollo del proyecto, excluyendo el api, utilizando Turbo y formatea el código antes de iniciar el servidor.
+- Comando: `pnpm run dev:client`
 - Dependencias: `turbo`
 - Tareas realizadas:
   1. Ejecuta `pnpm run format:write` para formatear el código.
-  2. Ejecuta `turbo dev --filter=!./back-end/**` para iniciar el modo de desarrollo excluyendo el back-end.
+  2. Ejecuta `turbo dev --filter=!./api/**` para iniciar el modo de desarrollo excluyendo el api.
 
 ---
 
