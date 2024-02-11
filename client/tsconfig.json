@@ -3,7 +3,8 @@
   "compilerOptions": {
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "esModuleInterop": true
   },
   "include": [".", ".next/types/**/*.ts"],
   "exclude": ["dist", "build", "node_modules"]
