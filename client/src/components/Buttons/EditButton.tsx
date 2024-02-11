@@ -5,7 +5,7 @@ function PrimaryButton(props: PrimaryButtonProps) {
     const {title, onClickFunction} = props;
   return (
     <button onClick={onClickFunction} 
-    className='rounded-xl bg-lime-800 text-white hover:bg-lime-700 hover:scale-110'>
+    className='text-stone-800 hover:scale-110 decoration-slate-900 underline-offset-0'>
         {title}
     </button>
   )
