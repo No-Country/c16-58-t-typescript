@@ -42,11 +42,16 @@ export class AllExceptionFilter implements ExceptionFilter {
 
     if (!isV1ApiRoute) {
       request.flash('danger', message.message);
+      console.log({ status, message });
       if (status === 401 && request.path !== '/login') {
         request.flash('danger', 'You must login to access this page');
         response.redirect('/login');
       } else if (status === 500) {
-      } else response.redirect(request.path);
+        response.redirect('/error');
+      } else {
+        response.status(status).json(responseData);
+        response.redirect(request.path);
+      }
     } else {
       response.status(status).json(responseData);
     }
