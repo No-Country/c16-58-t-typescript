@@ -22,7 +22,6 @@ async function bootstrap(): Promise<void> {
 
   const env = process.env.PUBLIC_NODE_ENV;
   const port = process.env.PUBLIC_PORT;
-  console.log({ processENV: process.env, port, env });
   if (env !== 'production') {
     // In non-production environments, add LoggingInterceptor and ResponseInterceptor as global interceptors
     app.useGlobalInterceptors(
