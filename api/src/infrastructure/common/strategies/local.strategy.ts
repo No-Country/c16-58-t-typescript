@@ -5,7 +5,7 @@ import { UseCaseProxy } from '../../usecases-proxy/usecases-proxy';
 import { LoginUseCases } from '../../../usecases/auth/login.usecases';
 import { LoggerService } from '../../logger/logger.service';
 import { ExceptionsService } from '../../exceptions/exceptions.service';
-import { Strategy } from 'passport-jwt';
+import { Strategy } from 'passport-local';
 
 @Injectable()
 /**
@@ -20,7 +20,6 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
   ) {
     super();
   }
-
   /**
    * Validates the username and password for local strategy.
    * @param {Object} params - The parameters for validation.

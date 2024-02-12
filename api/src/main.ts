@@ -5,16 +5,16 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
-// import { resolve } from 'path';
+import { resolve } from 'path';
 import { AppModule } from './app.module';
 import cookieParser from 'cookie-parser';
-import session from 'express-session';
 import flash from 'express-flash';
 import passport from 'passport';
 import {
   ResponseInterceptor,
   ResponseFormat,
 } from './infrastructure/common/interceptor/response.interceptor';
+import session from 'express-session';
 
 /**
  * Initializes the application and starts the server.
@@ -30,7 +30,7 @@ async function bootstrap(): Promise<void> {
     new LoggingInterceptor(new LoggerService()), // Register the logging interceptor
     new ResponseInterceptor(), // Register the response interceptor
   );
-  // app.useStaticAssets(resolve('../../client/build'));
+  app.useStaticAssets(resolve('../../client/build'));
   app.setGlobalPrefix('api/v1'); // Set the global prefix for all routes
   app.disable('x-powered-by', 'X-Powered-By'); // Disable the X-Powered-By header
 

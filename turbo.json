@@ -46,6 +46,7 @@
       "persistent": false
     },
     "start": {
+      "dependsOn": ["^lint", "^build"],
       "persistent": false
     },
     "generateDocs": {}
