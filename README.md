@@ -1,9 +1,11 @@
 ## Archivo ENV (api)
 
+Es necesario añadir las claves ENV en el archivo .env.local, con ubicacion en el root del proyecto
+
 ```env
-# Configuración del servidor
-PORT=3001
-NODE_ENV=development
+# Configuración del servidor 
+PUBLIC_PORT=3001
+PUBLIC_NODE_ENV=development
 ```
 
 ## Scripts, explicaciones y comandos útiles

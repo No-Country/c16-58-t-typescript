@@ -20,9 +20,9 @@ async function bootstrap(): Promise<void> {
   app.useGlobalFilters(new AllExceptionFilter(new LoggerService()));
   app.useGlobalPipes(new ValidationPipe());
 
-  const env = process.env.NODE_ENV;
-  const port = process.env.PORT;
-  console.log({ env, port });
+  const env = process.env.PUBLIC_NODE_ENV;
+  const port = process.env.PUBLIC_PORT;
+  console.log({ processENV: process.env, port, env });
   if (env !== 'production') {
     // In non-production environments, add LoggingInterceptor and ResponseInterceptor as global interceptors
     app.useGlobalInterceptors(
