@@ -6,6 +6,7 @@ import {
   HttpStatus,
   BadRequestException,
   InternalServerErrorException,
+  ConflictException,
   ForbiddenException,
   UnauthorizedException,
 } from '@nestjs/common';
@@ -29,6 +30,14 @@ export class ExceptionsService implements IException {
     } else {
       throw new exception();
     }
+  }
+
+  /**
+   * Throws a ConflictException with optional data.
+   * @param data - Optional data to be passed to the ConflictException.
+   */
+  conflictException(data?: IFormatExceptionMessage): void {
+    throw new ConflictException(data);
   }
 
   /**

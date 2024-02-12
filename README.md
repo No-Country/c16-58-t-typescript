@@ -5,13 +5,16 @@ Es necesario añadir las claves ENV en el archivo .env.local, con ubicacion en e
 ```env
 # Configuración del servidor
 PORT=3001
+
 NODE_ENV=development
-MONGODB_URI=mongodb://localhost:27017/testing
-SECRET_KEY_SESSION=secret
-JWT_SECRET=secret
-JWT_EXPIRATION_TIME=1h
-JWT_REFRESH_TOKEN_SECRET=secret
-JWT_REFRESH_TOKEN_EXPIRATION_TIME=1d
+MONGODB_URI=mongodb://localhost:27017/your_db_name
+
+JWT_SECRET=your_secret
+JWT_EXPIRATION_TIME=1m
+
+JWT_REFRESH_TOKEN_SECRET=your_refresh_token_secret
+JWT_REFRESH_TOKEN_EXPIRATION_TIME=5m
+
 ```
 
 ## Scripts, explicaciones y comandos útiles
