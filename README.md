@@ -4,8 +4,14 @@ Es necesario añadir las claves ENV en el archivo .env.local, con ubicacion en e
 
 ```env
 # Configuración del servidor
-PUBLIC_PORT=3001
-PUBLIC_NODE_ENV=development
+PORT=3001
+NODE_ENV=development
+MONGODB_URI=mongodb://localhost:27017/testing
+SECRET_KEY_SESSION=secret
+JWT_SECRET=secret
+JWT_EXPIRATION_TIME=1h
+JWT_REFRESH_TOKEN_SECRET=secret
+JWT_REFRESH_TOKEN_EXPIRATION_TIME=1d
 ```
 
 ## Scripts, explicaciones y comandos útiles

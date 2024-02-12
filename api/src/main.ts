@@ -21,7 +21,7 @@ import {
  * @returns A Promise that resolves when the server is successfully started.
  */
 async function bootstrap(): Promise<void> {
-  const { PUBLIC_PORT, PUBLIC_NODE_ENV, SECRET_KEY_SESSION } = process.env; // Retrieve environment variables
+  const { PORT, NODE_ENV, SECRET_KEY_SESSION } = process.env; // Retrieve environment variables
   const app = await NestFactory.create<NestExpressApplication>(AppModule); // Create the application
 
   app.useGlobalFilters(new AllExceptionFilter(new LoggerService())); // Register the exception filter
@@ -34,7 +34,7 @@ async function bootstrap(): Promise<void> {
   app.setGlobalPrefix('api/v1'); // Set the global prefix for all routes
   app.disable('x-powered-by', 'X-Powered-By'); // Disable the X-Powered-By header
 
-  if (PUBLIC_NODE_ENV !== 'production') {
+  if (NODE_ENV !== 'production') {
     const config = new DocumentBuilder()
       .addBearerAuth() // Enable Bearer token authentication in Swagger UI
       .setTitle('Group c16-58-t-typescript') // Set the title of the API
@@ -60,6 +60,6 @@ async function bootstrap(): Promise<void> {
   app.use(passport.initialize()); // Enable passport authentication
   app.use(passport.session()); // Enable passport session management
   app.use(flash()); // Enable flash messages
-  await app.listen(PUBLIC_PORT || 3001); // Start the server
+  await app.listen(PORT || 3001); // Start the server
 }
 bootstrap();

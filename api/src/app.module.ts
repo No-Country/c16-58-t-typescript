@@ -1,9 +1,11 @@
 import { Module } from '@nestjs/common';
+import { PassportModule } from '@nestjs/passport';
 import { LoggerModule } from './infrastructure/logger/logger.module';
 import { ExceptionsModule } from './infrastructure/exceptions/exceptions.module';
 import { ControllersModule } from './infrastructure/controllers/controllers.module';
 import { RepositoriesModule } from './infrastructure/repositories/repositories.module';
-import { MongooseModule } from '@nestjs/mongoose';
+import { EnvironmentConfigModule } from './infrastructure/config/environment/environment-config.module';
+import { MongoConfigModule } from './infrastructure/mongo/mongo.module';
 /**
  * Represents the main module of the application.
  * This module is responsible for importing and configuring other modules,
@@ -11,13 +13,13 @@ import { MongooseModule } from '@nestjs/mongoose';
  */
 @Module({
   imports: [
+    PassportModule.register({ session: true }), // Import the PassportModule to enable authentication
     LoggerModule, // Import the LoggerModule to enable logging functionality
+    EnvironmentConfigModule, // Import the EnvironmentConfigModule to handle environment variables
+    MongoConfigModule, // Import the MongoConfigModule to handle MongoDB configuration
     ExceptionsModule, // Import the ExceptionsModule to handle custom exceptions
     ControllersModule, // Import the ControllersModule to define and manage controllers
     RepositoriesModule, // Import the RepositoriesModule to handle data repositories
-    MongooseModule.forRoot(
-      process.env.MONGODB_URI || 'mongodb://localhost:27017/testing',
-    ), // Connect to the MongoDB database
   ],
 })
 export class AppModule {}
