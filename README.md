@@ -1,3 +1,41 @@
+# Crear una rama en Git, buscar archivos nuevos en la rama principal y hacer push
+
+1. **Crear una nueva rama:**
+
+   ```bash
+   git checkout -b nueva-rama
+   ```
+
+   Este comando crea una nueva rama llamada `nueva-rama` y automáticamente cambia a ella.
+
+2. **Buscar archivos nuevos en la rama principal (main):**
+   Si deseas traer los cambios de la rama principal a tu rama recién creada, necesitas realizar un `git pull` mientras estás en tu nueva rama. Esto actualizará tu rama local con los cambios de la rama principal.
+
+   ```bash
+   git pull origin main
+   ```
+
+3. **Hacer push a la nueva rama:**
+   Una vez que hayas añadido tus cambios y estés listo para subirlos a la nueva rama en el repositorio remoto, utiliza el comando `git push`. Si estás subiendo la rama por primera vez, necesitas usar `-u` para establecer un upstream y vincular tu rama local con la remota.
+
+   ```bash
+   git push -u origin nueva-rama
+   ```
+
+## Estrategias para evitar conflictos:
+
+1. **Mantén tu rama actualizada:** Realiza `git pull` con frecuencia para traer los últimos cambios de la rama principal a tu rama antes de realizar tus propios cambios. Esto minimiza la posibilidad de conflictos.
+
+2. **Divide tus cambios:** Si estás trabajando en una función compleja, divide tu trabajo en pequeñas tareas que puedas completar y fusionar por separado. Esto reduce la posibilidad de conflictos al cambiar partes diferentes del código.
+
+3. **Comunica tus cambios:** Si trabajas en un equipo, comunica tus cambios a tus compañeros para evitar que múltiples personas modifiquen el mismo archivo simultáneamente. Esto puede reducir la probabilidad de conflictos.
+
+4. **No hagas pull requests directamente en la rama principal (main):** Evita enviar pull requests directamente a la rama principal. En su lugar, crea una rama de características, trabaja en ella y, una vez que estés seguro de que tus cambios no causan problemas, fusiona tu rama de características con la rama principal mediante un pull request.
+
+5. **Utiliza herramientas de gestión de versiones colaborativas:** Herramientas como GitHub, Gitlens ofrecen características para gestionar conflictos automáticamente o de forma guiada, lo que facilita la resolución de conflictos cuando ocurren.
+
+**Nota:** Para obtener sugerencias automáticas de código para mensajes de confirmación en Git, puedes utilizar GitHub Copilot integrado en tu editor de código compatible. Simplemente escribe tu mensaje de confirmación y Copilot te ofrecerá sugerencias contextuales basadas en el contenido de tus cambios y convenciones de mensaje de confirmación comunes.
+
 ## Archivo ENV (api)
 
 Es necesario añadir las claves ENV en el archivo .env.local, con ubicacion en el root del proyecto
