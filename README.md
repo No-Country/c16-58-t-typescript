@@ -3,7 +3,7 @@
 Es necesario añadir las claves ENV en el archivo .env.local, con ubicacion en el root del proyecto
 
 ```env
-# Configuración del servidor 
+# Configuración del servidor
 PUBLIC_PORT=3001
 PUBLIC_NODE_ENV=development
 ```

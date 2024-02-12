@@ -6,11 +6,7 @@ import {
   HttpStatus,
 } from '@nestjs/common';
 import { LoggerService } from '../../logger/logger.service';
-
-interface IError {
-  message: string;
-  code_error: string;
-}
+import { IError } from '../../../domain/filter/filter.interface';
 
 /**
  * Exception filter that handles all exceptions thrown in the application.
