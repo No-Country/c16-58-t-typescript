@@ -1,36 +1,25 @@
+import { UsecasesProxyModule } from '@/infrastructure/usecases-proxy/usecases-proxy.module';
+import { ExceptionsService } from '@/infrastructure/exceptions/exceptions.service';
+import { Body, Controller, Get, Inject, Post, UseGuards } from '@nestjs/common';
+import { UseCaseProxy } from '@/infrastructure/usecases-proxy/usecases-proxy';
+import JwtRefreshGuard from '@/infrastructure/common/guards/jwtRefresh.guard';
+import { JwtAuthGuard } from '@/infrastructure/common/guards/jwtAuth.guard';
+import { LoginGuard } from '@/infrastructure/common/guards/login.guard';
+import { RegisterUseCases } from '@/usecases/auth/register.usecases';
+import { User } from '@/infrastructure/decorators/user.decorator';
+import { LogoutUseCases } from '@/usecases/auth/logout.usecases';
+import { AuthLoginDto, AuthRegisterDto } from './auth-dto.class';
+import { LoginUseCases } from '@/usecases/auth/login.usecases';
+import { IsAuthPresenter } from './auth.presenter';
+import { UserModel } from '@/domain/model/user';
 import {
-  Body,
-  Controller,
-  // Get,
-  // UseGuards,
-  Inject,
-  Post,
-} from '@nestjs/common';
-import {
-  // ApiBearerAuth,
-  ApiBody,
   ApiExtraModels,
-  // ApiOperation,
+  ApiBearerAuth,
+  ApiOperation,
   ApiResponse,
+  ApiBody,
   ApiTags,
 } from '@nestjs/swagger';
-import {
-  //  AuthLoginDto,
-  AuthRegisterDto,
-} from './auth-dto.class';
-// import { UserModel } from '../../../domain/model/user';
-// import { JwtAuthGuard } from '../../common/guards/jwtAuth.guard';
-// import JwtRefreshGuard from '../../common/guards/jwtRefresh.guard';
-// import { LoginGuard } from '../../common/guards/login.guard';
-// import { User } from '../../decorators/user.decorator';
-
-import { IsAuthPresenter } from './auth.presenter';
-import { ExceptionsService } from '@/infrastructure/exceptions/exceptions.service';
-import { UseCaseProxy } from '@/infrastructure/usecases-proxy/usecases-proxy';
-import { UsecasesProxyModule } from '@/infrastructure/usecases-proxy/usecases-proxy.module';
-import { LoginUseCases } from '@/usecases/auth/login.usecases';
-import { LogoutUseCases } from '@/usecases/auth/logout.usecases';
-import { RegisterUseCases } from '@/usecases/auth/register.usecases';
 
 @Controller('auth')
 @ApiTags('auth')
@@ -56,26 +45,36 @@ export class AuthController {
   /**
    * Registers a new user.
    *
-   * @param body - The registration data.
-   * @returns A message indicating the success of the registration.
+   * @param body - The registration data for the user.
+   * @returns A promise that resolves to a string indicating the success of the registration.
    */
   async register(@Body() body: AuthRegisterDto): Promise<string> {
     const service = this.registerUseCaseProxy.getInstance();
-    if (
-      (await service.userShouldNotExist({ email: body.email })) &&
-      body.confirmPassword === body.password
-    ) {
-      const user = await service.registerUser({
-        email: body.email,
-        username: body.username,
-        password: body.password,
-      });
-
-      return `User ${user.email} Registered!`;
-    } else
+    const validation: string | null = await service.userShouldNotExist({
+      email: body.email,
+      username: body.username,
+    });
+    if (validation) {
       this.exceptionsService.conflictException({
-        message: `${body.email} already Exists`,
+        message: validation,
       });
+    }
+    const passValidation = await service.checkPassword({
+      password: body.password,
+      confirmPassword: body.confirmPassword,
+    });
+
+    if (passValidation) {
+      this.exceptionsService.conflictException({
+        message: passValidation,
+      });
+    }
+    const user = await service.registerUser({
+      email: body.email,
+      username: body.username,
+      password: body.password,
+    });
+    return `User with email '${user.email} and username ${user.username} has been registered`;
   }
 
   // @Post('login')
@@ -83,14 +82,7 @@ export class AuthController {
   // @ApiBearerAuth()
   // @ApiBody({ type: AuthLoginDto })
   // @ApiOperation({ description: 'login' })
-  // /**
-  //  * Logs in a user and returns an access token and a refresh token.
-  //  * @param user - The user object containing the username.
-  //  * @returns An object with the access token and the refresh token.
-  //  */
-  // async login(
-  //   @User() user: UserModel,
-  // ): Promise<{ accessToken: string; refreshToken: string }> {
+  // async login(@User() user: UserModel) {
   //   const accessToken = await this.loginUsecaseProxy
   //     .getInstance()
   //     .generateAccessToken({ username: user.username });

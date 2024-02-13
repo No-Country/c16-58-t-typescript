@@ -34,6 +34,7 @@ export class DatabaseUserRepository implements UserRepository {
    * @param password - The password of the user.
    * @returns A Promise that resolves to the created UserModel.
    */
+
   async createUser(
     email: string,
     username: string,

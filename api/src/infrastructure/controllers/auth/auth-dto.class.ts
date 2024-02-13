@@ -10,9 +10,11 @@ export class AuthLoginDto {
   @ApiProperty({ required: true })
   @IsNotEmpty()
   @IsString()
-  readonly username: string;
+  @IsEmail()
+  readonly email: string;
 
   @ApiProperty({ required: true })
+  @IsStrongPassword()
   @IsNotEmpty()
   @IsString()
   readonly password: string;

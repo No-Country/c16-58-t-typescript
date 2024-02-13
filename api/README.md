@@ -1,72 +1,100 @@
-# Documentación del Endpoint /api/auth/register
+# Endpoint de Registro de Usuario
 
-Este endpoint se utiliza para registrar nuevos usuarios en el sistema. Los datos necesarios para el registro deben ser enviados en el cuerpo de la solicitud utilizando el método POST.
+Este endpoint permite registrar nuevos usuarios en la aplicación. Los usuarios pueden registrarse proporcionando su dirección de correo electrónico, nombre de usuario, contraseña y confirmación de contraseña.
 
-## URL
-
-```
-/api/auth/register
-```
-
-## Método
+## Ruta
 
 ```
-POST
+POST /api/auth/register
 ```
 
-## Parámetros del Cuerpo (Body)
+## Body Requerido
 
-- `username` (String): Nombre de usuario único para el nuevo usuario.
-- `password` (String): Contraseña para la cuenta del nuevo usuario.
-- `confirmPassword` (String): Confirmación de la contraseña ingresada.
-- `email` (String): Dirección de correo electrónico única asociada con la cuenta del nuevo usuario.
+```json
+{
+  "email": "string",
+  "username": "string",
+  "password": "string",
+  "confirmPassword": "string"
+}
+```
 
-## Respuestas
+- `email`: La dirección de correo electrónico del usuario.
+- `username`: El nombre de usuario deseado para el usuario.
+- `password`: La contraseña del usuario.
+- `confirmPassword`: Confirmación de la contraseña ingresada por el usuario.
 
-### Respuesta Exitosa
+## Respuesta Exitosa
 
-- **Código de Estado:** 200 OK
-- **Tipo de Contenido:** application/json
-- **Cuerpo de la Respuesta:**
-  ```json
-  {
-    "data": "¡Usuario registrado exitosamente!",
-    "isArray": false,
-    "path": "/api/auth/register",
-    "duration": "145ms",
-    "method": "POST"
-  }
-  ```
-  - `data` (String): Mensaje indicando que el usuario ha sido registrado exitosamente.
-  - `isArray` (Boolean): Indica si el objeto devuelto es un array (en este caso, es `false`).
-  - `path` (String): Ruta del endpoint.
-  - `duration` (String): Tiempo de duración de la solicitud.
-  - `method` (String): Método HTTP utilizado.
+En caso de un registro exitoso, el servidor responderá con un mensaje de confirmación junto con algunos metadatos:
 
-### Respuesta de Conflicto (Usuario ya Existe)
+```json
+{
+  "data": "User with email 'string' and username 'string' has been registered",
+  "isArray": false,
+  "path": "/api/auth/register",
+  "duration": "string",
+  "method": "POST"
+}
+```
 
-- **Código de Estado:** 409 Conflict
-- **Tipo de Contenido:** application/json
-- **Cuerpo de la Respuesta:**
-  ```json
-  {
-    "statusCode": 409,
-    "message": "El nombre de usuario o correo electrónico ya existe en el sistema."
-  }
-  ```
-  - `statusCode` (Number): Código de estado de la respuesta.
-  - `message` (String): Mensaje de error indicando que el nombre de usuario o correo electrónico ya está registrado en el sistema.
+- `data`: Un mensaje que confirma el registro exitoso del usuario, incluyendo el email y el nombre de usuario registrados.
+- `isArray`: Indica si la respuesta contiene un array de datos (en este caso, es `false`).
+- `path`: La ruta del endpoint utilizado para el registro.
+- `duration`: La duración de la solicitud.
+- `method`: El método HTTP utilizado (en este caso, `POST`).
 
-### Respuesta de Error del Servidor
+## Errores Posibles
 
-- **Código de Estado:** 500 Internal Server Error
-- **Tipo de Contenido:** application/json
-- **Cuerpo de la Respuesta:**
-  ```json
-  {
-    "statusCode": 500,
-    "message": "Error interno del servidor."
-  }
-  ```
-  - `statusCode` (Number): Código de estado de la respuesta.
-  - `message` (String): Mensaje de error indicando que ha ocurrido un error interno en el servidor durante el procesamiento de la solicitud.
+En caso de que ocurra algún error durante el registro, el servidor devolverá un mensaje de error junto con el código de estado correspondiente. Los errores posibles incluyen:
+
+- `409 Conflict`: Indica que ya existe un usuario con el mismo email y/o nombre de usuario.
+- `500 Internal Server Error`: Indica un problema interno en el servidor, como una conexión fallida con la base de datos.
+
+A continuación se muestran ejemplos de mensajes de error:
+
+1. Error porque tanto el username como el email están en uso:
+
+```json
+{
+  "statusCode": 409,
+  "message": "User with email 'string' and username 'string' already exists"
+}
+```
+
+2. Error por el username ya registrado:
+
+```json
+{
+  "statusCode": 409,
+  "message": "User with username 'string' already exists"
+}
+```
+
+3. Error por el email en uso:
+
+```json
+{
+  "statusCode": 409,
+  "message": "User with email 'string' already exists"
+}
+```
+
+4. Error de conexión con la base de datos:
+
+```json
+{
+  "statusCode": 500,
+  "message": "connect ECONNREFUSED ::1:27001, connect ECONNREFUSED 127.0.0.1:27001",
+  "code_error": null
+}
+```
+
+## Ejemplo de Uso
+
+```bash
+curl -X POST \
+  -H "Content-Type: application/json" \
+  -d '{"email":"example@example.com","username":"example_user","password":"Password123","confirmPassword":"Password123"}' \
+  http://example.com/api/auth/register
+```

@@ -25,7 +25,7 @@ export class JwtRefreshTokenStrategy extends PassportStrategy(
     super({
       jwtFromRequest: ExtractJwt.fromExtractors([
         (request: Request) => {
-          return request?.headers?.authorization.split(' ')[1];
+          return request?.headers?.authorization?.split(' ')[1];
         },
       ]),
       secretOrKey: configService.getJwtRefreshSecret(),
