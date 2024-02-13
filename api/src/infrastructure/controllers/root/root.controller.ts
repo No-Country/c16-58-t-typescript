@@ -1,3 +1,9 @@
+import { UserModel } from '@/domain/model/user';
+import { LoginGuard } from '@/infrastructure/common/guards/login.guard';
+import { SessionUser } from '@/infrastructure/decorators/session-user.decorator';
+import { UseCaseProxy } from '@/infrastructure/usecases-proxy/usecases-proxy';
+import { UsecasesProxyModule } from '@/infrastructure/usecases-proxy/usecases-proxy.module';
+import { LoginUseCases } from '@/usecases/auth/login.usecases';
 import {
   Controller,
   Get,
@@ -10,16 +16,9 @@ import {
 } from '@nestjs/common';
 import { ApiBearerAuth, ApiBody, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { Request as Req, Response as Res } from 'express';
-
 import { AuthLoginDto } from '../auth/auth-dto.class';
 import { FlashService } from './flash.service';
-import { UserModel } from '../../../domain/model/user';
-import { LoginUseCases } from '../../../usecases/auth/login.usecases';
-import { UseCaseProxy } from '../../usecases-proxy/usecases-proxy';
-import { UsecasesProxyModule } from '../../usecases-proxy/usecases-proxy.module';
-import { SessionUser } from '../../decorators/session-user.decorator';
-import { LoginGuard } from '../../common/guards/login.guard';
-import { User } from '../../decorators/user.decorator';
+import { User } from '@/infrastructure/decorators/user.decorator';
 
 /**
  * Controller for handling root routes and login/logout functionality.

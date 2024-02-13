@@ -2,18 +2,18 @@
  * Service for handling various types of exceptions in the application.
  */
 import {
+  IFormatExceptionMessage,
+  IException,
+} from '@/domain/exceptions/exceptions.interface';
+import {
+  InternalServerErrorException,
+  UnauthorizedException,
+  BadRequestException,
+  ForbiddenException,
+  ConflictException,
   Injectable,
   HttpStatus,
-  BadRequestException,
-  InternalServerErrorException,
-  ConflictException,
-  ForbiddenException,
-  UnauthorizedException,
 } from '@nestjs/common';
-import {
-  IException,
-  IFormatExceptionMessage,
-} from '../../domain/exceptions/exceptions.interface';
 
 @Injectable()
 export class ExceptionsService implements IException {

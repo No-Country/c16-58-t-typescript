@@ -1,13 +1,12 @@
+import { LoggerService } from '@/infrastructure/logger/logger.service';
+import { IError } from '@/domain/filter/filter.interface';
 import {
-  ArgumentsHost,
-  Catch,
   ExceptionFilter,
+  ArgumentsHost,
   HttpException,
   HttpStatus,
+  Catch,
 } from '@nestjs/common';
-import { LoggerService } from '../../logger/logger.service';
-import { IError } from '../../../domain/filter/filter.interface';
-
 /**
  * Exception filter that handles all exceptions thrown in the application.
  */
@@ -46,10 +45,9 @@ export class AllExceptionFilter implements ExceptionFilter {
         request.flash('danger', 'You must login to access this page');
         response.redirect('/login');
       } else if (status === 500) {
-        response.redirect('/error');
+        response.status(status).json(responseData);
       } else {
         response.status(status).json(responseData);
-        // response.redirect(request.path);
       }
     } else {
       response.status(status).json(responseData);

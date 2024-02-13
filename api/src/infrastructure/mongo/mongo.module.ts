@@ -1,13 +1,19 @@
-import { Module } from '@nestjs/common';
 import { MongooseModule, MongooseModuleFactoryOptions } from '@nestjs/mongoose';
-import { EnvironmentConfigModule } from '../config/environment/environment-config.module';
-import { EnvironmentConfigService } from '../config/environment/environment-config.service';
+import { EnvironmentConfigService } from '@/config/environment-config.service';
+import { EnvironmentConfigModule } from '@/config/environment-config.module';
+import { Module } from '@nestjs/common';
 
-export const getMongooseModuleOptions = (
+export function getMongooseModuleOptions(
   config: EnvironmentConfigService,
-): MongooseModuleFactoryOptions => ({
-  uri: config.getMongoDbUri(),
-});
+): MongooseModuleFactoryOptions {
+  return {
+    uri: config.getMongoDbUri(),
+    auth: {
+      password: config.getMongoDbPass(),
+      username: config.getMongoDbUsername(),
+    },
+  };
+}
 
 /**
  * Module for configuring MongoDB connection using Mongoose.

@@ -1,6 +1,6 @@
-import { Injectable, Logger } from '@nestjs/common';
-import { ILogger } from '../../domain/logger/logger.interface';
 import { transports, format, createLogger } from 'winston';
+import { ILogger } from '@/domain/logger/logger.interface';
+import { Injectable, Logger } from '@nestjs/common';
 
 /**
  * Winston logger instance.

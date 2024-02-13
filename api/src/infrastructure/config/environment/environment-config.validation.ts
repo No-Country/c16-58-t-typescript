@@ -1,5 +1,5 @@
-import { plainToClass } from 'class-transformer';
 import { IsEnum, IsString, validateSync } from 'class-validator';
+import { plainToClass } from 'class-transformer';
 
 enum Environment {
   Development = 'development',
@@ -16,6 +16,12 @@ class EnvironmentVariables {
   MONGODB_URI: string;
 
   @IsString()
+  MONGODB_PASSWORD: string;
+
+  @IsString()
+  MONGODB_USERNAME: string;
+
+  @IsString()
   JWT_SECRET: string;
 
   @IsString()
@@ -23,6 +29,7 @@ class EnvironmentVariables {
 
   @IsString()
   JWT_REFRESH_TOKEN_SECRET: string;
+
   @IsString()
   JWT_REFRESH_TOKEN_EXPIRATION_TIME: string;
 }

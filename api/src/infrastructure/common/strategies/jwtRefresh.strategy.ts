@@ -1,14 +1,14 @@
+import { UsecasesProxyModule } from '@/infrastructure/usecases-proxy/usecases-proxy.module';
+import { EnvironmentConfigService } from '@/infrastructure/config/environment/environment-config.service';
+import { ExceptionsService } from '@/infrastructure/exceptions/exceptions.service';
+import { UseCaseProxy } from '@/infrastructure/usecases-proxy/usecases-proxy';
+import { LoggerService } from '@/infrastructure/logger/logger.service';
+import { LoginUseCases } from '@/usecases/auth/login.usecases';
+import { Inject, Injectable } from '@nestjs/common';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { PassportStrategy } from '@nestjs/passport';
-import { Inject, Injectable } from '@nestjs/common';
+import { TokenPayload } from '@/domain/model/auth';
 import { Request } from 'express';
-import { EnvironmentConfigService } from '../../config/environment/environment-config.service';
-import { UsecasesProxyModule } from '../../usecases-proxy/usecases-proxy.module';
-import { UseCaseProxy } from '../../usecases-proxy/usecases-proxy';
-import { LoginUseCases } from '../../../usecases/auth/login.usecases';
-import { TokenPayload } from '../../../domain/model/auth';
-import { LoggerService } from '../../logger/logger.service';
-import { ExceptionsService } from '../../exceptions/exceptions.service';
 
 @Injectable()
 export class JwtRefreshTokenStrategy extends PassportStrategy(

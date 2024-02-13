@@ -1,7 +1,7 @@
-import { Injectable } from '@nestjs/common';
+import { MongoDbConfig } from '@/domain/config/mongo.interface';
+import { JWTConfig } from '@/domain/config/jwt.interface';
 import { ConfigService } from '@nestjs/config';
-import { MongoDbConfig } from '../../../domain/config/mongo.interface';
-import { JWTConfig } from '../../../domain/config/jwt.interface';
+import { Injectable } from '@nestjs/common';
 
 /**
  * Service that provides environment configuration values for MongoDB and JWT.
@@ -16,6 +16,23 @@ export class EnvironmentConfigService implements MongoDbConfig, JWTConfig {
    */
   getMongoDbUri(): string {
     return this.configService.get<string>('MONGODB_URI');
+  }
+
+  /**
+   * Retrieves the MongoDB password from the configuration service.
+   *
+   * @returns The MongoDB password as a string.
+   */
+  getMongoDbPass(): string {
+    return this.configService.get<string>('MONGODB_PASSWORD');
+  }
+
+  /**
+   * Retrieves the MongoDB username from the configuration.
+   * @returns The MongoDB username.
+   */
+  getMongoDbUsername(): string {
+    return this.configService.get<string>('MONGODB_USERNAME');
   }
 
   /**

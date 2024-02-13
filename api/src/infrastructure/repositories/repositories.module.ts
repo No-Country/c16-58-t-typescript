@@ -1,7 +1,7 @@
-import { Module } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
+import { DatabaseUserRepository } from './user/user.repository';
 import { User, UserSchema } from '../schemas/user.schema';
-import { DatabaseUserRepository } from './user.repository';
+import { MongooseModule } from '@nestjs/mongoose';
+import { Module } from '@nestjs/common';
 
 /**
  * Module for defining repositories in the MongoDB infrastructure.

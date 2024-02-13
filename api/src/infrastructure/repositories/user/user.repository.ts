@@ -1,10 +1,9 @@
-import { Model } from 'mongoose';
-import { Injectable } from '@nestjs/common';
+import { UserRepository } from '@/domain/repositories/userRepository.interface';
+import { User } from '@/infrastructure/schemas/user.schema';
+import { UserModel } from '@/domain/model/user';
 import { InjectModel } from '@nestjs/mongoose';
-
-import { UserModel } from '../../../domain/model/user';
-import { UserRepository } from '../../../domain/repositories/userRepository.interface';
-import { User } from '../schemas/user.schema';
+import { Injectable } from '@nestjs/common';
+import { Model } from 'mongoose';
 
 /**
  * DatabaseUserRepository class that implements the UserRepository interface.
@@ -16,6 +15,40 @@ export class DatabaseUserRepository implements UserRepository {
     @InjectModel(User.name)
     private userSchemaRepository: Model<User>,
   ) {}
+
+  /**
+   * Retrieves a user from the database based on their email.
+   * @param email - The email of the user to retrieve.
+   * @returns A Promise that resolves to the retrieved user, or null if no user is found.
+   */
+  async getUserByEmail(email: string): Promise<UserModel> {
+    const userEntity = await this.userSchemaRepository.findOne({
+      email: email,
+    });
+    return userEntity ? this.toUser(userEntity) : null;
+  }
+
+  /**
+   * Creates a new user with the given username and password.
+   * @param username - The username of the user.
+   * @param password - The password of the user.
+   * @returns A Promise that resolves to the created UserModel.
+   */
+  async createUser(
+    email: string,
+    username: string,
+    password: string,
+  ): Promise<UserModel> {
+    const userEntity = this.toUserEntity({
+      id: null,
+      email: email,
+      username: username,
+      password: password,
+      refreshToken: null,
+      accessToken: null,
+    });
+    return this.toUser(await this.userSchemaRepository.create(userEntity));
+  }
 
   /**
    * Deletes the refresh token and access token for a given username.
@@ -62,25 +95,6 @@ export class DatabaseUserRepository implements UserRepository {
   }
 
   /**
-   * Creates a new user with the given username and password.
-   * @param username - The username of the user.
-   * @param password - The password of the user.
-   * @returns A Promise that resolves to the created UserModel.
-   */
-  async createUser(username: string, password: string): Promise<UserModel> {
-    const userEntity = this.toUserEntity({
-      id: null,
-
-      username: username,
-      password: password,
-
-      refreshToken: null,
-      accessToken: null,
-    });
-    return this.toUser(await this.userSchemaRepository.create(userEntity));
-  }
-
-  /**
    * Updates the last login date for a user.
    * @param username - The username of the user.
    * @returns A promise that resolves when the update is complete.
@@ -115,6 +129,7 @@ export class DatabaseUserRepository implements UserRepository {
     adminUser.id = userEntity._id.toString();
     adminUser.username = userEntity.username;
     adminUser.password = userEntity.password;
+    adminUser.email = userEntity.email;
 
     adminUser.refreshToken = userEntity.refresh_token;
     adminUser.accessToken = userEntity.access_token;
@@ -132,6 +147,7 @@ export class DatabaseUserRepository implements UserRepository {
     const userEntity: User = new User();
 
     userEntity.username = adminUser.username;
+    userEntity.email = adminUser.email;
     userEntity.password = adminUser.password;
 
     userEntity.refresh_token = adminUser.refreshToken;

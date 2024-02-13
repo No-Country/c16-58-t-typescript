@@ -1,7 +1,7 @@
-import { Module } from '@nestjs/common';
+import { EnvironmentConfigService } from '@/config/environment-config.service';
+import { validate } from '@/config/environment-config.validation';
 import { ConfigModule } from '@nestjs/config';
-import { EnvironmentConfigService } from './environment-config.service';
-import { validate } from './environment-config.validation';
+import { Module } from '@nestjs/common';
 
 /**
  * Module for configuring the environment settings.

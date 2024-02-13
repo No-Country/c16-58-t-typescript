@@ -5,23 +5,23 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
-import { resolve } from 'path';
 import { AppModule } from './app.module';
 import cookieParser from 'cookie-parser';
+import session from 'express-session';
 import flash from 'express-flash';
 import passport from 'passport';
+import { resolve } from 'path';
 import {
   ResponseInterceptor,
   ResponseFormat,
-} from './infrastructure/common/interceptor/response.interceptor';
-import session from 'express-session';
-
+} from '@/infrastructure/common/interceptor/response.interceptor';
 /**
  * Initializes the application and starts the server.
  * @returns A Promise that resolves when the server is successfully started.
  */
 async function bootstrap(): Promise<void> {
   const { PORT, NODE_ENV, SECRET_KEY_SESSION } = process.env; // Retrieve environment variables
+
   const app = await NestFactory.create<NestExpressApplication>(AppModule); // Create the application
 
   app.useGlobalFilters(new AllExceptionFilter(new LoggerService())); // Register the exception filter
@@ -31,7 +31,7 @@ async function bootstrap(): Promise<void> {
     new ResponseInterceptor(), // Register the response interceptor
   );
   app.useStaticAssets(resolve('../../client/build'));
-  app.setGlobalPrefix('api/v1'); // Set the global prefix for all routes
+  app.setGlobalPrefix('api'); // Set the global prefix for all routes
   app.disable('x-powered-by', 'X-Powered-By'); // Disable the X-Powered-By header
 
   if (NODE_ENV !== 'production') {

@@ -3,14 +3,20 @@ import { UserModel } from '../model/user';
 /**
  * Represents a repository for managing user data.
  */
+
 export interface UserRepository {
   /**
-   * Creates a new user with the specified username and password.
+   * Creates a new user with the specified email, username, and password.
+   * @param email - The email of the user.
    * @param username - The username of the user.
    * @param password - The password of the user.
    * @returns A promise that resolves to the created user model.
    */
-  createUser(username: string, password: string): Promise<UserModel>;
+  createUser(
+    email: string,
+    username: string,
+    password: string,
+  ): Promise<UserModel>;
 
   /**
    * Retrieves a user by their username.
@@ -18,6 +24,13 @@ export interface UserRepository {
    * @returns A promise that resolves to the user model.
    */
   getUserByUsername(username: string): Promise<UserModel>;
+
+  /**
+   * Retrieves a user by their email.
+   * @param email - The email of the user.
+   * @returns A promise that resolves to the user model.
+   */
+  getUserByEmail(email: string): Promise<UserModel>;
 
   /**
    * Updates the last login timestamp for a user.

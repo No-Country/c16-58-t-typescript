@@ -1,4 +1,4 @@
-import { UserRepository } from '../../domain/repositories/userRepository.interface';
+import { UserRepository } from '@/domain/repositories/userRepository.interface';
 
 /**
  * Use case class for handling user logout functionality.

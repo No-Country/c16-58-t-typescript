@@ -1,8 +1,8 @@
-import { Module } from '@nestjs/common';
-import { JwtModule as Jwt } from '@nestjs/jwt';
+import { EnvironmentConfigService } from '@/config/environment-config.service';
+import { EnvironmentConfigModule } from '@/config/environment-config.module';
 import { JwtTokenService } from './jwt.service';
-import { EnvironmentConfigModule } from '../../config/environment/environment-config.module';
-import { EnvironmentConfigService } from '../../config/environment/environment-config.service';
+import { JwtModule as Jwt } from '@nestjs/jwt';
+import { Module } from '@nestjs/common';
 
 /**
  * Module for handling JSON Web Tokens (JWT) in the application.

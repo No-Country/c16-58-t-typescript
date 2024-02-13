@@ -1,25 +1,20 @@
+import { EnvironmentConfigService } from '@/infrastructure/config/environment/environment-config.service';
+import { EnvironmentConfigModule } from '@/infrastructure/config/environment/environment-config.module';
+import { DatabaseUserRepository } from '@/infrastructure/repositories/user/user.repository';
+import { RepositoriesModule } from '@/infrastructure/repositories/repositories.module';
+import { ExceptionsModule } from '@/infrastructure/exceptions/exceptions.module';
+import { BcryptService } from '@/infrastructure/services/bcrypt/bcrypt.service';
+import { BcryptModule } from '@/infrastructure/services/bcrypt/bcrypt.module';
+import { JwtTokenService } from '@/infrastructure/services/jwt/jwt.service';
+import { LoggerService } from '@/infrastructure/logger/logger.service';
+import { RegisterUseCases } from '@/usecases/auth/register.usecases';
+import { JwtModule } from '@/infrastructure/services/jwt/jwt.module';
+import { LoggerModule } from '@/infrastructure/logger/logger.module';
+import { LogoutUseCases } from '@/usecases/auth/logout.usecases';
+import { LoginUseCases } from '@/usecases/auth/login.usecases';
 import { DynamicModule, Module } from '@nestjs/common';
-
-import { DatabaseUserRepository } from '../mongo/repositories/user.repository';
-
-import { EnvironmentConfigModule } from '../config/environment/environment-config.module';
-import { EnvironmentConfigService } from '../config/environment/environment-config.service';
-
-import { ExceptionsModule } from '../exceptions/exceptions.module';
-import { LoggerModule } from '../logger/logger.module';
-import { LoggerService } from '../logger/logger.service';
-
-import { BcryptModule } from '../services/bcrypt/bcrypt.module';
-import { BcryptService } from '../services/bcrypt/bcrypt.service';
-import { JwtModule } from '../services/jwt/jwt.module';
-import { JwtTokenService } from '../services/jwt/jwt.service';
-import { RepositoriesModule } from '../mongo/repositories/repositories.module';
-
 import { UseCaseProxy } from './usecases-proxy';
 
-import { LoginUseCases } from '../../usecases/auth/login.usecases';
-import { RegisterUseCases } from '../../usecases/auth/register.usecases';
-import { LogoutUseCases } from '../../usecases/auth/logout.usecases';
 /**
  * @module UsecasesProxyModule
  * @description Module that provides the use case proxies for login, register, and logout operations.

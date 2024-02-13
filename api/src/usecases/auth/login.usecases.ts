@@ -1,13 +1,13 @@
-import { UserRepository } from '../../domain/repositories/userRepository.interface';
-import { IBcryptService } from '../../domain/adapters/bcrypt.interface';
-import { JWTConfig } from '../../domain/config/jwt.interface';
-import { User } from '../../domain/model/user';
+import { UserRepository } from '@/domain/repositories/userRepository.interface';
+import { IBcryptService } from '@/domain/adapters/bcrypt.interface';
+import { JWTConfig } from '@/domain/config/jwt.interface';
+import { ILogger } from '@/domain/logger/logger.interface';
+import { User } from '@/domain/model/user';
 import { randomUUID } from 'crypto';
 import {
   IJwtServicePayload,
   IJwtService,
-} from '../../domain/adapters/jwt.interface';
-import { ILogger } from '../../domain/logger/logger.interface';
+} from '@/domain/adapters/jwt.interface';
 
 /**
  * Use case class for handling login-related operations.

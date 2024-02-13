@@ -1,5 +1,5 @@
 export interface InputProps {
-    placeholder: string;
-    value: string,
-    onChangeFunction: React.ChangeEventHandler<HTMLInputElement>
+  placeholder: string;
+  value: string;
+  onChangeFunction: React.ChangeEventHandler<HTMLInputElement>;
 }
