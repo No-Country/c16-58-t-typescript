@@ -6,11 +6,7 @@ import {
   HttpStatus,
 } from '@nestjs/common';
 import { LoggerService } from '../../logger/logger.service';
-
-interface IError {
-  message: string;
-  code_error: string;
-}
+import { IError } from '../../../domain/filter/filter.interface';
 
 /**
  * Exception filter that handles all exceptions thrown in the application.
@@ -38,12 +34,26 @@ export class AllExceptionFilter implements ExceptionFilter {
         ? (exception.getResponse() as IError)
         : { message: (exception as Error).message, code_error: null };
 
+    const responseData = Object.assign({ statusCode: status }, message);
+
     this.logMessage(request, message, status, exception);
 
-    response.status(status).send({
-      code_error: message.code_error,
-      message: message.message,
-    });
+    const isV1ApiRoute = request.path.startsWith('/api/v1');
+
+    if (!isV1ApiRoute) {
+      request.flash('danger', message.message);
+      if (status === 401 && request.path !== '/login') {
+        request.flash('danger', 'You must login to access this page');
+        response.redirect('/login');
+      } else if (status === 500) {
+        response.redirect('/error');
+      } else {
+        response.status(status).json(responseData);
+        // response.redirect(request.path);
+      }
+    } else {
+      response.status(status).json(responseData);
+    }
   }
 
   /**
