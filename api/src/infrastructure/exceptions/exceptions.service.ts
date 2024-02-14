@@ -37,6 +37,7 @@ export class ExceptionsService implements IException {
    * @param data - Optional data to be passed to the ConflictException.
    */
   conflictException(data?: IFormatExceptionMessage): void {
+    this.throwException(ConflictException, data);
     throw new ConflictException(data);
   }
 
@@ -46,6 +47,7 @@ export class ExceptionsService implements IException {
    */
   badRequestException(data: IFormatExceptionMessage): void {
     this.throwException(BadRequestException, data);
+    throw new BadRequestException(data);
   }
 
   /**
@@ -54,6 +56,7 @@ export class ExceptionsService implements IException {
    */
   internalServerErrorException(data?: IFormatExceptionMessage): void {
     this.throwException(InternalServerErrorException, data);
+    throw new InternalServerErrorException(data);
   }
 
   /**
@@ -62,6 +65,7 @@ export class ExceptionsService implements IException {
    */
   forbiddenException(data?: IFormatExceptionMessage): void {
     this.throwException(ForbiddenException, data);
+    throw new ForbiddenException(data);
   }
 
   /**
@@ -70,5 +74,6 @@ export class ExceptionsService implements IException {
    */
   unauthorizedException(data?: IFormatExceptionMessage): void {
     this.throwException(UnauthorizedException, data);
+    throw new UnauthorizedException(data);
   }
 }

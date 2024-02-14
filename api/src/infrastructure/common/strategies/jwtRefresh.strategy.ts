@@ -1,20 +1,30 @@
-import { UsecasesProxyModule } from '@/infrastructure/usecases-proxy/usecases-proxy.module';
-import { EnvironmentConfigService } from '@/infrastructure/config/environment/environment-config.service';
-import { ExceptionsService } from '@/infrastructure/exceptions/exceptions.service';
-import { UseCaseProxy } from '@/infrastructure/usecases-proxy/usecases-proxy';
-import { LoggerService } from '@/infrastructure/logger/logger.service';
-import { LoginUseCases } from '@/usecases/auth/login.usecases';
-import { Inject, Injectable } from '@nestjs/common';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { PassportStrategy } from '@nestjs/passport';
-import { TokenPayload } from '@/domain/model/auth';
+import { Inject, Injectable } from '@nestjs/common';
 import { Request } from 'express';
+import { EnvironmentConfigService } from '@/infrastructure/config/environment/environment-config.service';
+import { UsecasesProxyModule } from '@/infrastructure/usecases-proxy/usecases-proxy.module';
+import { UseCaseProxy } from '@/infrastructure/usecases-proxy/usecases-proxy';
+import { LoginUseCases } from '@/usecases/auth/login.usecases';
+import { LoggerService } from '@/infrastructure/logger/logger.service';
+import { ExceptionsService } from '@/infrastructure/exceptions/exceptions.service';
+import { TokenPayload } from '@/domain/model/auth';
 
 @Injectable()
+/**
+ * Represents a strategy for refreshing JWT tokens.
+ */
 export class JwtRefreshTokenStrategy extends PassportStrategy(
   Strategy,
   'jwt-refresh-token',
 ) {
+  /**
+   * Constructs a new instance of the JwtRefreshStrategy class.
+   * @param configService - The environment configuration service.
+   * @param loginUsecaseProxy - The login use case proxy.
+   * @param logger - The logger service.
+   * @param exceptionService - The exceptions service.
+   */
   constructor(
     private readonly configService: EnvironmentConfigService,
     @Inject(UsecasesProxyModule.LOGIN_USECASES_PROXY)
@@ -25,7 +35,7 @@ export class JwtRefreshTokenStrategy extends PassportStrategy(
     super({
       jwtFromRequest: ExtractJwt.fromExtractors([
         (request: Request) => {
-          return request?.headers?.authorization?.split(' ')[1];
+          return request?.cookies?.Refresh;
         },
       ]),
       secretOrKey: configService.getJwtRefreshSecret(),
@@ -35,26 +45,20 @@ export class JwtRefreshTokenStrategy extends PassportStrategy(
 
   /**
    * Validates the request and payload for JWT refresh strategy.
-   * @param _request - The request object.
+   * @param request - The request object.
    * @param payload - The token payload.
-   * @returns The validated user.
+   * @returns The user object if validation is successful.
    */
-  async validate({ payload }: { payload: TokenPayload }) {
-    const user = await this.loginUsecaseProxy
+  async validate(request: Request, payload: TokenPayload) {
+    const refreshToken = request.cookies?.Refresh;
+    const user = this.loginUsecaseProxy
       .getInstance()
-      .validateUserForJWTStrategy({
-        username: payload.username,
-      });
+      .getUserIfRefreshTokenMatches(refreshToken, payload.username);
     if (!user) {
-      this.logger.warn('JwtRefreshTokenStrategy', `User not found`);
+      this.logger.warn('JwtStrategy', `User not found or hash not correct`);
       this.exceptionService.unauthorizedException({
-        message: 'User not found',
+        message: 'User not found or hash not correct',
       });
-    }
-
-    if (user.refreshToken !== payload.id) {
-      this.logger.warn('JwtRefreshTokenStrategy', `Invalid token`);
-      this.exceptionService.unauthorizedException({ message: 'Invalid token' });
     }
     return user;
   }

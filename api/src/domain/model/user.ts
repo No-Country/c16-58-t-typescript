@@ -5,8 +5,10 @@ export class User {
   id: string;
   username: string;
   email: string;
-  refreshToken: string;
-  accessToken: string;
+  createDate: Date;
+  updatedDate: Date;
+  lastLogin: Date;
+  hashRefreshToken: string;
 }
 
 /**

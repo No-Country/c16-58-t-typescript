@@ -98,3 +98,86 @@ curl -X POST \
   -d '{"email":"example@example.com","username":"example_user","password":"Password123","confirmPassword":"Password123"}' \
   http://example.com/api/auth/register
 ```
+
+# Inicio de Sesión de Usuario
+
+Este endpoint permite a los usuarios iniciar sesión en la aplicación.
+
+### Ruta
+
+```
+POST /api/auth/login
+```
+
+### Body Requerido
+
+```json
+{
+  "username": "string",
+  "password": "string"
+}
+```
+
+- `username`: El nombre de usuario del usuario.
+- `password`: La contraseña del usuario.
+
+### Respuesta Exitosa
+
+En caso de un inicio de sesión exitoso, el servidor responderá con un objeto que contiene el token de acceso y el token de actualización:
+
+```json
+{
+  "data": {
+    "accessToken": "string",
+    "refreshToken": "string"
+  },
+  "isArray": false,
+  "path": "/api/auth/login",
+  "duration": "string",
+  "method": "POST"
+}
+```
+
+- `accessToken`: Token de acceso válido para autenticar solicitudes posteriores.
+- `refreshToken`: Token de actualización para obtener un nuevo token de acceso después de su expiración.
+
+### Respuestas Inválidas
+
+El servidor puede responder con diferentes mensajes de error en caso de que ocurran situaciones específicas:
+
+1. Faltan datos:
+
+```json
+{
+  "statusCode": 401,
+  "message": "Unauthorized"
+}
+```
+
+2. Datos de inicio de sesión incorrectos:
+
+```json
+{
+  "statusCode": 401,
+  "message": "Invalid username or password."
+}
+```
+
+3. Error de conexión con la base de datos:
+
+```json
+{
+  "statusCode": 500,
+  "message": "connect ECONNREFUSED ::1:27001, connect ECONNREFUSED 127.0.0.1:27001",
+  "code_error": null
+}
+```
+
+### Ejemplo de Uso
+
+```bash
+curl -X POST \
+  -H "Content-Type: application/json" \
+  -d '{"username":"example_user","password":"Password123"}' \
+  http://example.com/api/auth/login
+```

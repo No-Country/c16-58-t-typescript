@@ -3,6 +3,11 @@ import { IBcryptService } from '@/domain/adapters/bcrypt.interface';
 import { User } from '@/domain/model/user';
 
 export class RegisterUseCases {
+  /**
+   * Constructs a new instance of the RegisterUseCases class.
+   * @param userRepository - The user repository.
+   * @param bcryptService - The bcrypt service.
+   */
   constructor(
     private readonly userRepository: UserRepository,
     private readonly bcryptService: IBcryptService,

@@ -2,7 +2,6 @@
  * Represents the payload of a JWT service.
  */
 export interface IJwtServicePayload {
-  [key: string]: string;
   username?: string;
   id?: string;
 }

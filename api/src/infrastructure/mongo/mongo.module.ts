@@ -9,7 +9,7 @@ export function getMongooseModuleOptions(
   return {
     uri: config.getMongoDbUri(),
     auth: {
-      password: config.getMongoDbPass(),
+      password: config.getMongoDbPassword(),
       username: config.getMongoDbUsername(),
     },
   };

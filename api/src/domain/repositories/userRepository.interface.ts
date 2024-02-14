@@ -4,6 +4,9 @@ import { UserModel } from '../model/user';
  * Represents a repository for managing user data.
  */
 
+/**
+ * Represents a repository for managing user data.
+ */
 export interface UserRepository {
   /**
    * Creates a new user with the specified email, username, and password.
@@ -26,13 +29,6 @@ export interface UserRepository {
   getUserByUsername(username: string): Promise<UserModel>;
 
   /**
-   * Retrieves a user by their email.
-   * @param email - The email of the user.
-   * @returns A promise that resolves to the user model.
-   */
-  getUserByEmail(email: string): Promise<UserModel>;
-
-  /**
    * Updates the last login timestamp for a user.
    * @param username - The username of the user.
    * @returns A promise that resolves when the update is complete.
@@ -48,17 +44,9 @@ export interface UserRepository {
   updateRefreshToken(username: string, refreshToken: string): Promise<void>;
 
   /**
-   * Updates the access token for a user.
-   * @param username - The username of the user.
-   * @param accessToken - The new access token.
-   * @returns A promise that resolves when the update is complete.
+   * Retrieves a user by their email.
+   * @param email - The email of the user.
+   * @returns A promise that resolves to the user model.
    */
-  updateAccessToken(username: string, accessToken: string): Promise<void>;
-
-  /**
-   * Deletes the refresh token and access token for a user.
-   * @param username - The username of the user.
-   * @returns A promise that resolves when the deletion is complete.
-   */
-  deleteRefreshAndAccessToken(username: string): Promise<void>;
+  getUserByEmail(email: string): Promise<UserModel>;
 }

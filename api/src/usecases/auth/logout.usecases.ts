@@ -1,21 +1,20 @@
-import { UserRepository } from '@/domain/repositories/userRepository.interface';
-
 /**
- * Use case class for handling user logout functionality.
+ * Represents the use case for logging out a user.
  */
 export class LogoutUseCases {
-  constructor(private readonly userRepository: UserRepository) {}
+  /**
+   * Creates a new instance of the LogoutUseCase class.
+   */
+  constructor() {}
 
   /**
-   * Deletes the refresh and access tokens for a given user.
-   * @param username - The username of the user.
-   * @returns A Promise that resolves when the tokens are deleted.
+   * Executes the logout use case.
+   * @returns A promise that resolves to an array of strings representing the cookies to be cleared.
    */
-  async deleteRefreshAndAccessToken({
-    username,
-  }: {
-    username: string;
-  }): Promise<void> {
-    await this.userRepository.deleteRefreshAndAccessToken(username);
+  async execute(): Promise<string[]> {
+    return [
+      'Authentication=; HttpOnly; Path=/; Max-Age=0',
+      'Refresh=; HttpOnly; Path=/; Max-Age=0',
+    ];
   }
 }

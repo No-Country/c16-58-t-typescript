@@ -30,16 +30,28 @@ export class User
   password: string;
 
   /**
-   * The refresh token of the user.
+   * The refresh token hash of the user.
    */
-  @Prop()
-  refresh_token: string;
+  @Prop({ required: false })
+  hashRefreshToken: string;
 
   /**
-   * The access token of the user.
+   * The date the user was created.
    */
-  @Prop()
-  access_token: string;
+  @Prop({ required: true })
+  createDate: Date;
+
+  /**
+   * The date the user last logged in.
+   */
+  @Prop({ required: false })
+  lastLogin: Date;
+
+  /**
+   * The date the user was last updated.
+   */
+  @Prop({ required: true })
+  updatedDate: Date;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

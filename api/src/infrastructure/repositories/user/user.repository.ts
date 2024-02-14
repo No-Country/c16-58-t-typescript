@@ -1,9 +1,11 @@
 import { UserRepository } from '@/domain/repositories/userRepository.interface';
-import { User } from '@/infrastructure/schemas/user.schema';
+import { InjectConnection } from '@nestjs/mongoose';
 import { UserModel } from '@/domain/model/user';
 import { InjectModel } from '@nestjs/mongoose';
 import { Injectable } from '@nestjs/common';
+import { Connection } from 'mongoose';
 import { Model } from 'mongoose';
+import { User } from '@/infrastructure/schemas/user.schema';
 
 /**
  * DatabaseUserRepository class that implements the UserRepository interface.
@@ -12,21 +14,10 @@ import { Model } from 'mongoose';
 @Injectable()
 export class DatabaseUserRepository implements UserRepository {
   constructor(
+    @InjectConnection() private connection: Connection,
     @InjectModel(User.name)
     private userSchemaRepository: Model<User>,
   ) {}
-
-  /**
-   * Retrieves a user from the database based on their email.
-   * @param email - The email of the user to retrieve.
-   * @returns A Promise that resolves to the retrieved user, or null if no user is found.
-   */
-  async getUserByEmail(email: string): Promise<UserModel> {
-    const userEntity = await this.userSchemaRepository.findOne({
-      email: email,
-    });
-    return userEntity ? this.toUser(userEntity) : null;
-  }
 
   /**
    * Creates a new user with the given username and password.
@@ -34,7 +25,6 @@ export class DatabaseUserRepository implements UserRepository {
    * @param password - The password of the user.
    * @returns A Promise that resolves to the created UserModel.
    */
-
   async createUser(
     email: string,
     username: string,
@@ -45,95 +35,85 @@ export class DatabaseUserRepository implements UserRepository {
       email: email,
       username: username,
       password: password,
-      refreshToken: null,
-      accessToken: null,
+      hashRefreshToken: null,
+      createDate: new Date(),
+      lastLogin: null,
+      updatedDate: new Date(),
     });
     return this.toUser(await this.userSchemaRepository.create(userEntity));
   }
 
   /**
-   * Deletes the refresh token and access token for a given username.
-   * @param username - The username of the user.
-   * @returns A Promise that resolves when the operation is complete.
-   */
-  async deleteRefreshAndAccessToken(username: string): Promise<void> {
-    await this.userSchemaRepository.updateOne(
-      { username: username },
-      { $unset: { refresh_token: 1, access_token: 1 } },
-    );
-  }
-
-  /**
-   * Updates the access token for a user.
-   * @param username - The username of the user.
-   * @param accessToken - The new access token.
-   * @returns A Promise that resolves when the access token is updated.
-   */
-  async updateAccessToken(
-    username: string,
-    accessToken: string,
-  ): Promise<void> {
-    await this.userSchemaRepository.updateOne(
-      { username: username },
-      { access_token: accessToken },
-    );
-  }
-
-  /**
    * Updates the refresh token for a user.
+   *
    * @param username - The username of the user.
    * @param refreshToken - The new refresh token.
-   * @returns A Promise that resolves when the refresh token is updated.
+   * @returns A promise that resolves when the refresh token is updated.
    */
   async updateRefreshToken(
     username: string,
     refreshToken: string,
   ): Promise<void> {
     await this.userSchemaRepository.updateOne(
-      { username: username },
-      { refresh_token: refreshToken },
+      { username },
+      { hashRefreshToken: refreshToken },
     );
   }
 
   /**
    * Updates the last login date for a user.
    * @param username - The username of the user.
-   * @returns A promise that resolves when the update is complete.
+   * @returns A promise that resolves to void.
    */
   async updateLastLogin(username: string): Promise<void> {
-    await this.userSchemaRepository.updateOne(
-      { username: username },
-      { updatedDate: new Date() },
-    );
+    await this.userSchemaRepository
+      .updateOne({ username }, { lastLogin: new Date() })
+      .exec();
   }
 
   /**
    * Retrieves a user by their username.
    * @param username - The username of the user to retrieve.
-   * @returns A Promise that resolves to the retrieved UserModel, or null if no user is found.
+   * @returns A Promise that resolves to a UserModel representing the user.
    */
   async getUserByUsername(username: string): Promise<UserModel> {
-    const userEntity = await this.userSchemaRepository.findOne({
-      username: username,
-    });
-    return userEntity ? this.toUser(userEntity) : null;
+    return this.toUser(
+      await this.userSchemaRepository.findOne({
+        username,
+      }),
+    );
+  }
+
+  /**
+   * Retrieves a user by their email address.
+   * @param email - The email address of the user.
+   * @returns A Promise that resolves to a UserModel object representing the user.
+   */
+  async getUserByEmail(email: string): Promise<UserModel> {
+    return this.toUser(
+      await this.userSchemaRepository.findOne({
+        email,
+      }),
+    );
   }
 
   /**
    * Converts a User entity to a UserModel.
-   * @param userEntity The User entity to convert.
+   *
+   * @param userEntity - The User entity to convert.
    * @returns The converted UserModel.
    */
   private toUser(userEntity: User): UserModel {
     const adminUser: UserModel = new UserModel();
 
-    adminUser.id = userEntity._id.toString();
     adminUser.username = userEntity.username;
     adminUser.password = userEntity.password;
     adminUser.email = userEntity.email;
-
-    adminUser.refreshToken = userEntity.refresh_token;
-    adminUser.accessToken = userEntity.access_token;
+    adminUser.id = userEntity._id.toString();
+    adminUser.createDate = userEntity.createDate;
+    adminUser.lastLogin = userEntity.lastLogin;
+    adminUser.updatedDate = userEntity.updatedDate;
+    adminUser.hashRefreshToken = userEntity.hashRefreshToken;
 
     return adminUser;
   }
@@ -147,12 +127,14 @@ export class DatabaseUserRepository implements UserRepository {
   private toUserEntity(adminUser: UserModel): User {
     const userEntity: User = new User();
 
+    userEntity._id = null;
     userEntity.username = adminUser.username;
-    userEntity.email = adminUser.email;
     userEntity.password = adminUser.password;
-
-    userEntity.refresh_token = adminUser.refreshToken;
-    userEntity.access_token = adminUser.accessToken;
+    userEntity.email = adminUser.email;
+    userEntity.createDate = adminUser.createDate;
+    userEntity.lastLogin = adminUser.lastLogin;
+    userEntity.updatedDate = adminUser.updatedDate;
+    userEntity.hashRefreshToken = adminUser.hashRefreshToken;
 
     return userEntity;
   }

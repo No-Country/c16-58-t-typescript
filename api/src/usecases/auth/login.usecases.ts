@@ -2,17 +2,23 @@ import { UserRepository } from '@/domain/repositories/userRepository.interface';
 import { IBcryptService } from '@/domain/adapters/bcrypt.interface';
 import { JWTConfig } from '@/domain/config/jwt.interface';
 import { ILogger } from '@/domain/logger/logger.interface';
-import { User } from '@/domain/model/user';
-import { randomUUID } from 'crypto';
 import {
   IJwtServicePayload,
   IJwtService,
 } from '@/domain/adapters/jwt.interface';
 
 /**
- * Use case class for handling login-related operations.
+ * Represents the use cases for user login functionality.
  */
 export class LoginUseCases {
+  /**
+   * Constructs a new instance of the LoginUseCases class.
+   * @param logger - The logger instance.
+   * @param jwtTokenService - The JWT token service.
+   * @param jwtConfig - The JWT configuration.
+   * @param userRepository - The user repository.
+   * @param bcryptService - The bcrypt service.
+   */
   constructor(
     private readonly logger: ILogger,
     private readonly jwtTokenService: IJwtService,
@@ -22,126 +28,120 @@ export class LoginUseCases {
   ) {}
 
   /**
+   * Generates a cookie with a JWT token for the specified username.
+   * @param username - The username for which the JWT token is generated.
+   * @returns A string representing the generated cookie with the JWT token.
+   */
+  async getCookieWithJwtToken(username: string) {
+    this.logger.log(
+      'LoginUseCases execute',
+      `The user ${username} have been logged.`,
+    );
+    const payload: IJwtServicePayload = { username: username };
+    const secret = this.jwtConfig.getJwtSecret();
+    const expiresIn = this.jwtConfig.getJwtExpirationTime() + 's';
+    const token = this.jwtTokenService.createToken(payload, secret, expiresIn);
+    return `Authentication=${token}; HttpOnly; Path=/; Max-Age=${this.jwtConfig.getJwtExpirationTime()}`;
+  }
+
+  /**
+   * Retrieves a cookie with a JWT refresh token for the specified username.
+   * @param username - The username of the user.
+   * @returns The cookie containing the JWT refresh token.
+   */
+  async getCookieWithJwtRefreshToken(username: string) {
+    this.logger.log(
+      'LoginUseCases execute',
+      `The user ${username} have been logged.`,
+    );
+    const payload: IJwtServicePayload = { username: username };
+    const secret = this.jwtConfig.getJwtRefreshSecret();
+    const expiresIn = this.jwtConfig.getJwtRefreshExpirationTime() + 's';
+    const token = this.jwtTokenService.createToken(payload, secret, expiresIn);
+    await this.setCurrentRefreshToken(token, username);
+    const cookie = `Refresh=${token}; HttpOnly; Path=/; Max-Age=${this.jwtConfig.getJwtRefreshExpirationTime()}`;
+    return cookie;
+  }
+
+  /**
    * Validates a user for local strategy authentication.
    *
-   * @param {Object} params - The parameters for validation.
-   * @param {string} params.username - The username of the user.
-   * @param {string} params.pass - The password of the user.
-   * @returns {Promise<Object|null>} - The user object if validation is successful, otherwise null.
+   * @param username - The username of the user.
+   * @param pass - The password of the user.
+   * @returns The user object if validation is successful, otherwise null.
    */
-  async validateUserForLocalStrategy({
-    username,
-    pass,
-  }: {
-    username: string;
-    pass: string;
-  }): Promise<object | null> {
+  async validateUserForLocalStragtegy(username: string, pass: string) {
     const user = await this.userRepository.getUserByUsername(username);
-    if (user) {
-      const match = await this.bcryptService.compare(pass, user.password);
-      if (user && match) {
-        await this.updateLoginTime({ username: user.username });
-        delete user.password;
-        return user;
-      }
+    if (!user) {
+      return null;
+    }
+    const match = await this.bcryptService.compare(pass, user.password);
+    if (user && match) {
+      await this.updateLoginTime(user.username);
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { password, ...result } = user;
+      return result;
     }
     return null;
   }
 
   /**
-   * Updates the login time for a user.
-   * @param {Object} params - The parameters for updating the login time.
-   * @param {string} params.username - The username of the user.
-   * @returns {Promise<void>} - A promise that resolves when the login time is updated.
+   * Validates a user for JWT strategy.
+   * @param username - The username of the user to validate.
+   * @returns The validated user or null if the user does not exist.
    */
-  async updateLoginTime({ username }: { username: string }): Promise<void> {
+  async validateUserForJWTStragtegy(username: string) {
+    const user = await this.userRepository.getUserByUsername(username);
+    if (!user) {
+      return null;
+    }
+    return user;
+  }
+
+  /**
+   * Updates the last login time for a user.
+   * @param username - The username of the user.
+   * @returns A promise that resolves when the last login time is updated.
+   */
+  async updateLoginTime(username: string) {
     await this.userRepository.updateLastLogin(username);
   }
 
   /**
-   * Generates an access token for the given username.
-   * @param {string} username - The username for which to generate the access token.
-   * @returns {Promise<string>} - A promise that resolves to the generated access token.
-   */
-  async generateAccessToken({
-    username,
-  }: {
-    username: string;
-  }): Promise<string> {
-    const uuid = randomUUID();
-    const payload: IJwtServicePayload = { id: uuid, username: username };
-    const secret = this.jwtConfig.getJwtSecret();
-    const expiresIn = this.jwtConfig.getJwtExpirationTime();
-    const token = this.jwtTokenService.createToken(payload, secret, expiresIn);
-    await this.setCurrentAccessToken({ uuid, username });
-    return token;
-  }
-
-  /**
-   * Generates a refresh token for the given username.
-   * @param {Object} params - The parameters for generating the refresh token.
-   * @param {string} params.username - The username for which the refresh token is generated.
-   * @returns {Promise<string>} - A promise that resolves to the generated refresh token.
-   */
-  async generateRefreshToken({
-    username,
-  }: {
-    username: string;
-  }): Promise<string> {
-    const uuid = randomUUID();
-    const payload: IJwtServicePayload = { id: uuid, username: username };
-    const secret = this.jwtConfig.getJwtRefreshSecret();
-    const expiresIn = this.jwtConfig.getJwtRefreshExpirationTime();
-    const token = this.jwtTokenService.createToken(payload, secret, expiresIn);
-    await this.setCurrentRefreshToken({ uuid, username });
-    return token;
-  }
-
-  /**
-   * Validates a user for JWT strategy.
-   * @param {Object} params - The parameters for validation.
-   * @param {string} params.username - The username of the user to validate.
-   * @returns {Promise<User>} - The user object if validation is successful.
-   */
-  async validateUserForJWTStrategy({
-    username,
-  }: {
-    username: string;
-  }): Promise<User> {
-    return await this.userRepository.getUserByUsername(username);
-  }
-
-  /**
    * Sets the current refresh token for a user.
-   *
-   * @param {Object} params - The parameters for setting the refresh token.
-   * @param {string} params.uuid - The UUID of the user.
-   * @param {string} params.username - The username of the user.
-   * @returns {Promise<void>} - A promise that resolves when the refresh token is set.
+   * @param refreshToken - The new refresh token.
+   * @param username - The username of the user.
+   * @returns Promise<void>
    */
-  private async setCurrentRefreshToken({
-    uuid,
-    username,
-  }: {
-    uuid: string;
-    username: string;
-  }): Promise<void> {
-    await this.userRepository.updateRefreshToken(username, uuid);
+  async setCurrentRefreshToken(refreshToken: string, username: string) {
+    const currentHashedRefreshToken =
+      await this.bcryptService.hash(refreshToken);
+    await this.userRepository.updateRefreshToken(
+      username,
+      currentHashedRefreshToken,
+    );
   }
+
   /**
-   * Sets the current access token for a user.
-   * @param {Object} params - The parameters for setting the access token.
-   * @param {string} params.uuid - The UUID of the user.
-   * @param {string} params.username - The username of the user.
-   * @returns {Promise<void>} - A promise that resolves when the access token is set.
+   * Retrieves a user if the refresh token matches the stored hashed refresh token.
+   * @param refreshToken - The refresh token to compare.
+   * @param username - The username of the user.
+   * @returns The user object if the refresh token matches, otherwise null.
    */
-  private async setCurrentAccessToken({
-    uuid,
-    username,
-  }: {
-    uuid: string;
-    username: string;
-  }): Promise<void> {
-    await this.userRepository.updateAccessToken(username, uuid);
+  async getUserIfRefreshTokenMatches(refreshToken: string, username: string) {
+    const user = await this.userRepository.getUserByUsername(username);
+    if (!user) {
+      return null;
+    }
+
+    const isRefreshTokenMatching = await this.bcryptService.compare(
+      refreshToken,
+      user.hashRefreshToken,
+    );
+    if (isRefreshTokenMatching) {
+      return user;
+    }
+
+    return null;
   }
 }

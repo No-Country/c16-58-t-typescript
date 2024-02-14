@@ -23,7 +23,7 @@ export class EnvironmentConfigService implements MongoDbConfig, JWTConfig {
    *
    * @returns The MongoDB password as a string.
    */
-  getMongoDbPass(): string {
+  getMongoDbPassword(): string {
     return this.configService.get<string>('MONGODB_PASSWORD');
   }
 

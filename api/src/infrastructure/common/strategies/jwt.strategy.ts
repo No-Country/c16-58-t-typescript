@@ -6,11 +6,19 @@ import { LoginUseCases } from '@/usecases/auth/login.usecases';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { PassportStrategy } from '@nestjs/passport';
 import { Inject, Injectable } from '@nestjs/common';
-import { TokenPayload } from '@/domain/model/auth';
 import { Request } from 'express';
 
 @Injectable()
-export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
+/**
+ * Represents a strategy for validating JWT tokens.
+ */
+export class JwtStrategy extends PassportStrategy(Strategy) {
+  /**
+   * Constructs a new instance of the JwtStrategy class.
+   * @param loginUsecaseProxy - The login use case proxy.
+   * @param logger - The logger service.
+   * @param exceptionService - The exceptions service.
+   */
   constructor(
     @Inject(UsecasesProxyModule.LOGIN_USECASES_PROXY)
     private readonly loginUsecaseProxy: UseCaseProxy<LoginUseCases>,
@@ -19,33 +27,28 @@ export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
   ) {
     super({
       jwtFromRequest: ExtractJwt.fromExtractors([
-        (request: Request) => request?.headers?.authorization?.split(' ')[1],
+        (request: Request) => {
+          return request?.cookies?.Authentication;
+        },
       ]),
       secretOrKey: process.env.JWT_SECRET,
     });
   }
 
   /**
-   * Validates the JWT token payload.
-   * @param payload - The token payload.
-   * @returns The validated user.
+   * Validates the payload of a JWT token.
+   * @param payload - The payload of the JWT token.
+   * @returns The user associated with the payload.
    */
-  async validate({ payload }: { payload: TokenPayload }) {
-    const user = await this.loginUsecaseProxy
+  async validate(payload: { username: string }) {
+    const user = this.loginUsecaseProxy
       .getInstance()
-      .validateUserForJWTStrategy({
-        username: payload.username,
-      });
+      .validateUserForJWTStragtegy(payload.username);
     if (!user) {
       this.logger.warn('JwtStrategy', `User not found`);
       this.exceptionService.unauthorizedException({
         message: 'User not found',
       });
-    }
-
-    if (user.accessToken !== payload.id) {
-      this.logger.warn('JwtStrategy', `Invalid token`);
-      this.exceptionService.unauthorizedException({ message: 'Invalid token' });
     }
     return user;
   }

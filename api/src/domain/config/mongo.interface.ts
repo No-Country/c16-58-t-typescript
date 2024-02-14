@@ -7,4 +7,14 @@ export interface MongoDbConfig {
    * @returns The MongoDB URI.
    */
   getMongoDbUri(): string;
+  /**
+   * Retrieves the MongoDB username.
+   * @returns The MongoDB username.
+   */
+  getMongoDbUsername(): string;
+  /**
+   * Retrieves the MongoDB password.
+   * @returns The MongoDB password.
+   */
+  getMongoDbPassword(): string;
 }

@@ -9,9 +9,15 @@ import { UseCaseProxy } from '@/infrastructure/usecases-proxy/usecases-proxy';
 
 @Injectable()
 /**
- * Represents a local authentication strategy for Passport.js.
+ * Represents a local authentication strategy.
  */
 export class LocalStrategy extends PassportStrategy(Strategy) {
+  /**
+   * Constructs a new instance of the LocalStrategy class.
+   * @param loginUsecaseProxy - The login use case proxy.
+   * @param logger - The logger service.
+   * @param exceptionService - The exceptions service.
+   */
   constructor(
     @Inject(UsecasesProxyModule.LOGIN_USECASES_PROXY)
     private readonly loginUsecaseProxy: UseCaseProxy<LoginUseCases>,
@@ -20,6 +26,13 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
   ) {
     super();
   }
+
+  /**
+   * Validates the username and password for local strategy.
+   * @param username - The username to validate.
+   * @param password - The password to validate.
+   * @returns The validated user.
+   */
   async validate(username: string, password: string) {
     if (!username || !password) {
       this.logger.warn(
@@ -30,10 +43,7 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
     }
     const user = await this.loginUsecaseProxy
       .getInstance()
-      .validateUserForLocalStrategy({
-        username,
-        pass: password,
-      });
+      .validateUserForLocalStragtegy(username, password);
     if (!user) {
       this.logger.warn('LocalStrategy', `Invalid username or password`);
       this.exceptionService.unauthorizedException({
