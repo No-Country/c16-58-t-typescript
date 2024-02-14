@@ -93,7 +93,7 @@ export class AuthController {
       username: body.username,
       password: body.password,
     });
-    return `User with email '${user.email} and username ${user.username} has been registered`;
+    return `User with email '${user.email}' and username '${user.username}' has been registered`;
   }
 
   @Post('login')

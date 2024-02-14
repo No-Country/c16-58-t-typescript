@@ -1,14 +1,14 @@
-# Endpoint de Registro de Usuario
+# API Endpoints
 
-Este endpoint permite registrar nuevos usuarios en la aplicación. Los usuarios pueden registrarse proporcionando su dirección de correo electrónico, nombre de usuario, contraseña y confirmación de contraseña.
+# Ruta: `/api/auth/register`
 
-## Ruta
+#### Descripción:
 
-```
-POST /api/auth/register
-```
+Este endpoint se utiliza para registrar un nuevo usuario.
 
-## Body Requerido
+#### Método: `POST`
+
+#### Información necesaria en el cuerpo (Body):
 
 ```json
 {
@@ -19,97 +19,138 @@ POST /api/auth/register
 }
 ```
 
-- `email`: La dirección de correo electrónico del usuario.
-- `username`: El nombre de usuario deseado para el usuario.
-- `password`: La contraseña del usuario.
-- `confirmPassword`: Confirmación de la contraseña ingresada por el usuario.
+#### Respuesta positiva:
 
-## Respuesta Exitosa
-
-En caso de un registro exitoso, el servidor responderá con un mensaje de confirmación junto con algunos metadatos:
+- Código: `201`
+- Tipo de respuesta: JSON
 
 ```json
 {
-  "data": "User with email 'string' and username 'string' has been registered",
+  "data": "User with email 'email' and username 'username' has been registered",
   "isArray": false,
   "path": "/api/auth/register",
-  "duration": "string",
+  "duration": "101ms",
   "method": "POST"
 }
 ```
 
-- `data`: Un mensaje que confirma el registro exitoso del usuario, incluyendo el email y el nombre de usuario registrados.
-- `isArray`: Indica si la respuesta contiene un array de datos (en este caso, es `false`).
-- `path`: La ruta del endpoint utilizado para el registro.
-- `duration`: La duración de la solicitud.
-- `method`: El método HTTP utilizado (en este caso, `POST`).
+#### Respuestas negativas:
 
-## Errores Posibles
+1. Código: `409`
 
-En caso de que ocurra algún error durante el registro, el servidor devolverá un mensaje de error junto con el código de estado correspondiente. Los errores posibles incluyen:
+   - Tipo de respuesta: JSON
 
-- `409 Conflict`: Indica que ya existe un usuario con el mismo email y/o nombre de usuario.
-- `500 Internal Server Error`: Indica un problema interno en el servidor, como una conexión fallida con la base de datos.
+   ```json
+   {
+     "statusCode": 409,
+     "timestamp": "2024-02-14T01:00:10.052Z",
+     "path": "/api/auth/register",
+     "message": "User with email 'testing98@testing.com' and username 'testing98' already exists"
+   }
+   ```
 
-A continuación se muestran ejemplos de mensajes de error:
+2. Código: `400`
 
-1. Error porque tanto el username como el email están en uso:
+   - Tipo de respuesta: JSON
 
-```json
-{
-  "statusCode": 409,
-  "message": "User with email 'string' and username 'string' already exists"
-}
-```
+   ```json
+   {
+     "statusCode": 400,
+     "timestamp": "2024-02-14T01:00:22.222Z",
+     "path": "/api/auth/register",
+     "message": [
+       "email must be an email",
+       "email must be a string",
+       "email should not be empty"
+     ],
+     "error": "Bad Request"
+   }
+   ```
 
-2. Error por el username ya registrado:
+3. Código: `400`
 
-```json
-{
-  "statusCode": 409,
-  "message": "User with username 'string' already exists"
-}
-```
+   - Tipo de respuesta: JSON
 
-3. Error por el email en uso:
+   ```json
+   {
+     "statusCode": 400,
+     "timestamp": "2024-02-14T01:00:37.218Z",
+     "path": "/api/auth/register",
+     "message": ["username must be a string", "username should not be empty"],
+     "error": "Bad Request"
+   }
+   ```
 
-```json
-{
-  "statusCode": 409,
-  "message": "User with email 'string' already exists"
-}
-```
+4. Código: `400`
 
-4. Error de conexión con la base de datos:
+   - Tipo de respuesta: JSON
 
-```json
-{
-  "statusCode": 500,
-  "message": "connect ECONNREFUSED ::1:27001, connect ECONNREFUSED 127.0.0.1:27001",
-  "code_error": null
-}
-```
+   ```json
+   {
+     "statusCode": 400,
+     "timestamp": "2024-02-14T01:00:49.322Z",
+     "path": "/api/auth/register",
+     "message": [
+       "password must be a string",
+       "password should not be empty",
+       "password is not strong enough"
+     ],
+     "error": "Bad Request"
+   }
+   ```
 
-## Ejemplo de Uso
+5. Código: `400`
 
-```bash
-curl -X POST \
-  -H "Content-Type: application/json" \
-  -d '{"email":"example@example.com","username":"example_user","password":"Password123","confirmPassword":"Password123"}' \
-  http://example.com/api/auth/register
-```
+   - Tipo de respuesta: JSON
 
-# Inicio de Sesión de Usuario
+   ```json
+   {
+     "statusCode": 400,
+     "timestamp": "2024-02-14T01:01:52.487Z",
+     "path": "/api/auth/register",
+     "message": [
+       "confirmPassword must be a string",
+       "confirmPassword should not be empty",
+       "confirmPassword is not strong enough"
+     ],
+     "error": "Bad Request"
+   }
+   ```
 
-Este endpoint permite a los usuarios iniciar sesión en la aplicación.
+6. Código: `409`
 
-### Ruta
+   - Tipo de respuesta: JSON
 
-```
-POST /api/auth/login
-```
+   ```json
+   {
+     "statusCode": 409,
+     "timestamp": "2024-02-14T01:06:15.629Z",
+     "path": "/api/auth/register",
+     "message": "Passwords do not match"
+   }
+   ```
 
-### Body Requerido
+7. Código: `500`
+   - Tipo de respuesta: JSON
+   ```json
+   {
+     "statusCode": 500,
+     "timestamp": "2024-02-14T01:03:02.837Z",
+     "path": "/api/auth/register",
+     "message": "connect ECONNREFUSED ::1:27001, connect ECONNREFUSED 127.0.0.1:27001",
+     "code_error": null
+   }
+   ```
+
+# Ruta: `/api/auth/login`
+
+#### Descripción:
+
+Este endpoint se utiliza para que un usuario inicie sesión en el sistema.
+
+#### Método: `POST`
+
+#### Información necesaria en el cuerpo (Body):
 
 ```json
 {
@@ -118,66 +159,184 @@ POST /api/auth/login
 }
 ```
 
-- `username`: El nombre de usuario del usuario.
-- `password`: La contraseña del usuario.
+#### Respuesta positiva:
 
-### Respuesta Exitosa
-
-En caso de un inicio de sesión exitoso, el servidor responderá con un objeto que contiene el token de acceso y el token de actualización:
+- Código: `201`
+- Tipo de respuesta: JSON
 
 ```json
 {
-  "data": {
-    "accessToken": "string",
-    "refreshToken": "string"
-  },
+  "data": "Login successful",
   "isArray": false,
   "path": "/api/auth/login",
-  "duration": "string",
+  "duration": "89ms",
   "method": "POST"
 }
 ```
 
-- `accessToken`: Token de acceso válido para autenticar solicitudes posteriores.
-- `refreshToken`: Token de actualización para obtener un nuevo token de acceso después de su expiración.
+#### Respuestas negativas:
 
-### Respuestas Inválidas
+1. Código: `401`
 
-El servidor puede responder con diferentes mensajes de error en caso de que ocurran situaciones específicas:
+   - Tipo de respuesta: JSON
 
-1. Faltan datos:
+   ```json
+   {
+     "statusCode": 401,
+     "timestamp": "2024-02-14T01:08:55.447Z",
+     "path": "/api/auth/login",
+     "message": "Invalid username or password."
+   }
+   ```
+
+2. Código: `401`
+
+   - Tipo de respuesta: JSON
+
+   ```json
+   {
+     "statusCode": 401,
+     "timestamp": "2024-02-14T01:09:14.874Z",
+     "path": "/api/auth/login",
+     "message": "Unauthorized"
+   }
+   ```
+
+3. Código: `500`
+
+   - Tipo de respuesta: JSON
+
+   ```json
+   {
+     "statusCode": 500,
+     "timestamp": "2024-02-14T01:03:02.837Z",
+     "path": "/api/auth/register",
+     "message": "connect ECONNREFUSED ::1:27001, connect ECONNREFUSED 127.0.0.1:27001",
+     "code_error": null
+   }
+   ```
+
+# Ruta: `/api/auth/is_authenticated`
+
+#### Descripción:
+
+Este endpoint se utiliza para verificar si el usuario actual está autenticado.
+
+#### Método: `GET`
+
+#### Información necesaria:
+
+No hay información requerida en el cuerpo de la solicitud. La autenticación se verifica a través de cookies.
+
+#### Respuesta positiva:
+
+- Código: `200`
+- Tipo de respuesta: JSON
+
+```json
+{
+  "data": {
+    "username": "testingd98"
+  },
+  "isArray": false,
+  "path": "/api/auth/is_authenticated",
+  "duration": "6ms",
+  "method": "GET"
+}
+```
+
+#### Respuesta negativa:
+
+- Código: `401`
+- Tipo de respuesta: JSON
 
 ```json
 {
   "statusCode": 401,
+  "timestamp": "2024-02-14T01:11:54.520Z",
+  "path": "/api/auth/is_authenticated",
   "message": "Unauthorized"
 }
 ```
 
-2. Datos de inicio de sesión incorrectos:
+# Ruta: `/api/auth/refresh`
+
+#### Descripción:
+
+Este endpoint se utiliza para solicitar una actualización de la sesión de autenticación.
+
+#### Método: `GET`
+
+#### Información necesaria:
+
+No se requiere información en el cuerpo de la solicitud.
+
+#### Respuesta positiva:
+
+- Código: `200`
+- Tipo de respuesta: JSON
+
+```json
+{
+  "data": "Refresh successful",
+  "isArray": false,
+  "path": "/api/auth/refresh",
+  "duration": "1ms",
+  "method": "GET"
+}
+```
+
+#### Respuesta negativa:
+
+- Código: `401`
+- Tipo de respuesta: JSON
 
 ```json
 {
   "statusCode": 401,
-  "message": "Invalid username or password."
+  "timestamp": "2024-02-14T01:14:36.073Z",
+  "path": "/api/auth/refresh",
+  "message": "Unauthorized"
 }
 ```
 
-3. Error de conexión con la base de datos:
+# Ruta: `/api/auth/logout`
+
+#### Descripción:
+
+Este endpoint se utiliza para cerrar la sesión del usuario y realizar el logout.
+
+#### Método: `POST`
+
+#### Información necesaria:
+
+No se requiere información en el cuerpo de la solicitud.
+
+#### Respuesta positiva:
+
+- Código: `200`
+- Tipo de respuesta: JSON
 
 ```json
 {
-  "statusCode": 500,
-  "message": "connect ECONNREFUSED ::1:27001, connect ECONNREFUSED 127.0.0.1:27001",
-  "code_error": null
+  "data": "Logout successful",
+  "isArray": false,
+  "path": "/api/auth/logout",
+  "duration": "1ms",
+  "method": "POST"
 }
 ```
 
-### Ejemplo de Uso
+#### Respuesta negativa:
 
-```bash
-curl -X POST \
-  -H "Content-Type: application/json" \
-  -d '{"username":"example_user","password":"Password123"}' \
-  http://example.com/api/auth/login
+- Código: `401`
+- Tipo de respuesta: JSON
+
+```json
+{
+  "statusCode": 401,
+  "timestamp": "2024-02-14T01:14:36.073Z",
+  "path": "/api/auth/logout",
+  "message": "Unauthorized"
+}
 ```

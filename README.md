@@ -45,13 +45,15 @@ Es necesario añadir las claves ENV en el archivo .env.local, con ubicacion en e
 PORT=3001
 
 NODE_ENV=development
-MONGODB_URI=mongodb://localhost:27017/testing
+MONGODB_URI=mongodb://localhost:27001/
+MONGODB_USERNAME=root
+MONGODB_PASSWORD=root
 
 JWT_SECRET=your_secret
-JWT_EXPIRATION_TIME=1m
+JWT_EXPIRATION_TIME=1800
 
 JWT_REFRESH_TOKEN_SECRET=your_refresh_token_secret
-JWT_REFRESH_TOKEN_EXPIRATION_TIME=5m
+JWT_REFRESH_TOKEN_EXPIRATION_TIME=86400
 
 SECRET_KEY_SESSION=your_secret_key_session
 ```
@@ -250,4 +252,4 @@ Para ejecutar estos scripts, asegúrate de tener `pnpm` y las dependencias neces
    - Una vez que los contenedores estén en funcionamiento, accede a Mongo Express desde tu navegador web en la dirección `http://localhost:8081`. Mongo Express es una interfaz de usuario web para administrar bases de datos MongoDB de forma visual. Puedes realizar operaciones como crear, eliminar y modificar bases de datos y colecciones, así como ejecutar consultas. Además, Mongo Express proporciona información detallada sobre el estado del servidor MongoDB y las estadísticas de rendimiento.
 
 8. **Acceso directo a MongoDB:**
-   - Si necesitas interactuar directamente con la base de datos MongoDB, puedes conectarte a ella utilizando una herramienta de línea de comandos como `mongo` o un cliente GUI como Robo 3T. La URL de conexión es `mongodb://localhost:27017`. Utiliza las mismas credenciales de acceso que para Mongo Express (usuario: root, contraseña: root). Esto te permitirá ejecutar consultas, administrar bases de datos y colecciones, y realizar otras operaciones directamente en MongoDB.
+   - Si necesitas interactuar directamente con la base de datos MongoDB, puedes conectarte a ella utilizando una herramienta de línea de comandos como `mongo` o un cliente GUI como Robo 3T. La URL de conexión es `mongodb://localhost:27001`. Utiliza las mismas credenciales de acceso que para Mongo Express (usuario: root, contraseña: root). Esto te permitirá ejecutar consultas, administrar bases de datos y colecciones, y realizar otras operaciones directamente en MongoDB.
