@@ -37,7 +37,7 @@ async function bootstrap(): Promise<void> {
   if (NODE_ENV !== 'production') {
     const config = new DocumentBuilder()
       .addBearerAuth() // Enable Bearer token authentication in Swagger UI
-      .setTitle('Group c16-58-t-typescript') // Set the title of the API
+      .setTitle('Group restaurant-reservation-manager') // Set the title of the API
       .setDescription('Simulation of restaurant management system') // Set the description of the API
       .setVersion('1.0') // Set the version of the API
       .build();
@@ -54,7 +54,7 @@ async function bootstrap(): Promise<void> {
       secret: SECRET_KEY_SESSION,
       resave: false,
       saveUninitialized: false,
-      cookie: { secure: false, maxAge: 60000000 },
+      cookie: { secure: true, maxAge: 60000000 },
     }),
   ); // Enable session management
   app.use(passport.initialize()); // Enable passport authentication

@@ -52,7 +52,7 @@ export class DatabaseUserRepository implements UserRepository {
     refreshToken: string,
   ): Promise<void> {
     await this.userSchemaRepository.updateOne(
-      { username },
+      { username: { $eq: username } },
       { hashRefreshToken: refreshToken },
     );
   }
@@ -64,7 +64,7 @@ export class DatabaseUserRepository implements UserRepository {
    */
   async updateLastLogin(username: string): Promise<void> {
     await this.userSchemaRepository
-      .updateOne({ username }, { lastLogin: new Date() })
+      .updateOne({ username: { $eq: username } }, { lastLogin: new Date() })
       .exec();
   }
 
@@ -75,7 +75,7 @@ export class DatabaseUserRepository implements UserRepository {
    */
   async getUserByEmail(email: string): Promise<UserModel> {
     const userEntity = await this.userSchemaRepository.findOne({
-      email: email,
+      email: { $eq: email },
     });
     return userEntity ? this.toUser(userEntity) : null;
   }
@@ -87,7 +87,7 @@ export class DatabaseUserRepository implements UserRepository {
    */
   async getUserByUsername(username: string): Promise<UserModel> {
     const userEntity = await this.userSchemaRepository.findOne({
-      username: username,
+      username: { $eq: username },
     });
     return userEntity ? this.toUser(userEntity) : null;
   }
