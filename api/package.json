@@ -18,7 +18,12 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "depcheck": "depcheck"
+    "depcheck": "depcheck",
+    "clean:docs": "rimraf temp-docs README.html",
+    "generateTempDocs": "typedoc ./src/**/*.ts --plugin typedoc-plugin-markdown --theme markdown --out temp-docs",
+    "concatTempDocs": "concat-md --toc --decrease-title-levels --dir-name-as-title temp-docs > README.md",
+    "makeHtmlDocs": "showdown makehtml -i README.md -o README.html",
+    "generateDocs": "pnpm run clean:docs && pnpm generateTempDocs && pnpm concatTempDocs && pnpm makeHtmlDocs"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
