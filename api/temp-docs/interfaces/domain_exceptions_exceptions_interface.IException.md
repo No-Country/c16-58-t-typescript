@@ -27,8 +27,8 @@ Throws a Bad Request exception with the specified format message.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name   | Type                                                                                           | Description                           |
+| :----- | :--------------------------------------------------------------------------------------------- | :------------------------------------ |
 | `data` | [`IFormatExceptionMessage`](domain_exceptions_exceptions_interface.IFormatExceptionMessage.md) | The format message for the exception. |
 
 #### Returns
@@ -39,7 +39,7 @@ Throws a Bad Request exception with the specified format message.
 
 [api/src/domain/exceptions/exceptions.interface.ts:11](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/domain/exceptions/exceptions.interface.ts#L11)
 
-___
+---
 
 ### forbiddenException
 
@@ -49,8 +49,8 @@ Throws a Forbidden exception with the specified format message.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name    | Type                                                                                           | Description                           |
+| :------ | :--------------------------------------------------------------------------------------------- | :------------------------------------ |
 | `data?` | [`IFormatExceptionMessage`](domain_exceptions_exceptions_interface.IFormatExceptionMessage.md) | The format message for the exception. |
 
 #### Returns
@@ -61,7 +61,7 @@ Throws a Forbidden exception with the specified format message.
 
 [api/src/domain/exceptions/exceptions.interface.ts:23](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/domain/exceptions/exceptions.interface.ts#L23)
 
-___
+---
 
 ### internalServerErrorException
 
@@ -71,8 +71,8 @@ Throws an Internal Server Error exception with the specified format message.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name    | Type                                                                                           | Description                           |
+| :------ | :--------------------------------------------------------------------------------------------- | :------------------------------------ |
 | `data?` | [`IFormatExceptionMessage`](domain_exceptions_exceptions_interface.IFormatExceptionMessage.md) | The format message for the exception. |
 
 #### Returns
@@ -83,7 +83,7 @@ Throws an Internal Server Error exception with the specified format message.
 
 [api/src/domain/exceptions/exceptions.interface.ts:17](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/domain/exceptions/exceptions.interface.ts#L17)
 
-___
+---
 
 ### unauthorizedException
 
@@ -93,8 +93,8 @@ Throws an Unauthorized exception with the specified format message.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name    | Type                                                                                           | Description                           |
+| :------ | :--------------------------------------------------------------------------------------------- | :------------------------------------ |
 | `data?` | [`IFormatExceptionMessage`](domain_exceptions_exceptions_interface.IFormatExceptionMessage.md) | The format message for the exception. |
 
 #### Returns

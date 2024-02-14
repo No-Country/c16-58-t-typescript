@@ -36,13 +36,13 @@ Constructs a new instance of the AuthController class.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `loginUsecaseProxy` | [`UseCaseProxy`](infrastructure_usecases_proxy_usecases_proxy.UseCaseProxy.md)\<[`LoginUseCases`](usecases_auth_login_usecases.LoginUseCases.md)\> | The proxy for the LoginUseCases. |
-| `registerUseCaseProxy` | [`UseCaseProxy`](infrastructure_usecases_proxy_usecases_proxy.UseCaseProxy.md)\<[`RegisterUseCases`](usecases_auth_register_usecases.RegisterUseCases.md)\> | The proxy for the RegisterUseCases. |
-| `logoutUseCaseProxy` | [`UseCaseProxy`](infrastructure_usecases_proxy_usecases_proxy.UseCaseProxy.md)\<[`LogoutUseCases`](usecases_auth_logout_usecases.LogoutUseCases.md)\> | The proxy for the LogoutUseCases. |
-| `isAuthUsecaseProxy` | [`UseCaseProxy`](infrastructure_usecases_proxy_usecases_proxy.UseCaseProxy.md)\<[`IsAuthenticatedUseCases`](usecases_auth_isAuthenticated_usecases.IsAuthenticatedUseCases.md)\> | The proxy for the IsAuthenticatedUseCases. |
-| `exceptionsService` | [`ExceptionsService`](infrastructure_exceptions_exceptions_service.ExceptionsService.md) | The service for handling exceptions. |
+| Name                   | Type                                                                                                                                                                             | Description                                |
+| :--------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------- |
+| `loginUsecaseProxy`    | [`UseCaseProxy`](infrastructure_usecases_proxy_usecases_proxy.UseCaseProxy.md)\<[`LoginUseCases`](usecases_auth_login_usecases.LoginUseCases.md)\>                               | The proxy for the LoginUseCases.           |
+| `registerUseCaseProxy` | [`UseCaseProxy`](infrastructure_usecases_proxy_usecases_proxy.UseCaseProxy.md)\<[`RegisterUseCases`](usecases_auth_register_usecases.RegisterUseCases.md)\>                      | The proxy for the RegisterUseCases.        |
+| `logoutUseCaseProxy`   | [`UseCaseProxy`](infrastructure_usecases_proxy_usecases_proxy.UseCaseProxy.md)\<[`LogoutUseCases`](usecases_auth_logout_usecases.LogoutUseCases.md)\>                            | The proxy for the LogoutUseCases.          |
+| `isAuthUsecaseProxy`   | [`UseCaseProxy`](infrastructure_usecases_proxy_usecases_proxy.UseCaseProxy.md)\<[`IsAuthenticatedUseCases`](usecases_auth_isAuthenticated_usecases.IsAuthenticatedUseCases.md)\> | The proxy for the IsAuthenticatedUseCases. |
+| `exceptionsService`    | [`ExceptionsService`](infrastructure_exceptions_exceptions_service.ExceptionsService.md)                                                                                         | The service for handling exceptions.       |
 
 #### Returns
 
@@ -64,7 +64,7 @@ The service for handling exceptions.
 
 [api/src/infrastructure/controllers/auth/auth.controller.ts:59](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/controllers/auth/auth.controller.ts#L59)
 
-___
+---
 
 ### isAuthUsecaseProxy
 
@@ -76,7 +76,7 @@ The proxy for the IsAuthenticatedUseCases.
 
 [api/src/infrastructure/controllers/auth/auth.controller.ts:58](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/controllers/auth/auth.controller.ts#L58)
 
-___
+---
 
 ### loginUsecaseProxy
 
@@ -88,7 +88,7 @@ The proxy for the LoginUseCases.
 
 [api/src/infrastructure/controllers/auth/auth.controller.ts:52](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/controllers/auth/auth.controller.ts#L52)
 
-___
+---
 
 ### logoutUseCaseProxy
 
@@ -100,7 +100,7 @@ The proxy for the LogoutUseCases.
 
 [api/src/infrastructure/controllers/auth/auth.controller.ts:56](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/controllers/auth/auth.controller.ts#L56)
 
-___
+---
 
 ### registerUseCaseProxy
 
@@ -120,8 +120,8 @@ The proxy for the RegisterUseCases.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name      | Type  |
+| :-------- | :---- |
 | `request` | `any` |
 
 #### Returns
@@ -132,7 +132,7 @@ The proxy for the RegisterUseCases.
 
 [api/src/infrastructure/controllers/auth/auth.controller.ts:151](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/controllers/auth/auth.controller.ts#L151)
 
-___
+---
 
 ### login
 
@@ -140,10 +140,10 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `auth` | [`AuthLoginDto`](infrastructure_controllers_auth_auth_dto_class.AuthLoginDto.md) |
-| `request` | `any` |
+| Name      | Type                                                                             |
+| :-------- | :------------------------------------------------------------------------------- |
+| `auth`    | [`AuthLoginDto`](infrastructure_controllers_auth_auth_dto_class.AuthLoginDto.md) |
+| `request` | `any`                                                                            |
 
 #### Returns
 
@@ -153,7 +153,7 @@ ___
 
 [api/src/infrastructure/controllers/auth/auth.controller.ts:110](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/controllers/auth/auth.controller.ts#L110)
 
-___
+---
 
 ### logout
 
@@ -161,8 +161,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name      | Type  |
+| :-------- | :---- |
 | `request` | `any` |
 
 #### Returns
@@ -173,7 +173,7 @@ ___
 
 [api/src/infrastructure/controllers/auth/auth.controller.ts:135](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/controllers/auth/auth.controller.ts#L135)
 
-___
+---
 
 ### refresh
 
@@ -181,13 +181,13 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `request` | `Object` |
-| `request.res` | `Object` |
+| Name                    | Type                                           |
+| :---------------------- | :--------------------------------------------- |
+| `request`               | `Object`                                       |
+| `request.res`           | `Object`                                       |
 | `request.res.setHeader` | (`arg0`: `string`, `arg1`: `string`) => `void` |
-| `request.user` | `Object` |
-| `request.user.username` | `string` |
+| `request.user`          | `Object`                                       |
+| `request.user.username` | `string`                                       |
 
 #### Returns
 
@@ -197,7 +197,7 @@ ___
 
 [api/src/infrastructure/controllers/auth/auth.controller.ts:168](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/controllers/auth/auth.controller.ts#L168)
 
-___
+---
 
 ### register
 
@@ -205,8 +205,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type                                                                                   |
+| :----- | :------------------------------------------------------------------------------------- |
 | `body` | [`AuthRegisterDto`](infrastructure_controllers_auth_auth_dto_class.AuthRegisterDto.md) |
 
 #### Returns

@@ -27,9 +27,9 @@ Compares a password with a hashed password.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `password` | `string` | The password to be compared. |
+| Name           | Type     | Description                             |
+| :------------- | :------- | :-------------------------------------- |
+| `password`     | `string` | The password to be compared.            |
 | `hashPassword` | `string` | The hashed password to compare against. |
 
 #### Returns
@@ -42,7 +42,7 @@ A promise that resolves to a boolean indicating whether the password matches the
 
 [api/src/domain/adapters/bcrypt.interface.ts:18](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/domain/adapters/bcrypt.interface.ts#L18)
 
-___
+---
 
 ### hash
 
@@ -52,8 +52,8 @@ Hashes a string.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name         | Type     | Description              |
+| :----------- | :------- | :----------------------- |
 | `hashString` | `string` | The string to be hashed. |
 
 #### Returns

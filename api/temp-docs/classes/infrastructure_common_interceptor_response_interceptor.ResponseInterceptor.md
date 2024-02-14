@@ -7,8 +7,8 @@
 ## Type parameters
 
 | Name |
-| :------ |
-| `T` |
+| :--- |
+| `T`  |
 
 ## Implements
 
@@ -33,8 +33,8 @@
 #### Type parameters
 
 | Name |
-| :------ |
-| `T` |
+| :--- |
+| `T`  |
 
 #### Returns
 
@@ -50,10 +50,10 @@ Intercepts the incoming request and transforms the response format.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `context` | `ExecutionContext` | The execution context of the request. |
-| `next` | `CallHandler`\<`any`\> | The next call handler in the chain. |
+| Name      | Type                   | Description                           |
+| :-------- | :--------------------- | :------------------------------------ |
+| `context` | `ExecutionContext`     | The execution context of the request. |
+| `next`    | `CallHandler`\<`any`\> | The next call handler in the chain.   |
 
 #### Returns
 

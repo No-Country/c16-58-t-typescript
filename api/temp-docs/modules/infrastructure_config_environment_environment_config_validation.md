@@ -18,8 +18,8 @@ Validates the environment configuration object.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name     | Type                            | Description                                       |
+| :------- | :------------------------------ | :------------------------------------------------ |
 | `config` | `Record`\<`string`, `unknown`\> | The environment configuration object to validate. |
 
 #### Returns

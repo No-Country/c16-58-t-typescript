@@ -30,10 +30,10 @@ Logs a debug message.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name      | Type     | Description                     |
+| :-------- | :------- | :------------------------------ |
 | `context` | `string` | The context of the log message. |
-| `message` | `string` | The log message. |
+| `message` | `string` | The log message.                |
 
 #### Returns
 
@@ -43,7 +43,7 @@ Logs a debug message.
 
 [api/src/domain/logger/logger.interface.ts:10](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/domain/logger/logger.interface.ts#L10)
 
-___
+---
 
 ### error
 
@@ -53,11 +53,11 @@ Logs an error message.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `context` | `string` | The context of the log message. |
-| `message` | `string` | The log message. |
-| `trace?` | `string` | Optional. The stack trace of the error. |
+| Name      | Type     | Description                             |
+| :-------- | :------- | :-------------------------------------- |
+| `context` | `string` | The context of the log message.         |
+| `message` | `string` | The log message.                        |
+| `trace?`  | `string` | Optional. The stack trace of the error. |
 
 #### Returns
 
@@ -67,7 +67,7 @@ Logs an error message.
 
 [api/src/domain/logger/logger.interface.ts:25](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/domain/logger/logger.interface.ts#L25)
 
-___
+---
 
 ### log
 
@@ -77,10 +77,10 @@ Logs an informational message.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name      | Type     | Description                     |
+| :-------- | :------- | :------------------------------ |
 | `context` | `string` | The context of the log message. |
-| `message` | `string` | The log message. |
+| `message` | `string` | The log message.                |
 
 #### Returns
 
@@ -90,7 +90,7 @@ Logs an informational message.
 
 [api/src/domain/logger/logger.interface.ts:17](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/domain/logger/logger.interface.ts#L17)
 
-___
+---
 
 ### verbose
 
@@ -100,10 +100,10 @@ Logs a verbose message.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name      | Type     | Description                     |
+| :-------- | :------- | :------------------------------ |
 | `context` | `string` | The context of the log message. |
-| `message` | `string` | The log message. |
+| `message` | `string` | The log message.                |
 
 #### Returns
 
@@ -113,7 +113,7 @@ Logs a verbose message.
 
 [api/src/domain/logger/logger.interface.ts:39](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/domain/logger/logger.interface.ts#L39)
 
-___
+---
 
 ### warn
 
@@ -123,10 +123,10 @@ Logs a warning message.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name      | Type     | Description                     |
+| :-------- | :------- | :------------------------------ |
 | `context` | `string` | The context of the log message. |
-| `message` | `string` | The log message. |
+| `message` | `string` | The log message.                |
 
 #### Returns
 

@@ -39,9 +39,9 @@ This class provides methods to interact with the user collection in the MongoDB 
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `userSchemaRepository` | `Model`\<[`User`](infrastructure_schemas_user_schema.User.md), {}, {}, {}, `Document`\<`unknown`, {}, [`User`](infrastructure_schemas_user_schema.User.md)\> & [`User`](infrastructure_schemas_user_schema.User.md) & `Required`\<\{ `_id`: `ObjectId`  }\>, `any`\> |
+| Name                   | Type                                                                                                                                                                                                                                                                |
+| :--------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `userSchemaRepository` | `Model`\<[`User`](infrastructure_schemas_user_schema.User.md), {}, {}, {}, `Document`\<`unknown`, {}, [`User`](infrastructure_schemas_user_schema.User.md)\> & [`User`](infrastructure_schemas_user_schema.User.md) & `Required`\<\{ `_id`: `ObjectId` }\>, `any`\> |
 
 #### Returns
 
@@ -55,7 +55,7 @@ This class provides methods to interact with the user collection in the MongoDB 
 
 ### userSchemaRepository
 
-• `Private` **userSchemaRepository**: `Model`\<[`User`](infrastructure_schemas_user_schema.User.md), {}, {}, {}, `Document`\<`unknown`, {}, [`User`](infrastructure_schemas_user_schema.User.md)\> & [`User`](infrastructure_schemas_user_schema.User.md) & `Required`\<\{ `_id`: `ObjectId`  }\>, `any`\>
+• `Private` **userSchemaRepository**: `Model`\<[`User`](infrastructure_schemas_user_schema.User.md), {}, {}, {}, `Document`\<`unknown`, {}, [`User`](infrastructure_schemas_user_schema.User.md)\> & [`User`](infrastructure_schemas_user_schema.User.md) & `Required`\<\{ `_id`: `ObjectId` }\>, `any`\>
 
 #### Defined in
 
@@ -71,9 +71,9 @@ Creates a new user with the given username and password.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `email` | `string` | - |
+| Name       | Type     | Description               |
+| :--------- | :------- | :------------------------ |
+| `email`    | `string` | -                         |
 | `username` | `string` | The username of the user. |
 | `password` | `string` | The password of the user. |
 
@@ -91,7 +91,7 @@ A Promise that resolves to the created UserModel.
 
 [api/src/infrastructure/repositories/user/user.repository.ts:25](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/repositories/user/user.repository.ts#L25)
 
-___
+---
 
 ### getUserByEmail
 
@@ -101,8 +101,8 @@ Retrieves a user by their email address.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name    | Type     | Description                    |
+| :------ | :------- | :----------------------------- |
 | `email` | `string` | The email address of the user. |
 
 #### Returns
@@ -119,7 +119,7 @@ A Promise that resolves to a UserModel if a user with the specified email is fou
 
 [api/src/infrastructure/repositories/user/user.repository.ts:76](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/repositories/user/user.repository.ts#L76)
 
-___
+---
 
 ### getUserByUsername
 
@@ -129,8 +129,8 @@ Retrieves a user by their username.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name       | Type     | Description                           |
+| :--------- | :------- | :------------------------------------ |
 | `username` | `string` | The username of the user to retrieve. |
 
 #### Returns
@@ -147,7 +147,7 @@ A Promise that resolves to the UserModel if found, or null if not found.
 
 [api/src/infrastructure/repositories/user/user.repository.ts:88](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/repositories/user/user.repository.ts#L88)
 
-___
+---
 
 ### toUser
 
@@ -157,8 +157,8 @@ Converts a User entity to a UserModel.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name         | Type                                                 | Description                 |
+| :----------- | :--------------------------------------------------- | :-------------------------- |
 | `userEntity` | [`User`](infrastructure_schemas_user_schema.User.md) | The User entity to convert. |
 
 #### Returns
@@ -171,7 +171,7 @@ The converted UserModel.
 
 [api/src/infrastructure/repositories/user/user.repository.ts:100](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/repositories/user/user.repository.ts#L100)
 
-___
+---
 
 ### toUserEntity
 
@@ -181,8 +181,8 @@ Converts an admin user model to a user entity.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name        | Type                                          | Description                      |
+| :---------- | :-------------------------------------------- | :------------------------------- |
 | `adminUser` | [`UserModel`](domain_model_user.UserModel.md) | The admin user model to convert. |
 
 #### Returns
@@ -195,7 +195,7 @@ The converted user entity.
 
 [api/src/infrastructure/repositories/user/user.repository.ts:121](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/repositories/user/user.repository.ts#L121)
 
-___
+---
 
 ### updateLastLogin
 
@@ -205,8 +205,8 @@ Updates the last login date for a user.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name       | Type     | Description               |
+| :--------- | :------- | :------------------------ |
 | `username` | `string` | The username of the user. |
 
 #### Returns
@@ -223,7 +223,7 @@ A promise that resolves to void.
 
 [api/src/infrastructure/repositories/user/user.repository.ts:65](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/repositories/user/user.repository.ts#L65)
 
-___
+---
 
 ### updateRefreshToken
 
@@ -233,10 +233,10 @@ Updates the refresh token for a user.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `username` | `string` | The username of the user. |
-| `refreshToken` | `string` | The new refresh token. |
+| Name           | Type     | Description               |
+| :------------- | :------- | :------------------------ |
+| `username`     | `string` | The username of the user. |
+| `refreshToken` | `string` | The new refresh token.    |
 
 #### Returns
 

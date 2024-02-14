@@ -33,8 +33,8 @@ Interface for JWT service.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name         | Type         |
+| :----------- | :----------- |
 | `jwtService` | `JwtService` |
 
 #### Returns
@@ -65,8 +65,8 @@ Checks the validity of a JWT token.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name    | Type     | Description                  |
+| :------ | :------- | :--------------------------- |
 | `token` | `string` | The JWT token to be checked. |
 
 #### Returns
@@ -83,7 +83,7 @@ A Promise that resolves to the decoded token payload.
 
 [api/src/infrastructure/services/jwt/jwt.service.ts:20](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/services/jwt/jwt.service.ts#L20)
 
-___
+---
 
 ### createToken
 
@@ -93,11 +93,11 @@ Creates a JWT token with the given payload, secret, and expiration time.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `payload` | [`IJwtServicePayload`](../interfaces/domain_adapters_jwt_interface.IJwtServicePayload.md) | The data to be included in the token. |
-| `secret` | `string` | The secret key used to sign the token. |
-| `expiresIn` | `string` | The expiration time for the token. |
+| Name        | Type                                                                                      | Description                            |
+| :---------- | :---------------------------------------------------------------------------------------- | :------------------------------------- |
+| `payload`   | [`IJwtServicePayload`](../interfaces/domain_adapters_jwt_interface.IJwtServicePayload.md) | The data to be included in the token.  |
+| `secret`    | `string`                                                                                  | The secret key used to sign the token. |
+| `expiresIn` | `string`                                                                                  | The expiration time for the token.     |
 
 #### Returns
 

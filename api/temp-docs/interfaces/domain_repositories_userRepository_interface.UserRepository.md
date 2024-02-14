@@ -30,9 +30,9 @@ Creates a new user with the specified email, username, and password.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `email` | `string` | The email of the user. |
+| Name       | Type     | Description               |
+| :--------- | :------- | :------------------------ |
+| `email`    | `string` | The email of the user.    |
 | `username` | `string` | The username of the user. |
 | `password` | `string` | The password of the user. |
 
@@ -46,7 +46,7 @@ A promise that resolves to the created user model.
 
 [api/src/domain/repositories/userRepository.interface.ts:18](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/domain/repositories/userRepository.interface.ts#L18)
 
-___
+---
 
 ### getUserByEmail
 
@@ -56,8 +56,8 @@ Retrieves a user by their email.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name    | Type     | Description            |
+| :------ | :------- | :--------------------- |
 | `email` | `string` | The email of the user. |
 
 #### Returns
@@ -70,7 +70,7 @@ A promise that resolves to the user model.
 
 [api/src/domain/repositories/userRepository.interface.ts:51](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/domain/repositories/userRepository.interface.ts#L51)
 
-___
+---
 
 ### getUserByUsername
 
@@ -80,8 +80,8 @@ Retrieves a user by their username.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name       | Type     | Description               |
+| :--------- | :------- | :------------------------ |
 | `username` | `string` | The username of the user. |
 
 #### Returns
@@ -94,7 +94,7 @@ A promise that resolves to the user model.
 
 [api/src/domain/repositories/userRepository.interface.ts:29](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/domain/repositories/userRepository.interface.ts#L29)
 
-___
+---
 
 ### updateLastLogin
 
@@ -104,8 +104,8 @@ Updates the last login timestamp for a user.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name       | Type     | Description               |
+| :--------- | :------- | :------------------------ |
 | `username` | `string` | The username of the user. |
 
 #### Returns
@@ -118,7 +118,7 @@ A promise that resolves when the update is complete.
 
 [api/src/domain/repositories/userRepository.interface.ts:36](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/domain/repositories/userRepository.interface.ts#L36)
 
-___
+---
 
 ### updateRefreshToken
 
@@ -128,10 +128,10 @@ Updates the refresh token for a user.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `username` | `string` | The username of the user. |
-| `refreshToken` | `string` | The new refresh token. |
+| Name           | Type     | Description               |
+| :------------- | :------- | :------------------------ |
+| `username`     | `string` | The username of the user. |
+| `refreshToken` | `string` | The new refresh token.    |
 
 #### Returns
 

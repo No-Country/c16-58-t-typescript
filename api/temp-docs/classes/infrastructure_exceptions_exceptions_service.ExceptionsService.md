@@ -43,8 +43,8 @@ Throws a BadRequestException with the provided format exception message.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name   | Type                                                                                                         | Description                   |
+| :----- | :----------------------------------------------------------------------------------------------------------- | :---------------------------- |
 | `data` | [`IFormatExceptionMessage`](../interfaces/domain_exceptions_exceptions_interface.IFormatExceptionMessage.md) | The format exception message. |
 
 #### Returns
@@ -59,7 +59,7 @@ Throws a BadRequestException with the provided format exception message.
 
 [api/src/infrastructure/exceptions/exceptions.service.ts:48](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/exceptions/exceptions.service.ts#L48)
 
-___
+---
 
 ### conflictException
 
@@ -69,8 +69,8 @@ Throws a ConflictException with optional data.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name    | Type                                                                                                         | Description                                          |
+| :------ | :----------------------------------------------------------------------------------------------------------- | :--------------------------------------------------- |
 | `data?` | [`IFormatExceptionMessage`](../interfaces/domain_exceptions_exceptions_interface.IFormatExceptionMessage.md) | Optional data to be passed to the ConflictException. |
 
 #### Returns
@@ -81,7 +81,7 @@ Throws a ConflictException with optional data.
 
 [api/src/infrastructure/exceptions/exceptions.service.ts:39](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/exceptions/exceptions.service.ts#L39)
 
-___
+---
 
 ### forbiddenException
 
@@ -91,8 +91,8 @@ Throws a ForbiddenException with the optional format exception message.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name    | Type                                                                                                         | Description                              |
+| :------ | :----------------------------------------------------------------------------------------------------------- | :--------------------------------------- |
 | `data?` | [`IFormatExceptionMessage`](../interfaces/domain_exceptions_exceptions_interface.IFormatExceptionMessage.md) | The format exception message (optional). |
 
 #### Returns
@@ -107,7 +107,7 @@ Throws a ForbiddenException with the optional format exception message.
 
 [api/src/infrastructure/exceptions/exceptions.service.ts:66](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/exceptions/exceptions.service.ts#L66)
 
-___
+---
 
 ### internalServerErrorException
 
@@ -117,8 +117,8 @@ Throws an InternalServerErrorException with the optional format exception messag
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name    | Type                                                                                                         | Description                              |
+| :------ | :----------------------------------------------------------------------------------------------------------- | :--------------------------------------- |
 | `data?` | [`IFormatExceptionMessage`](../interfaces/domain_exceptions_exceptions_interface.IFormatExceptionMessage.md) | The format exception message (optional). |
 
 #### Returns
@@ -133,7 +133,7 @@ Throws an InternalServerErrorException with the optional format exception messag
 
 [api/src/infrastructure/exceptions/exceptions.service.ts:57](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/exceptions/exceptions.service.ts#L57)
 
-___
+---
 
 ### throwException
 
@@ -143,10 +143,10 @@ Throws a BadRequestException with the provided format exception message.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `exception` | `any` |
-| `message?` | [`IFormatExceptionMessage`](../interfaces/domain_exceptions_exceptions_interface.IFormatExceptionMessage.md) |
+| Name        | Type                                                                                                         |
+| :---------- | :----------------------------------------------------------------------------------------------------------- |
+| `exception` | `any`                                                                                                        |
+| `message?`  | [`IFormatExceptionMessage`](../interfaces/domain_exceptions_exceptions_interface.IFormatExceptionMessage.md) |
 
 #### Returns
 
@@ -156,7 +156,7 @@ Throws a BadRequestException with the provided format exception message.
 
 [api/src/infrastructure/exceptions/exceptions.service.ts:24](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/exceptions/exceptions.service.ts#L24)
 
-___
+---
 
 ### unauthorizedException
 
@@ -166,8 +166,8 @@ Throws an UnauthorizedException with the optional format exception message.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name    | Type                                                                                                         | Description                              |
+| :------ | :----------------------------------------------------------------------------------------------------------- | :--------------------------------------- |
 | `data?` | [`IFormatExceptionMessage`](../interfaces/domain_exceptions_exceptions_interface.IFormatExceptionMessage.md) | The format exception message (optional). |
 
 #### Returns

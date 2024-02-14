@@ -23,7 +23,7 @@ Represents the payload of a token.
 
 [api/src/domain/model/auth.ts:6](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/domain/model/auth.ts#L6)
 
-___
+---
 
 ### username
 

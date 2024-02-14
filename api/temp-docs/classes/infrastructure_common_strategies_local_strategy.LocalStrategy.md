@@ -43,11 +43,11 @@ Constructs a new instance of the LocalStrategy class.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name                | Type                                                                                                                                               | Description               |
+| :------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------ |
 | `loginUsecaseProxy` | [`UseCaseProxy`](infrastructure_usecases_proxy_usecases_proxy.UseCaseProxy.md)\<[`LoginUseCases`](usecases_auth_login_usecases.LoginUseCases.md)\> | The login use case proxy. |
-| `logger` | [`LoggerService`](infrastructure_logger_logger_service.LoggerService.md) | The logger service. |
-| `exceptionService` | [`ExceptionsService`](infrastructure_exceptions_exceptions_service.ExceptionsService.md) | The exceptions service. |
+| `logger`            | [`LoggerService`](infrastructure_logger_logger_service.LoggerService.md)                                                                           | The logger service.       |
+| `exceptionService`  | [`ExceptionsService`](infrastructure_exceptions_exceptions_service.ExceptionsService.md)                                                           | The exceptions service.   |
 
 #### Returns
 
@@ -73,7 +73,7 @@ The exceptions service.
 
 [api/src/infrastructure/common/strategies/local.strategy.ts:25](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/common/strategies/local.strategy.ts#L25)
 
-___
+---
 
 ### logger
 
@@ -85,7 +85,7 @@ The logger service.
 
 [api/src/infrastructure/common/strategies/local.strategy.ts:24](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/common/strategies/local.strategy.ts#L24)
 
-___
+---
 
 ### loginUsecaseProxy
 
@@ -97,7 +97,7 @@ The login use case proxy.
 
 [api/src/infrastructure/common/strategies/local.strategy.ts:23](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/common/strategies/local.strategy.ts#L23)
 
-___
+---
 
 ### name
 
@@ -122,10 +122,10 @@ Note: Virtual function - re-implement in the strategy.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `req` | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> | The request to authenticate. |
-| `options?` | `any` | Options passed to the strategy. |
+| Name       | Type                                                                                   | Description                     |
+| :--------- | :------------------------------------------------------------------------------------- | :------------------------------ |
+| `req`      | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> | The request to authenticate.    |
+| `options?` | `any`                                                                                  | Options passed to the strategy. |
 
 #### Returns
 
@@ -139,7 +139,7 @@ PassportStrategy(Strategy).authenticate
 
 node_modules/.pnpm/@types+passport-strategy@0.2.38/node_modules/@types/passport-strategy/index.d.ts:20
 
-___
+---
 
 ### error
 
@@ -153,8 +153,8 @@ user directory is not available.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name  | Type    |
+| :---- | :------ |
 | `err` | `Error` |
 
 #### Returns
@@ -173,7 +173,7 @@ PassportStrategy(Strategy).error
 
 node_modules/.pnpm/@types+passport-strategy@0.2.38/node_modules/@types/passport-strategy/index.d.ts:90
 
-___
+---
 
 ### fail
 
@@ -186,10 +186,10 @@ Strategies should call this function to fail an authentication attempt.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `challenge` | `any` | (Can also be an object with 'message' and 'type' fields). |
-| `status` | `number` |  |
+| Name        | Type     | Description                                               |
+| :---------- | :------- | :-------------------------------------------------------- |
+| `challenge` | `any`    | (Can also be an object with 'message' and 'type' fields). |
+| `status`    | `number` |                                                           |
 
 #### Returns
 
@@ -211,8 +211,8 @@ node_modules/.pnpm/@types+passport-strategy@0.2.38/node_modules/@types/passport-
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name     | Type     |
+| :------- | :------- |
 | `status` | `number` |
 
 #### Returns
@@ -227,7 +227,7 @@ PassportStrategy(Strategy).fail
 
 node_modules/.pnpm/@types+passport-strategy@0.2.38/node_modules/@types/passport-strategy/index.d.ts:55
 
-___
+---
 
 ### pass
 
@@ -236,7 +236,7 @@ ___
 Pass without making a success or fail decision.
 
 Under most circumstances, Strategies should not need to call this
-function.  It exists primarily to allow previous authentication state
+function. It exists primarily to allow previous authentication state
 to be restored, for example from an HTTP session.
 
 #### Returns
@@ -255,7 +255,7 @@ PassportStrategy(Strategy).pass
 
 node_modules/.pnpm/@types+passport-strategy@0.2.38/node_modules/@types/passport-strategy/index.d.ts:78
 
-___
+---
 
 ### redirect
 
@@ -268,9 +268,9 @@ user agent) to a third-party website for authentication.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `url` | `string` |
+| Name      | Type     |
+| :-------- | :------- |
+| `url`     | `string` |
 | `status?` | `number` |
 
 #### Returns
@@ -289,7 +289,7 @@ PassportStrategy(Strategy).redirect
 
 node_modules/.pnpm/@types+passport-strategy@0.2.38/node_modules/@types/passport-strategy/index.d.ts:67
 
-___
+---
 
 ### success
 
@@ -298,17 +298,17 @@ ___
 Authenticate `user`, with optional `info`.
 
 Strategies should call this function to successfully authenticate a
-user.  `user` should be an object supplied by the application after it
-has been given an opportunity to verify credentials.  `info` is an
-optional argument containing additional user information.  This is
+user. `user` should be an object supplied by the application after it
+has been given an opportunity to verify credentials. `info` is an
+optional argument containing additional user information. This is
 useful for third-party authentication strategies to pass profile
 details.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `user` | `any` |
+| Name    | Type  |
+| :------ | :---- |
+| `user`  | `any` |
 | `info?` | `any` |
 
 #### Returns
@@ -327,24 +327,24 @@ PassportStrategy(Strategy).success
 
 node_modules/.pnpm/@types+passport-strategy@0.2.38/node_modules/@types/passport-strategy/index.d.ts:42
 
-___
+---
 
 ### validate
 
-▸ **validate**(`username`, `password`): `Promise`\<\{ `createDate`: `Date` ; `email`: `string` ; `hashRefreshToken`: `string` ; `id`: `string` ; `lastLogin`: `Date` ; `updatedDate`: `Date` ; `username`: `string`  }\>
+▸ **validate**(`username`, `password`): `Promise`\<\{ `createDate`: `Date` ; `email`: `string` ; `hashRefreshToken`: `string` ; `id`: `string` ; `lastLogin`: `Date` ; `updatedDate`: `Date` ; `username`: `string` }\>
 
 Validates the username and password for local strategy.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name       | Type     | Description               |
+| :--------- | :------- | :------------------------ |
 | `username` | `string` | The username to validate. |
 | `password` | `string` | The password to validate. |
 
 #### Returns
 
-`Promise`\<\{ `createDate`: `Date` ; `email`: `string` ; `hashRefreshToken`: `string` ; `id`: `string` ; `lastLogin`: `Date` ; `updatedDate`: `Date` ; `username`: `string`  }\>
+`Promise`\<\{ `createDate`: `Date` ; `email`: `string` ; `hashRefreshToken`: `string` ; `id`: `string` ; `lastLogin`: `Date` ; `updatedDate`: `Date` ; `username`: `string` }\>
 
 The validated user.
 

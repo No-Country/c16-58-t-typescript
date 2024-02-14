@@ -36,7 +36,7 @@ The MongoDB password.
 
 [api/src/domain/config/mongo.interface.ts:19](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/domain/config/mongo.interface.ts#L19)
 
-___
+---
 
 ### getMongoDbUri
 
@@ -54,7 +54,7 @@ The MongoDB URI.
 
 [api/src/domain/config/mongo.interface.ts:9](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/domain/config/mongo.interface.ts#L9)
 
-___
+---
 
 ### getMongoDbUsername
 

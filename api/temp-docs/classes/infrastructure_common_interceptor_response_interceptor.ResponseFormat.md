@@ -8,9 +8,9 @@ Represents the format of a response.
 
 ## Type parameters
 
-| Name | Description |
-| :------ | :------ |
-| `T` | The type of the data in the response. |
+| Name | Description                           |
+| :--- | :------------------------------------ |
+| `T`  | The type of the data in the response. |
 
 ## Table of contents
 
@@ -35,8 +35,8 @@ Represents the format of a response.
 #### Type parameters
 
 | Name |
-| :------ |
-| `T` |
+| :--- |
+| `T`  |
 
 #### Returns
 
@@ -52,7 +52,7 @@ Represents the format of a response.
 
 [api/src/infrastructure/common/interceptor/response.interceptor.ts:25](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/common/interceptor/response.interceptor.ts#L25)
 
-___
+---
 
 ### duration
 
@@ -62,7 +62,7 @@ ___
 
 [api/src/infrastructure/common/interceptor/response.interceptor.ts:21](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/common/interceptor/response.interceptor.ts#L21)
 
-___
+---
 
 ### isArray
 
@@ -72,7 +72,7 @@ ___
 
 [api/src/infrastructure/common/interceptor/response.interceptor.ts:17](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/common/interceptor/response.interceptor.ts#L17)
 
-___
+---
 
 ### method
 
@@ -82,7 +82,7 @@ ___
 
 [api/src/infrastructure/common/interceptor/response.interceptor.ts:23](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/common/interceptor/response.interceptor.ts#L23)
 
-___
+---
 
 ### path
 

@@ -31,10 +31,10 @@ Constructs a new instance of the RegisterUseCases class.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name             | Type                                                                                             | Description          |
+| :--------------- | :----------------------------------------------------------------------------------------------- | :------------------- |
 | `userRepository` | [`UserRepository`](../interfaces/domain_repositories_userRepository_interface.UserRepository.md) | The user repository. |
-| `bcryptService` | [`IBcryptService`](../interfaces/domain_adapters_bcrypt_interface.IBcryptService.md) | The bcrypt service. |
+| `bcryptService`  | [`IBcryptService`](../interfaces/domain_adapters_bcrypt_interface.IBcryptService.md)             | The bcrypt service.  |
 
 #### Returns
 
@@ -56,7 +56,7 @@ The bcrypt service.
 
 [api/src/usecases/auth/register.usecases.ts:13](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/usecases/auth/register.usecases.ts#L13)
 
-___
+---
 
 ### userRepository
 
@@ -78,11 +78,11 @@ Checks if the provided password matches the confirmed password.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `params` | `Object` | The parameters for checking the password. |
+| Name                     | Type     | Description                                              |
+| :----------------------- | :------- | :------------------------------------------------------- |
+| `params`                 | `Object` | The parameters for checking the password.                |
 | `params.confirmPassword` | `string` | The confirmed password to be compared with the password. |
-| `params.password` | `string` | The password to be checked. |
+| `params.password`        | `string` | The password to be checked.                              |
 
 #### Returns
 
@@ -94,7 +94,7 @@ Checks if the provided password matches the confirmed password.
 
 [api/src/usecases/auth/register.usecases.ts:50](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/usecases/auth/register.usecases.ts#L50)
 
-___
+---
 
 ### registerUser
 
@@ -104,12 +104,12 @@ Registers a new user.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `params` | `Object` | The registration parameters. |
-| `params.email` | `string` | The email of the user. |
-| `params.password` | `string` | The password of the user. |
-| `params.username` | `string` | - |
+| Name              | Type     | Description                  |
+| :---------------- | :------- | :--------------------------- |
+| `params`          | `Object` | The registration parameters. |
+| `params.email`    | `string` | The email of the user.       |
+| `params.password` | `string` | The password of the user.    |
+| `params.username` | `string` | -                            |
 
 #### Returns
 
@@ -121,7 +121,7 @@ Registers a new user.
 
 [api/src/usecases/auth/register.usecases.ts:70](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/usecases/auth/register.usecases.ts#L70)
 
-___
+---
 
 ### userShouldNotExist
 
@@ -131,11 +131,11 @@ Checks if a user with the given email and username already exists.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name             | Type     |
+| :--------------- | :------- |
 | `«destructured»` | `Object` |
-| › `email` | `string` |
-| › `username` | `string` |
+| › `email`        | `string` |
+| › `username`     | `string` |
 
 #### Returns
 

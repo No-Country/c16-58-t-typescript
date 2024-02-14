@@ -23,7 +23,7 @@ Represents the payload of a JWT service.
 
 [api/src/domain/adapters/jwt.interface.ts:6](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/domain/adapters/jwt.interface.ts#L6)
 
-___
+---
 
 ### username
 

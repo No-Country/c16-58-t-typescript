@@ -39,7 +39,7 @@ Interface for the Bcrypt service.
 
 ### rounds
 
-• `Private` `Readonly` **rounds**: ``10``
+• `Private` `Readonly` **rounds**: `10`
 
 #### Defined in
 
@@ -55,9 +55,9 @@ Compares a plain text password with a hashed password.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `password` | `string` | The plain text password to compare. |
+| Name           | Type     | Description                             |
+| :------------- | :------- | :-------------------------------------- |
+| `password`     | `string` | The plain text password to compare.     |
 | `hashPassword` | `string` | The hashed password to compare against. |
 
 #### Returns
@@ -74,7 +74,7 @@ A promise that resolves to a boolean indicating whether the passwords match.
 
 [api/src/infrastructure/services/bcrypt/bcrypt.service.ts:27](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/services/bcrypt/bcrypt.service.ts#L27)
 
-___
+---
 
 ### hash
 
@@ -84,8 +84,8 @@ Hashes a string using bcrypt.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name         | Type     | Description              |
+| :----------- | :------- | :----------------------- |
 | `hashString` | `string` | The string to be hashed. |
 
 #### Returns

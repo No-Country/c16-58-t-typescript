@@ -25,8 +25,8 @@ Interface for JWT service.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name    | Type     |
+| :------ | :------- |
 | `token` | `string` |
 
 #### Returns
@@ -37,7 +37,7 @@ Interface for JWT service.
 
 [api/src/domain/adapters/jwt.interface.ts:13](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/domain/adapters/jwt.interface.ts#L13)
 
-___
+---
 
 ### createToken
 
@@ -45,11 +45,11 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `payload` | [`IJwtServicePayload`](domain_adapters_jwt_interface.IJwtServicePayload.md) |
-| `secret` | `string` |
-| `expiresIn` | `string` |
+| Name        | Type                                                                        |
+| :---------- | :-------------------------------------------------------------------------- |
+| `payload`   | [`IJwtServicePayload`](domain_adapters_jwt_interface.IJwtServicePayload.md) |
+| `secret`    | `string`                                                                    |
+| `expiresIn` | `string`                                                                    |
 
 #### Returns
 

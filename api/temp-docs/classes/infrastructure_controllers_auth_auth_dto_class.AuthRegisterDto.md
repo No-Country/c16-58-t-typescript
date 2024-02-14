@@ -39,7 +39,7 @@ Data transfer object for registering a new user.
 
 [api/src/infrastructure/controllers/auth/auth-dto.class.ts:44](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/controllers/auth/auth-dto.class.ts#L44)
 
-___
+---
 
 ### email
 
@@ -49,7 +49,7 @@ ___
 
 [api/src/infrastructure/controllers/auth/auth-dto.class.ts:50](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/controllers/auth/auth-dto.class.ts#L50)
 
-___
+---
 
 ### password
 
@@ -59,7 +59,7 @@ ___
 
 [api/src/infrastructure/controllers/auth/auth-dto.class.ts:38](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/controllers/auth/auth-dto.class.ts#L38)
 
-___
+---
 
 ### username
 

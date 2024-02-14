@@ -18,15 +18,15 @@ Decorator that specifies the response type for an API endpoint.
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name     | Type                    |
+| :------- | :---------------------- |
 | `TModel` | extends `Type`\<`any`\> |
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `model` | `TModel` | The model type for the response data. |
+| Name      | Type      | Description                                      |
+| :-------- | :-------- | :----------------------------------------------- |
+| `model`   | `TModel`  | The model type for the response data.            |
 | `isArray` | `boolean` | Indicates whether the response data is an array. |
 
 #### Returns
@@ -39,18 +39,18 @@ The decorated function.
 
 ##### Type parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name        | Type               |
+| :---------- | :----------------- |
 | `TFunction` | extends `Function` |
-| `Y` | `Y` |
+| `Y`         | `Y`                |
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `target` | `object` \| `TFunction` |
-| `propertyKey?` | `string` \| `symbol` |
-| `descriptor?` | `TypedPropertyDescriptor`\<`Y`\> |
+| Name           | Type                             |
+| :------------- | :------------------------------- |
+| `target`       | `object` \| `TFunction`          |
+| `propertyKey?` | `string` \| `symbol`             |
+| `descriptor?`  | `TypedPropertyDescriptor`\<`Y`\> |
 
 ##### Returns
 

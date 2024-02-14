@@ -39,9 +39,9 @@ Service that provides environment configuration values for MongoDB and JWT.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `configService` | `ConfigService`\<`Record`\<`string`, `unknown`\>, ``false``\> |
+| Name            | Type                                                        |
+| :-------------- | :---------------------------------------------------------- |
+| `configService` | `ConfigService`\<`Record`\<`string`, `unknown`\>, `false`\> |
 
 #### Returns
 
@@ -55,7 +55,7 @@ Service that provides environment configuration values for MongoDB and JWT.
 
 ### configService
 
-• `Private` **configService**: `ConfigService`\<`Record`\<`string`, `unknown`\>, ``false``\>
+• `Private` **configService**: `ConfigService`\<`Record`\<`string`, `unknown`\>, `false`\>
 
 #### Defined in
 
@@ -83,7 +83,7 @@ The JWT expiration time.
 
 [api/src/infrastructure/config/environment/environment-config.service.ts:50](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/config/environment/environment-config.service.ts#L50)
 
-___
+---
 
 ### getJwtRefreshExpirationTime
 
@@ -105,7 +105,7 @@ The JWT refresh token expiration time.
 
 [api/src/infrastructure/config/environment/environment-config.service.ts:66](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/config/environment/environment-config.service.ts#L66)
 
-___
+---
 
 ### getJwtRefreshSecret
 
@@ -127,7 +127,7 @@ The JWT refresh token secret.
 
 [api/src/infrastructure/config/environment/environment-config.service.ts:58](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/config/environment/environment-config.service.ts#L58)
 
-___
+---
 
 ### getJwtSecret
 
@@ -149,7 +149,7 @@ The JWT secret.
 
 [api/src/infrastructure/config/environment/environment-config.service.ts:42](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/config/environment/environment-config.service.ts#L42)
 
-___
+---
 
 ### getMongoDbPassword
 
@@ -171,7 +171,7 @@ The MongoDB password as a string.
 
 [api/src/infrastructure/config/environment/environment-config.service.ts:26](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/config/environment/environment-config.service.ts#L26)
 
-___
+---
 
 ### getMongoDbUri
 
@@ -193,7 +193,7 @@ The MongoDB URI.
 
 [api/src/infrastructure/config/environment/environment-config.service.ts:17](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/config/environment/environment-config.service.ts#L17)
 
-___
+---
 
 ### getMongoDbUsername
 

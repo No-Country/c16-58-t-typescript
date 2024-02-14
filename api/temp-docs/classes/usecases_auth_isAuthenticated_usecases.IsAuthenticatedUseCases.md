@@ -28,8 +28,8 @@ Constructs a new instance of the `isAuthenticated` use case.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name            | Type                                                                                             | Description                     |
+| :-------------- | :----------------------------------------------------------------------------------------------- | :------------------------------ |
 | `adminUserRepo` | [`UserRepository`](../interfaces/domain_repositories_userRepository_interface.UserRepository.md) | The repository for admin users. |
 
 #### Returns
@@ -63,8 +63,8 @@ Retrieves a user by their username.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name       | Type     | Description                           |
+| :--------- | :------- | :------------------------------------ |
 | `username` | `string` | The username of the user to retrieve. |
 
 #### Returns

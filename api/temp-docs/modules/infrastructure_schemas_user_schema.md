@@ -30,7 +30,7 @@
 
 ### UserSchema
 
-• `Const` **UserSchema**: `Schema`\<[`User`](../classes/infrastructure_schemas_user_schema.User.md), `Model`\<[`User`](../classes/infrastructure_schemas_user_schema.User.md), `any`, `any`, `any`, `Document`\<`unknown`, `any`, [`User`](../classes/infrastructure_schemas_user_schema.User.md)\> & [`User`](../classes/infrastructure_schemas_user_schema.User.md) & `Required`\<\{ `_id`: `ObjectId`  }\>, `any`\>, {}, {}, {}, {}, `DefaultSchemaOptions`, [`User`](../classes/infrastructure_schemas_user_schema.User.md), `Document`\<`unknown`, {}, `FlatRecord`\<[`User`](../classes/infrastructure_schemas_user_schema.User.md)\>\> & `FlatRecord`\<[`User`](../classes/infrastructure_schemas_user_schema.User.md)\> & `Required`\<\{ `_id`: `ObjectId`  }\>\>
+• `Const` **UserSchema**: `Schema`\<[`User`](../classes/infrastructure_schemas_user_schema.User.md), `Model`\<[`User`](../classes/infrastructure_schemas_user_schema.User.md), `any`, `any`, `any`, `Document`\<`unknown`, `any`, [`User`](../classes/infrastructure_schemas_user_schema.User.md)\> & [`User`](../classes/infrastructure_schemas_user_schema.User.md) & `Required`\<\{ `_id`: `ObjectId` }\>, `any`\>, {}, {}, {}, {}, `DefaultSchemaOptions`, [`User`](../classes/infrastructure_schemas_user_schema.User.md), `Document`\<`unknown`, {}, `FlatRecord`\<[`User`](../classes/infrastructure_schemas_user_schema.User.md)\>\> & `FlatRecord`\<[`User`](../classes/infrastructure_schemas_user_schema.User.md)\> & `Required`\<\{ `_id`: `ObjectId` }\>\>
 
 #### Defined in
 

@@ -37,7 +37,7 @@ Data transfer object for authenticating a user.
 
 [api/src/infrastructure/controllers/auth/auth-dto.class.ts:22](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/controllers/auth/auth-dto.class.ts#L22)
 
-___
+---
 
 ### username
 

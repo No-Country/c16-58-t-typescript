@@ -10,20 +10,20 @@ Represents an error object.
 
 ### Properties
 
-- [code\_error](domain_filter_filter_interface.IError.md#code_error)
+- [code_error](domain_filter_filter_interface.IError.md#code_error)
 - [message](domain_filter_filter_interface.IError.md#message)
 
 ## Properties
 
-### code\_error
+### code_error
 
-• **code\_error**: `string`
+• **code_error**: `string`
 
 #### Defined in
 
 [api/src/domain/filter/filter.interface.ts:6](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/domain/filter/filter.interface.ts#L6)
 
-___
+---
 
 ### message
 

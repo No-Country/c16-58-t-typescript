@@ -44,8 +44,8 @@
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name      | Type    |
+| :-------- | :------ |
 | `...args` | `any`[] |
 
 #### Returns
@@ -58,7 +58,7 @@ AuthGuard('local').constructor
 
 #### Defined in
 
-node_modules/.pnpm/@nestjs+passport@10.0.3_@nestjs+common@10.3.3_passport@0.7.0/node_modules/@nestjs/passport/dist/interfaces/type.interface.d.ts:2
+node*modules/.pnpm/@nestjs+passport@10.0.3*@nestjs+common@10.3.3_passport@0.7.0/node_modules/@nestjs/passport/dist/interfaces/type.interface.d.ts:2
 
 ## Properties
 
@@ -74,7 +74,7 @@ AuthGuard('local').arguments
 
 node_modules/.pnpm/typescript@5.3.3/node_modules/typescript/lib/lib.es5.d.ts:305
 
-___
+---
 
 ### caller
 
@@ -88,7 +88,7 @@ AuthGuard('local').caller
 
 node_modules/.pnpm/typescript@5.3.3/node_modules/typescript/lib/lib.es5.d.ts:306
 
-___
+---
 
 ### length
 
@@ -102,7 +102,7 @@ AuthGuard('local').length
 
 node_modules/.pnpm/typescript@5.3.3/node_modules/typescript/lib/lib.es5.d.ts:302
 
-___
+---
 
 ### name
 
@@ -126,8 +126,8 @@ node_modules/.pnpm/typescript@5.3.3/node_modules/typescript/lib/lib.es2015.core.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name      | Type               | Description                                                                               |
+| :-------- | :----------------- | :---------------------------------------------------------------------------------------- |
 | `context` | `ExecutionContext` | Current execution context. Provides access to details about the current request pipeline. |
 
 #### Returns
@@ -145,7 +145,7 @@ AuthGuard('local').canActivate
 
 node_modules/.pnpm/@nestjs+common@10.3.3_class-transformer@0.5.1_class-validator@0.14.1_reflect-metadata@0.2.1_rxjs@7.8.1/node_modules/@nestjs/common/interfaces/features/can-activate.interface.d.ts:21
 
-___
+---
 
 ### getAuthenticateOptions
 
@@ -153,8 +153,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name      | Type               |
+| :-------- | :----------------- |
 | `context` | `ExecutionContext` |
 
 #### Returns
@@ -167,9 +167,9 @@ AuthGuard('local').getAuthenticateOptions
 
 #### Defined in
 
-node_modules/.pnpm/@nestjs+passport@10.0.3_@nestjs+common@10.3.3_passport@0.7.0/node_modules/@nestjs/passport/dist/auth.guard.d.ts:9
+node*modules/.pnpm/@nestjs+passport@10.0.3*@nestjs+common@10.3.3_passport@0.7.0/node_modules/@nestjs/passport/dist/auth.guard.d.ts:9
 
-___
+---
 
 ### getRequest
 
@@ -177,8 +177,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name      | Type               |
+| :-------- | :----------------- |
 | `context` | `ExecutionContext` |
 
 #### Returns
@@ -191,9 +191,9 @@ AuthGuard('local').getRequest
 
 #### Defined in
 
-node_modules/.pnpm/@nestjs+passport@10.0.3_@nestjs+common@10.3.3_passport@0.7.0/node_modules/@nestjs/passport/dist/auth.guard.d.ts:10
+node*modules/.pnpm/@nestjs+passport@10.0.3*@nestjs+common@10.3.3_passport@0.7.0/node_modules/@nestjs/passport/dist/auth.guard.d.ts:10
 
-___
+---
 
 ### handleRequest
 
@@ -201,19 +201,19 @@ ___
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name    | Type  |
+| :------ | :---- |
 | `TUser` | `any` |
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `err` | `any` |
-| `user` | `any` |
-| `info` | `any` |
+| Name      | Type               |
+| :-------- | :----------------- |
+| `err`     | `any`              |
+| `user`    | `any`              |
+| `info`    | `any`              |
 | `context` | `ExecutionContext` |
-| `status?` | `any` |
+| `status?` | `any`              |
 
 #### Returns
 
@@ -225,9 +225,9 @@ AuthGuard('local').handleRequest
 
 #### Defined in
 
-node_modules/.pnpm/@nestjs+passport@10.0.3_@nestjs+common@10.3.3_passport@0.7.0/node_modules/@nestjs/passport/dist/auth.guard.d.ts:8
+node*modules/.pnpm/@nestjs+passport@10.0.3*@nestjs+common@10.3.3_passport@0.7.0/node_modules/@nestjs/passport/dist/auth.guard.d.ts:8
 
-___
+---
 
 ### logIn
 
@@ -235,14 +235,14 @@ ___
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name       | Type                     |
+| :--------- | :----------------------- |
 | `TRequest` | extends `Object` = `any` |
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name      | Type       |
+| :-------- | :--------- |
 | `request` | `TRequest` |
 
 #### Returns
@@ -255,9 +255,9 @@ AuthGuard('local').logIn
 
 #### Defined in
 
-node_modules/.pnpm/@nestjs+passport@10.0.3_@nestjs+common@10.3.3_passport@0.7.0/node_modules/@nestjs/passport/dist/auth.guard.d.ts:5
+node*modules/.pnpm/@nestjs+passport@10.0.3*@nestjs+common@10.3.3_passport@0.7.0/node_modules/@nestjs/passport/dist/auth.guard.d.ts:5
 
-___
+---
 
 ### [hasInstance]
 
@@ -271,8 +271,8 @@ A constructor function can control which objects are recognized as its instances
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name    | Type  |
+| :------ | :---- |
 | `value` | `any` |
 
 #### Returns
@@ -287,7 +287,7 @@ AuthGuard('local').[hasInstance]
 
 node_modules/.pnpm/typescript@5.3.3/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts:164
 
-___
+---
 
 ### apply
 
@@ -297,11 +297,11 @@ Calls the function, substituting the specified object for the this value of the 
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `this` | `Function` | - |
-| `thisArg` | `any` | The object to be used as the this object. |
-| `argArray?` | `any` | A set of arguments to be passed to the function. |
+| Name        | Type       | Description                                      |
+| :---------- | :--------- | :----------------------------------------------- |
+| `this`      | `Function` | -                                                |
+| `thisArg`   | `any`      | The object to be used as the this object.        |
+| `argArray?` | `any`      | A set of arguments to be passed to the function. |
 
 #### Returns
 
@@ -315,7 +315,7 @@ AuthGuard('local').apply
 
 node_modules/.pnpm/typescript@5.3.3/node_modules/typescript/lib/lib.es5.d.ts:281
 
-___
+---
 
 ### bind
 
@@ -326,11 +326,11 @@ The this object of the bound function is associated with the specified object, a
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `this` | `Function` | - |
-| `thisArg` | `any` | An object to which the this keyword can refer inside the new function. |
-| `...argArray` | `any`[] | A list of arguments to be passed to the new function. |
+| Name          | Type       | Description                                                            |
+| :------------ | :--------- | :--------------------------------------------------------------------- |
+| `this`        | `Function` | -                                                                      |
+| `thisArg`     | `any`      | An object to which the this keyword can refer inside the new function. |
+| `...argArray` | `any`[]    | A list of arguments to be passed to the new function.                  |
 
 #### Returns
 
@@ -344,7 +344,7 @@ AuthGuard('local').bind
 
 node_modules/.pnpm/typescript@5.3.3/node_modules/typescript/lib/lib.es5.d.ts:296
 
-___
+---
 
 ### call
 
@@ -354,11 +354,11 @@ Calls a method of an object, substituting another object for the current object.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `this` | `Function` | - |
-| `thisArg` | `any` | The object to be used as the current object. |
-| `...argArray` | `any`[] | A list of arguments to be passed to the method. |
+| Name          | Type       | Description                                     |
+| :------------ | :--------- | :---------------------------------------------- |
+| `this`        | `Function` | -                                               |
+| `thisArg`     | `any`      | The object to be used as the current object.    |
+| `...argArray` | `any`[]    | A list of arguments to be passed to the method. |
 
 #### Returns
 
@@ -372,7 +372,7 @@ AuthGuard('local').call
 
 node_modules/.pnpm/typescript@5.3.3/node_modules/typescript/lib/lib.es5.d.ts:288
 
-___
+---
 
 ### toString
 

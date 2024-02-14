@@ -40,13 +40,13 @@ Constructs a new instance of the LoginUseCases class.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `logger` | [`ILogger`](../interfaces/domain_logger_logger_interface.ILogger.md) | The logger instance. |
-| `jwtTokenService` | [`IJwtService`](../interfaces/domain_adapters_jwt_interface.IJwtService.md) | The JWT token service. |
-| `jwtConfig` | [`JWTConfig`](../interfaces/domain_config_jwt_interface.JWTConfig.md) | The JWT configuration. |
-| `userRepository` | [`UserRepository`](../interfaces/domain_repositories_userRepository_interface.UserRepository.md) | The user repository. |
-| `bcryptService` | [`IBcryptService`](../interfaces/domain_adapters_bcrypt_interface.IBcryptService.md) | The bcrypt service. |
+| Name              | Type                                                                                             | Description            |
+| :---------------- | :----------------------------------------------------------------------------------------------- | :--------------------- |
+| `logger`          | [`ILogger`](../interfaces/domain_logger_logger_interface.ILogger.md)                             | The logger instance.   |
+| `jwtTokenService` | [`IJwtService`](../interfaces/domain_adapters_jwt_interface.IJwtService.md)                      | The JWT token service. |
+| `jwtConfig`       | [`JWTConfig`](../interfaces/domain_config_jwt_interface.JWTConfig.md)                            | The JWT configuration. |
+| `userRepository`  | [`UserRepository`](../interfaces/domain_repositories_userRepository_interface.UserRepository.md) | The user repository.   |
+| `bcryptService`   | [`IBcryptService`](../interfaces/domain_adapters_bcrypt_interface.IBcryptService.md)             | The bcrypt service.    |
 
 #### Returns
 
@@ -68,7 +68,7 @@ The bcrypt service.
 
 [api/src/usecases/auth/login.usecases.ts:27](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/usecases/auth/login.usecases.ts#L27)
 
-___
+---
 
 ### jwtConfig
 
@@ -80,7 +80,7 @@ The JWT configuration.
 
 [api/src/usecases/auth/login.usecases.ts:25](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/usecases/auth/login.usecases.ts#L25)
 
-___
+---
 
 ### jwtTokenService
 
@@ -92,7 +92,7 @@ The JWT token service.
 
 [api/src/usecases/auth/login.usecases.ts:24](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/usecases/auth/login.usecases.ts#L24)
 
-___
+---
 
 ### logger
 
@@ -104,7 +104,7 @@ The logger instance.
 
 [api/src/usecases/auth/login.usecases.ts:23](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/usecases/auth/login.usecases.ts#L23)
 
-___
+---
 
 ### userRepository
 
@@ -126,8 +126,8 @@ Retrieves a cookie with a JWT refresh token for the specified username.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name       | Type     | Description               |
+| :--------- | :------- | :------------------------ |
 | `username` | `string` | The username of the user. |
 
 #### Returns
@@ -140,7 +140,7 @@ The cookie containing the JWT refresh token.
 
 [api/src/usecases/auth/login.usecases.ts:52](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/usecases/auth/login.usecases.ts#L52)
 
-___
+---
 
 ### getCookieWithJwtToken
 
@@ -150,8 +150,8 @@ Generates a cookie with a JWT token for the specified username.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name       | Type     | Description                                        |
+| :--------- | :------- | :------------------------------------------------- |
 | `username` | `string` | The username for which the JWT token is generated. |
 
 #### Returns
@@ -164,7 +164,7 @@ A string representing the generated cookie with the JWT token.
 
 [api/src/usecases/auth/login.usecases.ts:35](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/usecases/auth/login.usecases.ts#L35)
 
-___
+---
 
 ### getUserIfRefreshTokenMatches
 
@@ -174,10 +174,10 @@ Retrieves a user if the refresh token matches the stored hashed refresh token.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name           | Type     | Description                   |
+| :------------- | :------- | :---------------------------- |
 | `refreshToken` | `string` | The refresh token to compare. |
-| `username` | `string` | The username of the user. |
+| `username`     | `string` | The username of the user.     |
 
 #### Returns
 
@@ -189,7 +189,7 @@ The user object if the refresh token matches, otherwise null.
 
 [api/src/usecases/auth/login.usecases.ts:131](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/usecases/auth/login.usecases.ts#L131)
 
-___
+---
 
 ### setCurrentRefreshToken
 
@@ -199,10 +199,10 @@ Sets the current refresh token for a user.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `refreshToken` | `string` | The new refresh token. |
-| `username` | `string` | The username of the user. |
+| Name           | Type     | Description               |
+| :------------- | :------- | :------------------------ |
+| `refreshToken` | `string` | The new refresh token.    |
+| `username`     | `string` | The username of the user. |
 
 #### Returns
 
@@ -214,7 +214,7 @@ Promise<void>
 
 [api/src/usecases/auth/login.usecases.ts:116](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/usecases/auth/login.usecases.ts#L116)
 
-___
+---
 
 ### updateLoginTime
 
@@ -224,8 +224,8 @@ Updates the last login time for a user.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name       | Type     | Description               |
+| :--------- | :------- | :------------------------ |
 | `username` | `string` | The username of the user. |
 
 #### Returns
@@ -238,7 +238,7 @@ A promise that resolves when the last login time is updated.
 
 [api/src/usecases/auth/login.usecases.ts:106](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/usecases/auth/login.usecases.ts#L106)
 
-___
+---
 
 ### validateUserForJWTStragtegy
 
@@ -248,8 +248,8 @@ Validates a user for JWT strategy.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name       | Type     | Description                           |
+| :--------- | :------- | :------------------------------------ |
 | `username` | `string` | The username of the user to validate. |
 
 #### Returns
@@ -262,24 +262,24 @@ The validated user or null if the user does not exist.
 
 [api/src/usecases/auth/login.usecases.ts:93](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/usecases/auth/login.usecases.ts#L93)
 
-___
+---
 
 ### validateUserForLocalStragtegy
 
-▸ **validateUserForLocalStragtegy**(`username`, `pass`): `Promise`\<\{ `createDate`: `Date` ; `email`: `string` ; `hashRefreshToken`: `string` ; `id`: `string` ; `lastLogin`: `Date` ; `updatedDate`: `Date` ; `username`: `string`  }\>
+▸ **validateUserForLocalStragtegy**(`username`, `pass`): `Promise`\<\{ `createDate`: `Date` ; `email`: `string` ; `hashRefreshToken`: `string` ; `id`: `string` ; `lastLogin`: `Date` ; `updatedDate`: `Date` ; `username`: `string` }\>
 
 Validates a user for local strategy authentication.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name       | Type     | Description               |
+| :--------- | :------- | :------------------------ |
 | `username` | `string` | The username of the user. |
-| `pass` | `string` | The password of the user. |
+| `pass`     | `string` | The password of the user. |
 
 #### Returns
 
-`Promise`\<\{ `createDate`: `Date` ; `email`: `string` ; `hashRefreshToken`: `string` ; `id`: `string` ; `lastLogin`: `Date` ; `updatedDate`: `Date` ; `username`: `string`  }\>
+`Promise`\<\{ `createDate`: `Date` ; `email`: `string` ; `hashRefreshToken`: `string` ; `id`: `string` ; `lastLogin`: `Date` ; `updatedDate`: `Date` ; `username`: `string` }\>
 
 The user object if validation is successful, otherwise null.
 

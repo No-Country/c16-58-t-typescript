@@ -8,9 +8,9 @@ A generic proxy class for use cases.
 
 ## Type parameters
 
-| Name | Description |
-| :------ | :------ |
-| `T` | The type of the use case. |
+| Name | Description               |
+| :--- | :------------------------ |
+| `T`  | The type of the use case. |
 
 ## Table of contents
 
@@ -35,14 +35,14 @@ A generic proxy class for use cases.
 #### Type parameters
 
 | Name |
-| :------ |
-| `T` |
+| :--- |
+| `T`  |
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `useCase` | `T` |
+| Name      | Type |
+| :-------- | :--- |
+| `useCase` | `T`  |
 
 #### Returns
 

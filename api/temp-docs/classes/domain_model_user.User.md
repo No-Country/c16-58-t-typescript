@@ -48,7 +48,7 @@ Represents a user.
 
 [api/src/domain/model/user.ts:8](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/domain/model/user.ts#L8)
 
-___
+---
 
 ### email
 
@@ -58,7 +58,7 @@ ___
 
 [api/src/domain/model/user.ts:7](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/domain/model/user.ts#L7)
 
-___
+---
 
 ### hashRefreshToken
 
@@ -68,7 +68,7 @@ ___
 
 [api/src/domain/model/user.ts:11](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/domain/model/user.ts#L11)
 
-___
+---
 
 ### id
 
@@ -78,7 +78,7 @@ ___
 
 [api/src/domain/model/user.ts:5](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/domain/model/user.ts#L5)
 
-___
+---
 
 ### lastLogin
 
@@ -88,7 +88,7 @@ ___
 
 [api/src/domain/model/user.ts:10](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/domain/model/user.ts#L10)
 
-___
+---
 
 ### updatedDate
 
@@ -98,7 +98,7 @@ ___
 
 [api/src/domain/model/user.ts:9](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/domain/model/user.ts#L9)
 
-___
+---
 
 ### username
 

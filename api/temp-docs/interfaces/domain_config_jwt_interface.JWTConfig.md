@@ -37,7 +37,7 @@ The JWT expiration time.
 
 [api/src/domain/config/jwt.interface.ts:15](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/domain/config/jwt.interface.ts#L15)
 
-___
+---
 
 ### getJwtRefreshExpirationTime
 
@@ -55,7 +55,7 @@ The JWT refresh expiration time.
 
 [api/src/domain/config/jwt.interface.ts:27](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/domain/config/jwt.interface.ts#L27)
 
-___
+---
 
 ### getJwtRefreshSecret
 
@@ -73,7 +73,7 @@ The JWT refresh secret.
 
 [api/src/domain/config/jwt.interface.ts:21](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/domain/config/jwt.interface.ts#L21)
 
-___
+---
 
 ### getJwtSecret
 

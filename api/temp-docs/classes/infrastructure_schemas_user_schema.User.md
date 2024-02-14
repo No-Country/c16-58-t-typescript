@@ -8,7 +8,7 @@ Represents a User schema in MongoDB.
 
 ## Implements
 
-- `Omit`\<[`UserModel`](domain_model_user.UserModel.md), ``"id"`` \| ``"refreshToken"`` \| ``"accessToken"``\>
+- `Omit`\<[`UserModel`](domain_model_user.UserModel.md), `"id"` \| `"refreshToken"` \| `"accessToken"`\>
 
 ## Table of contents
 
@@ -49,7 +49,7 @@ The id of the user.
 
 [api/src/infrastructure/schemas/user.schema.ts:20](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/schemas/user.schema.ts#L20)
 
-___
+---
 
 ### createDate
 
@@ -65,7 +65,7 @@ Omit.createDate
 
 [api/src/infrastructure/schemas/user.schema.ts:52](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/schemas/user.schema.ts#L52)
 
-___
+---
 
 ### email
 
@@ -81,7 +81,7 @@ Omit.email
 
 [api/src/infrastructure/schemas/user.schema.ts:29](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/schemas/user.schema.ts#L29)
 
-___
+---
 
 ### hashRefreshToken
 
@@ -97,7 +97,7 @@ Omit.hashRefreshToken
 
 [api/src/infrastructure/schemas/user.schema.ts:46](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/schemas/user.schema.ts#L46)
 
-___
+---
 
 ### lastLogin
 
@@ -113,7 +113,7 @@ Omit.lastLogin
 
 [api/src/infrastructure/schemas/user.schema.ts:58](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/schemas/user.schema.ts#L58)
 
-___
+---
 
 ### password
 
@@ -129,7 +129,7 @@ Omit.password
 
 [api/src/infrastructure/schemas/user.schema.ts:40](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/schemas/user.schema.ts#L40)
 
-___
+---
 
 ### updatedDate
 
@@ -145,7 +145,7 @@ Omit.updatedDate
 
 [api/src/infrastructure/schemas/user.schema.ts:64](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/schemas/user.schema.ts#L64)
 
-___
+---
 
 ### username
 

@@ -33,8 +33,8 @@ Creates an instance of the LoggerInterceptor class.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name     | Type                                                                     | Description                          |
+| :------- | :----------------------------------------------------------------------- | :----------------------------------- |
 | `logger` | [`LoggerService`](infrastructure_logger_logger_service.LoggerService.md) | The logger service used for logging. |
 
 #### Returns
@@ -67,14 +67,14 @@ Retrieves the IP address from the request object.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `request` | `Object` | The request object containing the headers and connection information. |
-| `request.request` | `Object` | - |
-| `request.request.connection` | `Object` | - |
-| `request.request.connection.remoteAddress` | `string` | - |
-| `request.request.headers` | `Object` | - |
-| `request.request.headers.x-forwarded-for` | `string` | - |
+| Name                                       | Type     | Description                                                           |
+| :----------------------------------------- | :------- | :-------------------------------------------------------------------- |
+| `request`                                  | `Object` | The request object containing the headers and connection information. |
+| `request.request`                          | `Object` | -                                                                     |
+| `request.request.connection`               | `Object` | -                                                                     |
+| `request.request.connection.remoteAddress` | `string` | -                                                                     |
+| `request.request.headers`                  | `Object` | -                                                                     |
+| `request.request.headers.x-forwarded-for`  | `string` | -                                                                     |
 
 #### Returns
 
@@ -86,7 +86,7 @@ The IP address as a string.
 
 [api/src/infrastructure/common/interceptor/logger.interceptor.ts:52](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/common/interceptor/logger.interceptor.ts#L52)
 
-___
+---
 
 ### intercept
 
@@ -96,10 +96,10 @@ Intercepts incoming requests and logs information about the request and response
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `context` | `ExecutionContext` | The execution context of the request. |
-| `next` | `CallHandler`\<`any`\> | The next call handler in the chain. |
+| Name      | Type                   | Description                           |
+| :-------- | :--------------------- | :------------------------------------ |
+| `context` | `ExecutionContext`     | The execution context of the request. |
+| `next`    | `CallHandler`\<`any`\> | The next call handler in the chain.   |
 
 #### Returns
 

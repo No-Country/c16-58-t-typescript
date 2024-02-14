@@ -20,8 +20,8 @@
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name     | Type                                                                                                                              |
+| :------- | :-------------------------------------------------------------------------------------------------------------------------------- |
 | `config` | [`EnvironmentConfigService`](../classes/infrastructure_config_environment_environment_config_service.EnvironmentConfigService.md) |
 
 #### Returns

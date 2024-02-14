@@ -33,8 +33,8 @@ Creates an instance of the ExceptionFilter class.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name     | Type                                                                     | Description                          |
+| :------- | :----------------------------------------------------------------------- | :----------------------------------- |
 | `logger` | [`LoggerService`](infrastructure_logger_logger_service.LoggerService.md) | The logger service used for logging. |
 
 #### Returns
@@ -67,10 +67,10 @@ Catches and handles exceptions thrown during request processing.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `exception` | `Error` | The exception that was thrown. |
-| `host` | `ArgumentsHost` | The arguments host containing the request and response objects. |
+| Name        | Type            | Description                                                     |
+| :---------- | :-------------- | :-------------------------------------------------------------- |
+| `exception` | `Error`         | The exception that was thrown.                                  |
+| `host`      | `ArgumentsHost` | The arguments host containing the request and response objects. |
 
 #### Returns
 
@@ -84,7 +84,7 @@ ExceptionFilter.catch
 
 [api/src/infrastructure/common/filter/exception.filter.ts:25](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/common/filter/exception.filter.ts#L25)
 
-___
+---
 
 ### logMessage
 
@@ -94,13 +94,13 @@ Logs the error message and request details.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `«destructured»` | `Object` |
-| › `exception` | `Error` |
-| › `message` | [`IError`](../interfaces/domain_filter_filter_interface.IError.md) |
-| › `request` | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> |
-| › `status` | `number` |
+| Name             | Type                                                                                   |
+| :--------------- | :------------------------------------------------------------------------------------- |
+| `«destructured»` | `Object`                                                                               |
+| › `exception`    | `Error`                                                                                |
+| › `message`      | [`IError`](../interfaces/domain_filter_filter_interface.IError.md)                     |
+| › `request`      | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> |
+| › `status`       | `number`                                                                               |
 
 #### Returns
 

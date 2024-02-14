@@ -44,12 +44,12 @@ Constructs a new instance of the JwtRefreshStrategy class.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `configService` | [`EnvironmentConfigService`](infrastructure_config_environment_environment_config_service.EnvironmentConfigService.md) | The environment configuration service. |
-| `loginUsecaseProxy` | [`UseCaseProxy`](infrastructure_usecases_proxy_usecases_proxy.UseCaseProxy.md)\<[`LoginUseCases`](usecases_auth_login_usecases.LoginUseCases.md)\> | The login use case proxy. |
-| `logger` | [`LoggerService`](infrastructure_logger_logger_service.LoggerService.md) | The logger service. |
-| `exceptionService` | [`ExceptionsService`](infrastructure_exceptions_exceptions_service.ExceptionsService.md) | The exceptions service. |
+| Name                | Type                                                                                                                                               | Description                            |
+| :------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------- |
+| `configService`     | [`EnvironmentConfigService`](infrastructure_config_environment_environment_config_service.EnvironmentConfigService.md)                             | The environment configuration service. |
+| `loginUsecaseProxy` | [`UseCaseProxy`](infrastructure_usecases_proxy_usecases_proxy.UseCaseProxy.md)\<[`LoginUseCases`](usecases_auth_login_usecases.LoginUseCases.md)\> | The login use case proxy.              |
+| `logger`            | [`LoggerService`](infrastructure_logger_logger_service.LoggerService.md)                                                                           | The logger service.                    |
+| `exceptionService`  | [`ExceptionsService`](infrastructure_exceptions_exceptions_service.ExceptionsService.md)                                                           | The exceptions service.                |
 
 #### Returns
 
@@ -58,8 +58,8 @@ Constructs a new instance of the JwtRefreshStrategy class.
 #### Overrides
 
 PassportStrategy(
-  Strategy,
-  &#x27;jwt-refresh-token&#x27;,
+Strategy,
+&#x27;jwt-refresh-token&#x27;,
 ).constructor
 
 #### Defined in
@@ -78,7 +78,7 @@ The environment configuration service.
 
 [api/src/infrastructure/common/strategies/jwtRefresh.strategy.ts:29](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/common/strategies/jwtRefresh.strategy.ts#L29)
 
-___
+---
 
 ### exceptionService
 
@@ -90,7 +90,7 @@ The exceptions service.
 
 [api/src/infrastructure/common/strategies/jwtRefresh.strategy.ts:33](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/common/strategies/jwtRefresh.strategy.ts#L33)
 
-___
+---
 
 ### logger
 
@@ -102,7 +102,7 @@ The logger service.
 
 [api/src/infrastructure/common/strategies/jwtRefresh.strategy.ts:32](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/common/strategies/jwtRefresh.strategy.ts#L32)
 
-___
+---
 
 ### loginUsecaseProxy
 
@@ -114,7 +114,7 @@ The login use case proxy.
 
 [api/src/infrastructure/common/strategies/jwtRefresh.strategy.ts:31](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/common/strategies/jwtRefresh.strategy.ts#L31)
 
-___
+---
 
 ### name
 
@@ -123,8 +123,8 @@ ___
 #### Inherited from
 
 PassportStrategy(
-  Strategy,
-  'jwt-refresh-token',
+Strategy,
+'jwt-refresh-token',
 ).name
 
 #### Defined in
@@ -142,10 +142,10 @@ Note: Virtual function - re-implement in the strategy.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `req` | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> | The request to authenticate. |
-| `options?` | `any` | Options passed to the strategy. |
+| Name       | Type                                                                                   | Description                     |
+| :--------- | :------------------------------------------------------------------------------------- | :------------------------------ |
+| `req`      | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> | The request to authenticate.    |
+| `options?` | `any`                                                                                  | Options passed to the strategy. |
 
 #### Returns
 
@@ -154,15 +154,15 @@ Note: Virtual function - re-implement in the strategy.
 #### Inherited from
 
 PassportStrategy(
-  Strategy,
-  'jwt-refresh-token',
+Strategy,
+'jwt-refresh-token',
 ).authenticate
 
 #### Defined in
 
 node_modules/.pnpm/@types+passport-strategy@0.2.38/node_modules/@types/passport-strategy/index.d.ts:20
 
-___
+---
 
 ### error
 
@@ -176,8 +176,8 @@ user directory is not available.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name  | Type    |
+| :---- | :------ |
 | `err` | `Error` |
 
 #### Returns
@@ -191,15 +191,15 @@ public
 #### Inherited from
 
 PassportStrategy(
-  Strategy,
-  'jwt-refresh-token',
+Strategy,
+'jwt-refresh-token',
 ).error
 
 #### Defined in
 
 node_modules/.pnpm/@types+passport-strategy@0.2.38/node_modules/@types/passport-strategy/index.d.ts:90
 
-___
+---
 
 ### fail
 
@@ -212,10 +212,10 @@ Strategies should call this function to fail an authentication attempt.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `challenge` | `any` | (Can also be an object with 'message' and 'type' fields). |
-| `status` | `number` |  |
+| Name        | Type     | Description                                               |
+| :---------- | :------- | :-------------------------------------------------------- |
+| `challenge` | `any`    | (Can also be an object with 'message' and 'type' fields). |
+| `status`    | `number` |                                                           |
 
 #### Returns
 
@@ -228,8 +228,8 @@ public
 #### Inherited from
 
 PassportStrategy(
-  Strategy,
-  'jwt-refresh-token',
+Strategy,
+'jwt-refresh-token',
 ).fail
 
 #### Defined in
@@ -240,8 +240,8 @@ node_modules/.pnpm/@types+passport-strategy@0.2.38/node_modules/@types/passport-
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name     | Type     |
+| :------- | :------- |
 | `status` | `number` |
 
 #### Returns
@@ -251,15 +251,15 @@ node_modules/.pnpm/@types+passport-strategy@0.2.38/node_modules/@types/passport-
 #### Inherited from
 
 PassportStrategy(
-  Strategy,
-  'jwt-refresh-token',
+Strategy,
+'jwt-refresh-token',
 ).fail
 
 #### Defined in
 
 node_modules/.pnpm/@types+passport-strategy@0.2.38/node_modules/@types/passport-strategy/index.d.ts:55
 
-___
+---
 
 ### pass
 
@@ -268,7 +268,7 @@ ___
 Pass without making a success or fail decision.
 
 Under most circumstances, Strategies should not need to call this
-function.  It exists primarily to allow previous authentication state
+function. It exists primarily to allow previous authentication state
 to be restored, for example from an HTTP session.
 
 #### Returns
@@ -282,15 +282,15 @@ public
 #### Inherited from
 
 PassportStrategy(
-  Strategy,
-  'jwt-refresh-token',
+Strategy,
+'jwt-refresh-token',
 ).pass
 
 #### Defined in
 
 node_modules/.pnpm/@types+passport-strategy@0.2.38/node_modules/@types/passport-strategy/index.d.ts:78
 
-___
+---
 
 ### redirect
 
@@ -303,9 +303,9 @@ user agent) to a third-party website for authentication.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `url` | `string` |
+| Name      | Type     |
+| :-------- | :------- |
+| `url`     | `string` |
 | `status?` | `number` |
 
 #### Returns
@@ -319,15 +319,15 @@ public
 #### Inherited from
 
 PassportStrategy(
-  Strategy,
-  'jwt-refresh-token',
+Strategy,
+'jwt-refresh-token',
 ).redirect
 
 #### Defined in
 
 node_modules/.pnpm/@types+passport-strategy@0.2.38/node_modules/@types/passport-strategy/index.d.ts:67
 
-___
+---
 
 ### success
 
@@ -336,17 +336,17 @@ ___
 Authenticate `user`, with optional `info`.
 
 Strategies should call this function to successfully authenticate a
-user.  `user` should be an object supplied by the application after it
-has been given an opportunity to verify credentials.  `info` is an
-optional argument containing additional user information.  This is
+user. `user` should be an object supplied by the application after it
+has been given an opportunity to verify credentials. `info` is an
+optional argument containing additional user information. This is
 useful for third-party authentication strategies to pass profile
 details.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `user` | `any` |
+| Name    | Type  |
+| :------ | :---- |
+| `user`  | `any` |
 | `info?` | `any` |
 
 #### Returns
@@ -360,15 +360,15 @@ public
 #### Inherited from
 
 PassportStrategy(
-  Strategy,
-  'jwt-refresh-token',
+Strategy,
+'jwt-refresh-token',
 ).success
 
 #### Defined in
 
 node_modules/.pnpm/@types+passport-strategy@0.2.38/node_modules/@types/passport-strategy/index.d.ts:42
 
-___
+---
 
 ### validate
 
@@ -378,10 +378,10 @@ Validates the request and payload for JWT refresh strategy.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name      | Type                                                                                   | Description         |
+| :-------- | :------------------------------------------------------------------------------------- | :------------------ |
 | `request` | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> | The request object. |
-| `payload` | [`TokenPayload`](../interfaces/domain_model_auth.TokenPayload.md) | The token payload. |
+| `payload` | [`TokenPayload`](../interfaces/domain_model_auth.TokenPayload.md)                      | The token payload.  |
 
 #### Returns
 

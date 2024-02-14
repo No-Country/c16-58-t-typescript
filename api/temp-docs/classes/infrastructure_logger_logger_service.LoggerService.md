@@ -79,8 +79,8 @@ node_modules/.pnpm/@nestjs+common@10.3.3_class-transformer@0.5.1_class-validator
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name      | Type     |
+| :-------- | :------- |
 | `context` | `string` |
 
 #### Returns
@@ -99,10 +99,10 @@ node_modules/.pnpm/@nestjs+common@10.3.3_class-transformer@0.5.1_class-validator
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `context` | `string` |
-| `options?` | `Object` |
+| Name                 | Type      |
+| :------------------- | :-------- |
+| `context`            | `string`  |
+| `options?`           | `Object`  |
 | `options.timestamp?` | `boolean` |
 
 #### Returns
@@ -131,7 +131,7 @@ Logger.context
 
 node_modules/.pnpm/@nestjs+common@10.3.3_class-transformer@0.5.1_class-validator@0.14.1_reflect-metadata@0.2.1_rxjs@7.8.1/node_modules/@nestjs/common/services/logger.service.d.ts:53
 
-___
+---
 
 ### localInstanceRef
 
@@ -145,7 +145,7 @@ Logger.localInstanceRef
 
 node_modules/.pnpm/@nestjs+common@10.3.3_class-transformer@0.5.1_class-validator@0.14.1_reflect-metadata@0.2.1_rxjs@7.8.1/node_modules/@nestjs/common/services/logger.service.d.ts:61
 
-___
+---
 
 ### options
 
@@ -153,8 +153,8 @@ ___
 
 #### Type declaration
 
-| Name | Type |
-| :------ | :------ |
+| Name         | Type      |
+| :----------- | :-------- |
 | `timestamp?` | `boolean` |
 
 #### Inherited from
@@ -165,7 +165,7 @@ Logger.options
 
 node_modules/.pnpm/@nestjs+common@10.3.3_class-transformer@0.5.1_class-validator@0.14.1_reflect-metadata@0.2.1_rxjs@7.8.1/node_modules/@nestjs/common/services/logger.service.d.ts:54
 
-___
+---
 
 ### logBuffer
 
@@ -179,7 +179,7 @@ Logger.logBuffer
 
 node_modules/.pnpm/@nestjs+common@10.3.3_class-transformer@0.5.1_class-validator@0.14.1_reflect-metadata@0.2.1_rxjs@7.8.1/node_modules/@nestjs/common/services/logger.service.d.ts:57
 
-___
+---
 
 ### logLevels
 
@@ -193,7 +193,7 @@ Logger.logLevels
 
 node_modules/.pnpm/@nestjs+common@10.3.3_class-transformer@0.5.1_class-validator@0.14.1_reflect-metadata@0.2.1_rxjs@7.8.1/node_modules/@nestjs/common/services/logger.service.d.ts:59
 
-___
+---
 
 ### staticInstanceRef
 
@@ -235,10 +235,10 @@ Logs a debug message with the specified context.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name      | Type     | Description                     |
+| :-------- | :------- | :------------------------------ |
 | `context` | `string` | The context of the log message. |
-| `message` | `string` | The debug message to log. |
+| `message` | `string` | The debug message to log.       |
 
 #### Returns
 
@@ -256,7 +256,7 @@ Logger.debug
 
 [api/src/infrastructure/logger/logger.service.ts:32](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/logger/logger.service.ts#L32)
 
-___
+---
 
 ### error
 
@@ -266,11 +266,11 @@ Logs an error message with the specified context and optional trace.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name      | Type     | Description                     |
+| :-------- | :------- | :------------------------------ |
 | `context` | `string` | The context of the log message. |
-| `message` | `string` | The error message to log. |
-| `trace?` | `string` | Optional trace information. |
+| `message` | `string` | The error message to log.       |
+| `trace?`  | `string` | Optional trace information.     |
 
 #### Returns
 
@@ -288,7 +288,7 @@ Logger.error
 
 [api/src/infrastructure/logger/logger.service.ts:55](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/logger/logger.service.ts#L55)
 
-___
+---
 
 ### fatal
 
@@ -298,9 +298,9 @@ Write a 'fatal' level log.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `message` | `any` |
+| Name       | Type     |
+| :--------- | :------- |
+| `message`  | `any`    |
 | `context?` | `string` |
 
 #### Returns
@@ -319,9 +319,9 @@ node_modules/.pnpm/@nestjs+common@10.3.3_class-transformer@0.5.1_class-validator
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `message` | `any` |
+| Name                | Type    |
+| :------------------ | :------ |
+| `message`           | `any`   |
 | `...optionalParams` | `any`[] |
 
 #### Returns
@@ -336,7 +336,7 @@ Logger.fatal
 
 node_modules/.pnpm/@nestjs+common@10.3.3_class-transformer@0.5.1_class-validator@0.14.1_reflect-metadata@0.2.1_rxjs@7.8.1/node_modules/@nestjs/common/services/logger.service.d.ts:98
 
-___
+---
 
 ### log
 
@@ -346,10 +346,10 @@ Logs an info message with the specified context.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name      | Type     | Description                     |
+| :-------- | :------- | :------------------------------ |
 | `context` | `string` | The context of the log message. |
-| `message` | `string` | The info message to log. |
+| `message` | `string` | The info message to log.        |
 
 #### Returns
 
@@ -367,7 +367,7 @@ Logger.log
 
 [api/src/infrastructure/logger/logger.service.ts:44](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/logger/logger.service.ts#L44)
 
-___
+---
 
 ### verbose
 
@@ -377,10 +377,10 @@ Logs a verbose message with the specified context.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name      | Type     | Description                     |
+| :-------- | :------- | :------------------------------ |
 | `context` | `string` | The context of the log message. |
-| `message` | `string` | The verbose message to log. |
+| `message` | `string` | The verbose message to log.     |
 
 #### Returns
 
@@ -398,7 +398,7 @@ Logger.verbose
 
 [api/src/infrastructure/logger/logger.service.ts:75](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/logger/logger.service.ts#L75)
 
-___
+---
 
 ### warn
 
@@ -408,10 +408,10 @@ Logs a warning message with the specified context.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name      | Type     | Description                     |
+| :-------- | :------- | :------------------------------ |
 | `context` | `string` | The context of the log message. |
-| `message` | `string` | The warning message to log. |
+| `message` | `string` | The warning message to log.     |
 
 #### Returns
 
@@ -429,7 +429,7 @@ Logger.warn
 
 [api/src/infrastructure/logger/logger.service.ts:65](https://github.com/No-Country/c16-58-t-typescript/blob/d2fd85f/api/src/infrastructure/logger/logger.service.ts#L65)
 
-___
+---
 
 ### attachBuffer
 
@@ -450,7 +450,7 @@ Logger.attachBuffer
 
 node_modules/.pnpm/@nestjs+common@10.3.3_class-transformer@0.5.1_class-validator@0.14.1_reflect-metadata@0.2.1_rxjs@7.8.1/node_modules/@nestjs/common/services/logger.service.d.ts:140
 
-___
+---
 
 ### debug
 
@@ -461,9 +461,9 @@ Prints to `stdout` with newline.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `message` | `any` |
+| Name       | Type     |
+| :--------- | :------- |
+| `message`  | `any`    |
 | `context?` | `string` |
 
 #### Returns
@@ -482,9 +482,9 @@ node_modules/.pnpm/@nestjs+common@10.3.3_class-transformer@0.5.1_class-validator
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `message` | `any` |
+| Name                | Type    |
+| :------------------ | :------ |
+| `message`           | `any`   |
 | `...optionalParams` | `any`[] |
 
 #### Returns
@@ -499,7 +499,7 @@ Logger.debug
 
 node_modules/.pnpm/@nestjs+common@10.3.3_class-transformer@0.5.1_class-validator@0.14.1_reflect-metadata@0.2.1_rxjs@7.8.1/node_modules/@nestjs/common/services/logger.service.d.ts:121
 
-___
+---
 
 ### detachBuffer
 
@@ -520,7 +520,7 @@ Logger.detachBuffer
 
 node_modules/.pnpm/@nestjs+common@10.3.3_class-transformer@0.5.1_class-validator@0.14.1_reflect-metadata@0.2.1_rxjs@7.8.1/node_modules/@nestjs/common/services/logger.service.d.ts:145
 
-___
+---
 
 ### error
 
@@ -530,9 +530,9 @@ Write an 'error' level log.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `message` | `any` |
+| Name              | Type     |
+| :---------------- | :------- |
+| `message`         | `any`    |
 | `stackOrContext?` | `string` |
 
 #### Returns
@@ -551,9 +551,9 @@ node_modules/.pnpm/@nestjs+common@10.3.3_class-transformer@0.5.1_class-validator
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `message` | `any` |
+| Name       | Type     |
+| :--------- | :------- |
+| `message`  | `any`    |
 | `context?` | `string` |
 
 #### Returns
@@ -572,10 +572,10 @@ node_modules/.pnpm/@nestjs+common@10.3.3_class-transformer@0.5.1_class-validator
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `message` | `any` |
-| `stack?` | `string` |
+| Name       | Type     |
+| :--------- | :------- |
+| `message`  | `any`    |
+| `stack?`   | `string` |
 | `context?` | `string` |
 
 #### Returns
@@ -594,9 +594,9 @@ node_modules/.pnpm/@nestjs+common@10.3.3_class-transformer@0.5.1_class-validator
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `message` | `any` |
+| Name                | Type    |
+| :------------------ | :------ |
+| `message`           | `any`   |
 | `...optionalParams` | `any`[] |
 
 #### Returns
@@ -611,7 +611,7 @@ Logger.error
 
 node_modules/.pnpm/@nestjs+common@10.3.3_class-transformer@0.5.1_class-validator@0.14.1_reflect-metadata@0.2.1_rxjs@7.8.1/node_modules/@nestjs/common/services/logger.service.d.ts:105
 
-___
+---
 
 ### fatal
 
@@ -621,9 +621,9 @@ Write a 'fatal' level log.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `message` | `any` |
+| Name       | Type     |
+| :--------- | :------- |
+| `message`  | `any`    |
 | `context?` | `string` |
 
 #### Returns
@@ -642,9 +642,9 @@ node_modules/.pnpm/@nestjs+common@10.3.3_class-transformer@0.5.1_class-validator
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `message` | `any` |
+| Name                | Type    |
+| :------------------ | :------ |
+| `message`           | `any`   |
 | `...optionalParams` | `any`[] |
 
 #### Returns
@@ -659,7 +659,7 @@ Logger.fatal
 
 node_modules/.pnpm/@nestjs+common@10.3.3_class-transformer@0.5.1_class-validator@0.14.1_reflect-metadata@0.2.1_rxjs@7.8.1/node_modules/@nestjs/common/services/logger.service.d.ts:131
 
-___
+---
 
 ### flush
 
@@ -679,7 +679,7 @@ Logger.flush
 
 node_modules/.pnpm/@nestjs+common@10.3.3_class-transformer@0.5.1_class-validator@0.14.1_reflect-metadata@0.2.1_rxjs@7.8.1/node_modules/@nestjs/common/services/logger.service.d.ts:135
 
-___
+---
 
 ### getTimestamp
 
@@ -697,7 +697,7 @@ Logger.getTimestamp
 
 node_modules/.pnpm/@nestjs+common@10.3.3_class-transformer@0.5.1_class-validator@0.14.1_reflect-metadata@0.2.1_rxjs@7.8.1/node_modules/@nestjs/common/services/logger.service.d.ts:146
 
-___
+---
 
 ### isLevelEnabled
 
@@ -705,8 +705,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name    | Type       |
+| :------ | :--------- |
 | `level` | `LogLevel` |
 
 #### Returns
@@ -721,7 +721,7 @@ Logger.isLevelEnabled
 
 node_modules/.pnpm/@nestjs+common@10.3.3_class-transformer@0.5.1_class-validator@0.14.1_reflect-metadata@0.2.1_rxjs@7.8.1/node_modules/@nestjs/common/services/logger.service.d.ts:148
 
-___
+---
 
 ### log
 
@@ -731,9 +731,9 @@ Write a 'log' level log.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `message` | `any` |
+| Name       | Type     |
+| :--------- | :------- |
+| `message`  | `any`    |
 | `context?` | `string` |
 
 #### Returns
@@ -752,9 +752,9 @@ node_modules/.pnpm/@nestjs+common@10.3.3_class-transformer@0.5.1_class-validator
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `message` | `any` |
+| Name                | Type    |
+| :------------------ | :------ |
+| `message`           | `any`   |
 | `...optionalParams` | `any`[] |
 
 #### Returns
@@ -769,7 +769,7 @@ Logger.log
 
 node_modules/.pnpm/@nestjs+common@10.3.3_class-transformer@0.5.1_class-validator@0.14.1_reflect-metadata@0.2.1_rxjs@7.8.1/node_modules/@nestjs/common/services/logger.service.d.ts:110
 
-___
+---
 
 ### overrideLogger
 
@@ -777,8 +777,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name     | Type                                         |
+| :------- | :------------------------------------------- |
 | `logger` | `boolean` \| `LoggerService` \| `LogLevel`[] |
 
 #### Returns
@@ -793,7 +793,7 @@ Logger.overrideLogger
 
 node_modules/.pnpm/@nestjs+common@10.3.3_class-transformer@0.5.1_class-validator@0.14.1_reflect-metadata@0.2.1_rxjs@7.8.1/node_modules/@nestjs/common/services/logger.service.d.ts:147
 
-___
+---
 
 ### verbose
 
@@ -803,9 +803,9 @@ Write a 'verbose' level log.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `message` | `any` |
+| Name       | Type     |
+| :--------- | :------- |
+| `message`  | `any`    |
 | `context?` | `string` |
 
 #### Returns
@@ -824,9 +824,9 @@ node_modules/.pnpm/@nestjs+common@10.3.3_class-transformer@0.5.1_class-validator
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `message` | `any` |
+| Name                | Type    |
+| :------------------ | :------ |
+| `message`           | `any`   |
 | `...optionalParams` | `any`[] |
 
 #### Returns
@@ -841,7 +841,7 @@ Logger.verbose
 
 node_modules/.pnpm/@nestjs+common@10.3.3_class-transformer@0.5.1_class-validator@0.14.1_reflect-metadata@0.2.1_rxjs@7.8.1/node_modules/@nestjs/common/services/logger.service.d.ts:126
 
-___
+---
 
 ### warn
 
@@ -851,9 +851,9 @@ Write a 'warn' level log.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `message` | `any` |
+| Name       | Type     |
+| :--------- | :------- |
+| `message`  | `any`    |
 | `context?` | `string` |
 
 #### Returns
@@ -872,9 +872,9 @@ node_modules/.pnpm/@nestjs+common@10.3.3_class-transformer@0.5.1_class-validator
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `message` | `any` |
+| Name                | Type    |
+| :------------------ | :------ |
+| `message`           | `any`   |
 | `...optionalParams` | `any`[] |
 
 #### Returns
