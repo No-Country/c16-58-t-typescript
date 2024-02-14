@@ -11,7 +11,17 @@ export type UserDocument = User & Document;
 export class User
   implements Omit<UserModel, 'id' | 'refreshToken' | 'accessToken'>
 {
+  /**
+   * The id of the user.
+   */
+  @Prop({
+    default: new Types.ObjectId(),
+  })
   _id: Types.ObjectId;
+
+  /**
+   * The email of the user.
+   */
   @Prop({
     required: true,
     unique: true,
@@ -20,7 +30,7 @@ export class User
   /**
    * The username of the user.
    */
-  @Prop({ required: true })
+  @Prop({ required: true, unique: true })
   username: string;
 
   /**

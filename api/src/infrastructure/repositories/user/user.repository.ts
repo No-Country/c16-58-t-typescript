@@ -1,11 +1,9 @@
 import { UserRepository } from '@/domain/repositories/userRepository.interface';
-import { InjectConnection } from '@nestjs/mongoose';
+import { User } from '@/infrastructure/schemas/user.schema';
 import { UserModel } from '@/domain/model/user';
 import { InjectModel } from '@nestjs/mongoose';
 import { Injectable } from '@nestjs/common';
-import { Connection } from 'mongoose';
 import { Model } from 'mongoose';
-import { User } from '@/infrastructure/schemas/user.schema';
 
 /**
  * DatabaseUserRepository class that implements the UserRepository interface.
@@ -14,7 +12,6 @@ import { User } from '@/infrastructure/schemas/user.schema';
 @Injectable()
 export class DatabaseUserRepository implements UserRepository {
   constructor(
-    @InjectConnection() private connection: Connection,
     @InjectModel(User.name)
     private userSchemaRepository: Model<User>,
   ) {}
@@ -72,31 +69,28 @@ export class DatabaseUserRepository implements UserRepository {
   }
 
   /**
-   * Retrieves a user by their username.
-   * @param username - The username of the user to retrieve.
-   * @returns A Promise that resolves to a UserModel representing the user.
+   * Retrieves a user by their email address.
+   * @param email - The email address of the user.
+   * @returns A Promise that resolves to a UserModel if a user with the specified email is found, or null otherwise.
    */
-  async getUserByUsername(username: string): Promise<UserModel> {
-    return this.toUser(
-      await this.userSchemaRepository.findOne({
-        username,
-      }),
-    );
+  async getUserByEmail(email: string): Promise<UserModel> {
+    const userEntity = await this.userSchemaRepository.findOne({
+      email: email,
+    });
+    return userEntity ? this.toUser(userEntity) : null;
   }
 
   /**
-   * Retrieves a user by their email address.
-   * @param email - The email address of the user.
-   * @returns A Promise that resolves to a UserModel object representing the user.
+   * Retrieves a user by their username.
+   * @param username - The username of the user to retrieve.
+   * @returns A Promise that resolves to the UserModel if found, or null if not found.
    */
-  async getUserByEmail(email: string): Promise<UserModel> {
-    return this.toUser(
-      await this.userSchemaRepository.findOne({
-        email,
-      }),
-    );
+  async getUserByUsername(username: string): Promise<UserModel> {
+    const userEntity = await this.userSchemaRepository.findOne({
+      username: username,
+    });
+    return userEntity ? this.toUser(userEntity) : null;
   }
-
   /**
    * Converts a User entity to a UserModel.
    *
@@ -109,7 +103,7 @@ export class DatabaseUserRepository implements UserRepository {
     adminUser.username = userEntity.username;
     adminUser.password = userEntity.password;
     adminUser.email = userEntity.email;
-    adminUser.id = userEntity._id.toString();
+    adminUser.id = userEntity._id?.toString();
     adminUser.createDate = userEntity.createDate;
     adminUser.lastLogin = userEntity.lastLogin;
     adminUser.updatedDate = userEntity.updatedDate;
