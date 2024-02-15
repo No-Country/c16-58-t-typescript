@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 
 function OneUser() {
-    const id = useParams();
+    const params = useParams();
+    const id = params.id;
     const [user, setUser] = useState()
 
    useEffect(() => {
@@ -19,7 +20,7 @@ function OneUser() {
 
   return (
     <div>
-        
+
     </div>
   )
 }

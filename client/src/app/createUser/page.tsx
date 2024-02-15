@@ -11,7 +11,6 @@ const CreateUser = () => {
         province: '',
         role: 0
     });
-
     
     const handleChange = (e: React.FormEvent) => {
         const property = (e.target as HTMLInputElement).name;
