@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Input from '../../components/Inputs/Input';
 
 const CreateUser = () => {
@@ -9,9 +9,10 @@ const CreateUser = () => {
         password: '',
         city: '',
         province: '',
-        role: '1'
+        role: 0
     });
 
+    
     const handleChange = (e: React.FormEvent) => {
         const property = (e.target as HTMLInputElement).name;
         const value = (e.target as HTMLInputElement).value;
@@ -21,7 +22,12 @@ const CreateUser = () => {
     }
 
     const handleSubmit = async () => {
-        //const res = await petición
+        try {
+            //const res = await petición
+            
+        } catch (error) {
+            console.error(error)
+        }
 
     }
   return (
