@@ -2,9 +2,13 @@
   "extends": "@c16-58-t-typescript/typescript-config/nestjs.json",
   "compilerOptions": {
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@/infrastructure/*": ["./src/infrastructure/*"],
+      "@/domain/*": ["./src/domain/*"],
+      "@/usecases/*": ["./src/usecases/*"],
+      "@/config/*": ["./src/infrastructure/config/environment/*"]
     }
   },
-  "include": ["."],
+  "include": ["./src/**/*", "./tsconfig.json"],
   "exclude": ["dist", "build", "node_modules"]
 }

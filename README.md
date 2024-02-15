@@ -1,9 +1,404 @@
+# Crear una rama en Git, buscar archivos nuevos en la rama principal y hacer push
+
+1. **Crear una nueva rama:**
+
+   ```bash
+   git checkout -b nueva-rama
+   ```
+
+   Este comando crea una nueva rama llamada `nueva-rama` y automáticamente cambia a ella.
+
+2. **Buscar archivos nuevos en la rama principal (main):**
+   Si deseas traer los cambios de la rama principal a tu rama recién creada, necesitas realizar un `git pull` mientras estás en tu nueva rama. Esto actualizará tu rama local con los cambios de la rama principal.
+
+   ```bash
+   git pull origin main
+   ```
+
+3. **Hacer push a la nueva rama:**
+   Una vez que hayas añadido tus cambios y estés listo para subirlos a la nueva rama en el repositorio remoto, utiliza el comando `git push`. Si estás subiendo la rama por primera vez, necesitas usar `-u` para establecer un upstream y vincular tu rama local con la remota.
+
+   ```bash
+   git push -u origin nueva-rama
+   ```
+
+## Estrategias para evitar conflictos:
+
+1. **Mantén tu rama actualizada:** Realiza `git pull` con frecuencia para traer los últimos cambios de la rama principal a tu rama antes de realizar tus propios cambios. Esto minimiza la posibilidad de conflictos.
+
+2. **Divide tus cambios:** Si estás trabajando en una función compleja, divide tu trabajo en pequeñas tareas que puedas completar y fusionar por separado. Esto reduce la posibilidad de conflictos al cambiar partes diferentes del código.
+
+3. **Comunica tus cambios:** Si trabajas en un equipo, comunica tus cambios a tus compañeros para evitar que múltiples personas modifiquen el mismo archivo simultáneamente. Esto puede reducir la probabilidad de conflictos.
+
+4. **No hagas pull requests directamente en la rama principal (main):** Evita enviar pull requests directamente a la rama principal. En su lugar, crea una rama de características, trabaja en ella y, una vez que estés seguro de que tus cambios no causan problemas, fusiona tu rama de características con la rama principal mediante un pull request.
+
+5. **Utiliza herramientas de gestión de versiones colaborativas:** Herramientas como GitHub, Gitlens ofrecen características para gestionar conflictos automáticamente o de forma guiada, lo que facilita la resolución de conflictos cuando ocurren.
+
+**Nota:** Para obtener sugerencias automáticas de código para mensajes de confirmación en Git, puedes utilizar GitHub Copilot integrado en tu editor de código compatible. Simplemente escribe tu mensaje de confirmación y Copilot te ofrecerá sugerencias contextuales basadas en el contenido de tus cambios y convenciones de mensaje de confirmación comunes.
+
+# API Endpoints
+
+# Ruta: `/api/auth/register`
+
+#### Descripción:
+
+Este endpoint se utiliza para registrar un nuevo usuario.
+
+#### Método: `POST`
+
+#### Información necesaria en el cuerpo (Body):
+
+```json
+{
+  "email": "string",
+  "username": "string",
+  "password": "string",
+  "confirmPassword": "string"
+}
+```
+
+#### Respuesta positiva:
+
+- Código: `201`
+- Tipo de respuesta: JSON
+
+```json
+{
+  "data": "User with email 'email' and username 'username' has been registered",
+  "isArray": false,
+  "path": "/api/auth/register",
+  "duration": "101ms",
+  "method": "POST"
+}
+```
+
+#### Respuestas negativas:
+
+1. Código: `409`
+
+   - Tipo de respuesta: JSON
+
+   ```json
+   {
+     "statusCode": 409,
+     "timestamp": "2024-02-14T01:00:10.052Z",
+     "path": "/api/auth/register",
+     "message": "User with email 'testing98@testing.com' and username 'testing98' already exists"
+   }
+   ```
+
+2. Código: `400`
+
+   - Tipo de respuesta: JSON
+
+   ```json
+   {
+     "statusCode": 400,
+     "timestamp": "2024-02-14T01:00:22.222Z",
+     "path": "/api/auth/register",
+     "message": [
+       "email must be an email",
+       "email must be a string",
+       "email should not be empty"
+     ],
+     "error": "Bad Request"
+   }
+   ```
+
+3. Código: `400`
+
+   - Tipo de respuesta: JSON
+
+   ```json
+   {
+     "statusCode": 400,
+     "timestamp": "2024-02-14T01:00:37.218Z",
+     "path": "/api/auth/register",
+     "message": ["username must be a string", "username should not be empty"],
+     "error": "Bad Request"
+   }
+   ```
+
+4. Código: `400`
+
+   - Tipo de respuesta: JSON
+
+   ```json
+   {
+     "statusCode": 400,
+     "timestamp": "2024-02-14T01:00:49.322Z",
+     "path": "/api/auth/register",
+     "message": [
+       "password must be a string",
+       "password should not be empty",
+       "password is not strong enough"
+     ],
+     "error": "Bad Request"
+   }
+   ```
+
+5. Código: `400`
+
+   - Tipo de respuesta: JSON
+
+   ```json
+   {
+     "statusCode": 400,
+     "timestamp": "2024-02-14T01:01:52.487Z",
+     "path": "/api/auth/register",
+     "message": [
+       "confirmPassword must be a string",
+       "confirmPassword should not be empty",
+       "confirmPassword is not strong enough"
+     ],
+     "error": "Bad Request"
+   }
+   ```
+
+6. Código: `409`
+
+   - Tipo de respuesta: JSON
+
+   ```json
+   {
+     "statusCode": 409,
+     "timestamp": "2024-02-14T01:06:15.629Z",
+     "path": "/api/auth/register",
+     "message": "Passwords do not match"
+   }
+   ```
+
+7. Código: `500`
+   - Tipo de respuesta: JSON
+   ```json
+   {
+     "statusCode": 500,
+     "timestamp": "2024-02-14T01:03:02.837Z",
+     "path": "/api/auth/register",
+     "message": "connect ECONNREFUSED ::1:27001, connect ECONNREFUSED 127.0.0.1:27001",
+     "code_error": null
+   }
+   ```
+
+# Ruta: `/api/auth/login`
+
+#### Descripción:
+
+Este endpoint se utiliza para que un usuario inicie sesión en el sistema.
+
+#### Método: `POST`
+
+#### Información necesaria en el cuerpo (Body):
+
+```json
+{
+  "username": "string",
+  "password": "string"
+}
+```
+
+#### Respuesta positiva:
+
+- Código: `201`
+- Tipo de respuesta: JSON
+
+```json
+{
+  "data": "Login successful",
+  "isArray": false,
+  "path": "/api/auth/login",
+  "duration": "89ms",
+  "method": "POST"
+}
+```
+
+#### Respuestas negativas:
+
+1. Código: `401`
+
+   - Tipo de respuesta: JSON
+
+   ```json
+   {
+     "statusCode": 401,
+     "timestamp": "2024-02-14T01:08:55.447Z",
+     "path": "/api/auth/login",
+     "message": "Invalid username or password."
+   }
+   ```
+
+2. Código: `401`
+
+   - Tipo de respuesta: JSON
+
+   ```json
+   {
+     "statusCode": 401,
+     "timestamp": "2024-02-14T01:09:14.874Z",
+     "path": "/api/auth/login",
+     "message": "Unauthorized"
+   }
+   ```
+
+3. Código: `500`
+
+   - Tipo de respuesta: JSON
+
+   ```json
+   {
+     "statusCode": 500,
+     "timestamp": "2024-02-14T01:03:02.837Z",
+     "path": "/api/auth/register",
+     "message": "connect ECONNREFUSED ::1:27001, connect ECONNREFUSED 127.0.0.1:27001",
+     "code_error": null
+   }
+   ```
+
+# Ruta: `/api/auth/is_authenticated`
+
+#### Descripción:
+
+Este endpoint se utiliza para verificar si el usuario actual está autenticado.
+
+#### Método: `GET`
+
+#### Información necesaria:
+
+No hay información requerida en el cuerpo de la solicitud. La autenticación se verifica a través de cookies.
+
+#### Respuesta positiva:
+
+- Código: `200`
+- Tipo de respuesta: JSON
+
+```json
+{
+  "data": {
+    "username": "testingd98"
+  },
+  "isArray": false,
+  "path": "/api/auth/is_authenticated",
+  "duration": "6ms",
+  "method": "GET"
+}
+```
+
+#### Respuesta negativa:
+
+- Código: `401`
+- Tipo de respuesta: JSON
+
+```json
+{
+  "statusCode": 401,
+  "timestamp": "2024-02-14T01:11:54.520Z",
+  "path": "/api/auth/is_authenticated",
+  "message": "Unauthorized"
+}
+```
+
+# Ruta: `/api/auth/refresh`
+
+#### Descripción:
+
+Este endpoint se utiliza para solicitar una actualización de la sesión de autenticación.
+
+#### Método: `GET`
+
+#### Información necesaria:
+
+No se requiere información en el cuerpo de la solicitud.
+
+#### Respuesta positiva:
+
+- Código: `200`
+- Tipo de respuesta: JSON
+
+```json
+{
+  "data": "Refresh successful",
+  "isArray": false,
+  "path": "/api/auth/refresh",
+  "duration": "1ms",
+  "method": "GET"
+}
+```
+
+#### Respuesta negativa:
+
+- Código: `401`
+- Tipo de respuesta: JSON
+
+```json
+{
+  "statusCode": 401,
+  "timestamp": "2024-02-14T01:14:36.073Z",
+  "path": "/api/auth/refresh",
+  "message": "Unauthorized"
+}
+```
+
+# Ruta: `/api/auth/logout`
+
+#### Descripción:
+
+Este endpoint se utiliza para cerrar la sesión del usuario y realizar el logout.
+
+#### Método: `POST`
+
+#### Información necesaria:
+
+No se requiere información en el cuerpo de la solicitud.
+
+#### Respuesta positiva:
+
+- Código: `200`
+- Tipo de respuesta: JSON
+
+```json
+{
+  "data": "Logout successful",
+  "isArray": false,
+  "path": "/api/auth/logout",
+  "duration": "1ms",
+  "method": "POST"
+}
+```
+
+#### Respuesta negativa:
+
+- Código: `401`
+- Tipo de respuesta: JSON
+
+```json
+{
+  "statusCode": 401,
+  "timestamp": "2024-02-14T01:14:36.073Z",
+  "path": "/api/auth/logout",
+  "message": "Unauthorized"
+}
+```
+
 ## Archivo ENV (api)
+
+Es necesario añadir las claves ENV en el archivo .env.local, con ubicacion en el root del proyecto
 
 ```env
 # Configuración del servidor
 PORT=3001
+
 NODE_ENV=development
+MONGODB_URI=mongodb://localhost:27001/
+MONGODB_USERNAME=root
+MONGODB_PASSWORD=root
+
+JWT_SECRET=your_secret
+JWT_EXPIRATION_TIME=1800
+
+JWT_REFRESH_TOKEN_SECRET=your_refresh_token_secret
+JWT_REFRESH_TOKEN_EXPIRATION_TIME=86400
+
+SECRET_KEY_SESSION=your_secret_key_session
 ```
 
 ## Scripts, explicaciones y comandos útiles
@@ -200,4 +595,4 @@ Para ejecutar estos scripts, asegúrate de tener `pnpm` y las dependencias neces
    - Una vez que los contenedores estén en funcionamiento, accede a Mongo Express desde tu navegador web en la dirección `http://localhost:8081`. Mongo Express es una interfaz de usuario web para administrar bases de datos MongoDB de forma visual. Puedes realizar operaciones como crear, eliminar y modificar bases de datos y colecciones, así como ejecutar consultas. Además, Mongo Express proporciona información detallada sobre el estado del servidor MongoDB y las estadísticas de rendimiento.
 
 8. **Acceso directo a MongoDB:**
-   - Si necesitas interactuar directamente con la base de datos MongoDB, puedes conectarte a ella utilizando una herramienta de línea de comandos como `mongo` o un cliente GUI como Robo 3T. La URL de conexión es `mongodb://localhost:27017`. Utiliza las mismas credenciales de acceso que para Mongo Express (usuario: root, contraseña: root). Esto te permitirá ejecutar consultas, administrar bases de datos y colecciones, y realizar otras operaciones directamente en MongoDB.
+   - Si necesitas interactuar directamente con la base de datos MongoDB, puedes conectarte a ella utilizando una herramienta de línea de comandos como `mongo` o un cliente GUI como Robo 3T. La URL de conexión es `mongodb://localhost:27001`. Utiliza las mismas credenciales de acceso que para Mongo Express (usuario: root, contraseña: root). Esto te permitirá ejecutar consultas, administrar bases de datos y colecciones, y realizar otras operaciones directamente en MongoDB.

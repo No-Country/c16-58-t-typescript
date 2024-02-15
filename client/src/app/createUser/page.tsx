@@ -16,7 +16,8 @@ const CreateUser = () => {
         const property = (e.target as HTMLInputElement).name;
         const value = (e.target as HTMLInputElement).value;
 
-        setUser({...user, [property]: value})
+    setUser({ ...user, [property]: value });
+  };
 
     }
 
@@ -31,17 +32,45 @@ const CreateUser = () => {
     }
   return (
     <div>
-        <form>
-            <Input placeholder='Nombre/s' value={user.name} onChangeFunction={handleChange}/>
-            <Input placeholder='Aapellido/s' value={user.lastname} onChangeFunction={handleChange}/>
-            <Input placeholder='Email' value={user.email} onChangeFunction={handleChange}/>
-            <Input placeholder='Contraseña' value={user.password} onChangeFunction={handleChange}/>
-            <Input placeholder='Ciudad' value={user.city} onChangeFunction={handleChange}/>
-            <Input placeholder='Provincia' value={user.province} onChangeFunction={handleChange}/>
-            <Input placeholder='Rol' value={user.role} onChangeFunction={handleChange}/>
-        </form>
+      <form>
+        <Input
+          placeholder="Nombre/s"
+          value={user.name}
+          onChangeFunction={handleChange}
+        />
+        <Input
+          placeholder="Aapellido/s"
+          value={user.lastname}
+          onChangeFunction={handleChange}
+        />
+        <Input
+          placeholder="Email"
+          value={user.email}
+          onChangeFunction={handleChange}
+        />
+        <Input
+          placeholder="Contraseña"
+          value={user.password}
+          onChangeFunction={handleChange}
+        />
+        <Input
+          placeholder="Ciudad"
+          value={user.city}
+          onChangeFunction={handleChange}
+        />
+        <Input
+          placeholder="Provincia"
+          value={user.province}
+          onChangeFunction={handleChange}
+        />
+        <Input
+          placeholder="Rol"
+          value={user.role}
+          onChangeFunction={handleChange}
+        />
+      </form>
     </div>
-  )
-}
+  );
+};
 
 export default CreateUser;

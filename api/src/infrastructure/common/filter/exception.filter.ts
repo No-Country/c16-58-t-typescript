@@ -1,33 +1,31 @@
+import { LoggerService } from '@/infrastructure/logger/logger.service';
+import { IError } from '@/domain/filter/filter.interface';
+import { Request } from 'express';
 import {
-  ArgumentsHost,
-  Catch,
   ExceptionFilter,
+  ArgumentsHost,
   HttpException,
   HttpStatus,
+  Catch,
 } from '@nestjs/common';
-import { LoggerService } from '../../logger/logger.service';
 
-interface IError {
-  message: string;
-  code_error: string;
-}
-
-/**
- * Exception filter that handles all exceptions thrown in the application.
- */
 @Catch()
 export class AllExceptionFilter implements ExceptionFilter {
+  /**
+   * Creates an instance of the ExceptionFilter class.
+   * @param logger The logger service used for logging.
+   */
   constructor(private readonly logger: LoggerService) {}
 
   /**
-   * Handles the caught exception and sends an appropriate response to the client.
-   * @param exception - The caught exception.
-   * @param host - The arguments host object.
+   * Catches and handles exceptions thrown during request processing.
+   * @param exception - The exception that was thrown.
+   * @param host - The arguments host containing the request and response objects.
    */
-  catch(exception: any, host: ArgumentsHost) {
+  catch(exception: Error, host: ArgumentsHost): void {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse();
-    const request: any = ctx.getRequest();
+    const request: Request = ctx.getRequest();
 
     const status =
       exception instanceof HttpException
@@ -38,27 +36,39 @@ export class AllExceptionFilter implements ExceptionFilter {
         ? (exception.getResponse() as IError)
         : { message: (exception as Error).message, code_error: null };
 
-    this.logMessage(request, message, status, exception);
+    const responseData = {
+      ...{
+        statusCode: status,
+        timestamp: new Date().toISOString(),
+        path: request.url,
+      },
+      ...message,
+    };
 
-    response.status(status).send({
-      code_error: message.code_error,
-      message: message.message,
-    });
+    this.logMessage({ request, message, status, exception });
+
+    response.status(status).json(responseData);
   }
 
   /**
-   * Logs the error message and details.
+   * Logs the error message and request details.
+   *
    * @param request - The request object.
    * @param message - The error message.
    * @param status - The HTTP status code.
-   * @param exception - The caught exception.
+   * @param exception - The exception object.
    */
-  private logMessage(
-    request: any,
-    message: IError,
-    status: number,
-    exception: any,
-  ) {
+  private logMessage({
+    request,
+    message,
+    status,
+    exception,
+  }: {
+    request: Request;
+    message: IError;
+    status: number;
+    exception: Error;
+  }): void {
     if (status === 500) {
       this.logger.error(
         `End Request for ${request.path}`,
