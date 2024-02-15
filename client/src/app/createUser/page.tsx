@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Input from '../../components/Inputs/Input';
+import createUser from '@/requests/createUser';
+import { useSession } from "next-auth/react";
 
 const CreateUser = () => {
     const [user, setUser] = useState({
@@ -11,6 +13,7 @@ const CreateUser = () => {
         province: '',
         role: 0
     });
+    const {data: session} = useSession()
     
     const handleChange = (e: React.FormEvent) => {
         const property = (e.target as HTMLInputElement).name;
@@ -19,11 +22,9 @@ const CreateUser = () => {
     setUser({ ...user, [property]: value });
   };
 
-    }
-
     const handleSubmit = async () => {
         try {
-            //const res = await petición
+            const res = await createUser(session?.user.token, user)
             
         } catch (error) {
             console.error(error)
@@ -32,11 +33,8 @@ const CreateUser = () => {
     }
   return (
     <div>
-      <form>
-        <Input
-          placeholder="Nombre/s"
-          value={user.name}
-          onChangeFunction={handleChange}
+      <form onSubmit={handleSubmit}>
+        <Input placeholder="Nombre/s" value={user.name} onChangeFunction={handleChange}
         />
         <Input
           placeholder="Aapellido/s"
