@@ -6,6 +6,7 @@ const SearchInput = () => {
     <div className='flex flex-row rounded-xl box-border border-y-indigo-900 bg-white items-center px-2'>
         <input
         type='search'
+        className='outline-none'
         />
         <CiSearch color='black'/>
     </div>
