@@ -1,6 +1,8 @@
+'use client';
+
 import { useSession, signOut } from "next-auth/react";
-import PrimaryButton from "./EditButton";
-import { useRouter } from "next/router";
+import PrimaryButton from "./PrimaryButton";
+import { useRouter } from "next/navigation";
 
 const AuthButton = () => {
     const {data: session, status} = useSession();
@@ -21,13 +23,13 @@ const AuthButton = () => {
         );
       }
       return (
-        <>
-        No identificado <br />
+        <div>
+        <h1 className="text-xs text-white">No identificado</h1>
         <PrimaryButton
-        onClickFunction={() => router.push('/login')}
-        title='Log in o registro'
+          onClickFunction={() => router.push('/createUser')}
+          title='Log in o registro'
         />
-      </>
+      </div>
       )
 }
 export default AuthButton;

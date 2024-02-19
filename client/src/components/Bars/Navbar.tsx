@@ -5,7 +5,7 @@ import AuthButton from '../Buttons/AuthButton';
 
 const Navbar = () => {
   return (
-    <div>
+    <div className='bg-cyan-900 flex flex-row items-center justify-between py-3 px-6'>
       <div>
       <Image
         width={30}

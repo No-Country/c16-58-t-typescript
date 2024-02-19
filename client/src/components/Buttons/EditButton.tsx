@@ -1,7 +1,7 @@
 import React from "react";
 import { PrimaryButtonProps } from "../../types/Buttons/interfaces";
 
-function PrimaryButton(props: PrimaryButtonProps) {
+function EditButton(props: PrimaryButtonProps) {
   const { title, onClickFunction } = props;
   return (
     <button
@@ -13,4 +13,4 @@ function PrimaryButton(props: PrimaryButtonProps) {
   );
 }
 
-export default PrimaryButton;
+export default EditButton;
