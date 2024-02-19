@@ -6,7 +6,7 @@ function PrimaryButton(props: PrimaryButtonProps) {
   return (
     <button
       onClick={onClickFunction}
-      className="rounded-xl bg-lime-800 text-white hover:bg-lime-700 hover:scale-110"
+      className="rounded-xl text-white bg-orange-700 hover:bg-orange-600 hover:scale-110 px-2"
     >
       {title}
     </button>

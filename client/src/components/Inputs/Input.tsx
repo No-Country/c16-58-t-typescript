@@ -6,7 +6,7 @@ function Input(props: InputProps) {
   return (
     <input
       placeholder={placeholder}
-      className="rounded box-border border-y-indigo-900"
+      className='rounded-xl w-full py-3 px-2 my-4 box-border border border-gray-700'
       value={value}
       onChange={onChangeFunction}
     />
