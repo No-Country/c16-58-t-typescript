@@ -2,24 +2,40 @@ import React from 'react';
 import Image from 'next/image';
 import SearchInput from '../Inputs/SearchInput';
 import AuthButton from '../Buttons/AuthButton';
+import Link from 'next/link';
 
 const Navbar = () => {
   return (
     <div className='bg-cyan-900 flex flex-row items-center justify-between py-3 px-6'>
-      <div>
-      <Image
-        width={30}
-        height={30}
-        src='/logo.svg'
-        alt='Logo de la app'
-        />
-      </div>
-      <div>
-        <SearchInput/>
-      </div>
-      <div>
-        <AuthButton/>
-      </div>
+        <nav>
+          <Link href=''>
+            Home
+          </Link>
+          <Link href=''>
+            Historia
+          </Link>
+          <Link href=''>
+            Carta
+          </Link>
+        </nav>
+          <Image
+            width={75}
+            height={75}
+            src='/logo.svg'
+            alt='Logo de la app'
+            />
+        <nav>
+            <Link href=''>
+              Home
+            </Link>
+            <Link href=''>
+              Historia
+            </Link>
+            <Link href=''>
+              Carta
+            </Link>
+          </nav>
+          <AuthButton/>
     </div>
   )
 }

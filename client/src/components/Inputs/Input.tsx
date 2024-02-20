@@ -5,7 +5,6 @@ function Input(props: InputProps) {
   const { name, placeholder, onChangeFunction, value } = props;
   return (
     <input
-      type="text"
       name={name}
       placeholder={placeholder}
       className='text-black rounded-xl w-full py-3 px-2 my-4 box-border border border-gray-700'

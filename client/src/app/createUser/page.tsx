@@ -5,6 +5,7 @@ import Input from '../../components/Inputs/Input';
 import createUser from '@/requests/createUser';
 import { useSession, signIn } from "next-auth/react";
 import { IoIosRadioButtonOff, IoIosRadioButtonOn } from "react-icons/io";
+import { useRouter } from 'next/router';
 
 const CreateUser = () => {
     const [user, setUser] = useState({
@@ -17,7 +18,8 @@ const CreateUser = () => {
         role: 3,
         tyc: false,
     });
-    const [check, setCheck] = useState(false)
+    const [check, setCheck] = useState(false);
+    const router = useRouter();
 
     const isAcepted = () => {
       setCheck(!check)
@@ -61,7 +63,7 @@ const CreateUser = () => {
               <span className="text-stone-800 text-xs underline">Acepto los términos y condiciones</span>
             </button>
           </div>
-          <button className='rounded-3xl py-2 w-full border border-lime-700'>
+          <button type='submit' className='rounded-3xl py-2 w-full border border-lime-700'>
             Crear cuenta
           </button>
         </form>
@@ -71,6 +73,14 @@ const CreateUser = () => {
           <button onClick={() => signIn('google')}>
             Login
           </button>
+          <div className='flex flex-row'>
+            <h1>
+              ¿Ya tienes cuenta?
+            </h1>
+            <button onClick={() => router.push('/login')}>
+              Inicia sesión aquí
+            </button>
+          </div>
       </div>
     </div>
   );
