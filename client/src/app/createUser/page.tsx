@@ -5,6 +5,7 @@ import Input from '../../components/Inputs/Input';
 import createUser from '@/requests/createUser';
 import { useSession, signIn } from "next-auth/react";
 import { IoIosRadioButtonOff, IoIosRadioButtonOn } from "react-icons/io";
+import { useRouter } from 'next/router';
 
 const CreateUser = () => {
     const [user, setUser] = useState({
@@ -17,7 +18,8 @@ const CreateUser = () => {
         role: 3,
         tyc: false,
     });
-    const [check, setCheck] = useState(false)
+    const [check, setCheck] = useState(false);
+    const router = useRouter();
 
     const isAcepted = () => {
       setCheck(!check)
@@ -46,10 +48,10 @@ const CreateUser = () => {
      <div className='flex flex-col w-full mx-96 my-14 py-16 px-24 rounded-3xl bg-white items-center justify-center'>
       <h1 className='text-black text-2xl font-bold'>¡Crea tu cuenta gratis!</h1>
         <form onSubmit={handleSubmit} className='flex flex-col mt-12 w-full'>
-          <Input placeholder="Nombre/s" value={user.name} onChangeFunction={handleChange}/>
-          <Input placeholder="Aapellido/s" value={user.lastname} onChangeFunction={handleChange}/>
-          <Input placeholder="Email" value={user.email} onChangeFunction={handleChange}/>
-          <Input placeholder="Contraseña" value={user.password} onChangeFunction={handleChange}/>
+          <Input name='name' placeholder="Nombre/s" value={user.name} onChangeFunction={handleChange}/>
+          <Input name='lastname' placeholder="Apellido/s" value={user.lastname} onChangeFunction={handleChange}/>
+          <Input name='email' placeholder="Email" value={user.email} onChangeFunction={handleChange}/>
+          <Input name='password' placeholder="Contraseña" value={user.password} onChangeFunction={handleChange}/>
           <div className='flex flex-row items-center'>
             <button type="button" onClick={isAcepted} className="flex items-center">
               {
@@ -61,7 +63,7 @@ const CreateUser = () => {
               <span className="text-stone-800 text-xs underline">Acepto los términos y condiciones</span>
             </button>
           </div>
-          <button className='rounded-3xl py-2 w-full border border-lime-700'>
+          <button type='submit' className='rounded-3xl py-2 w-full border border-lime-700'>
             Crear cuenta
           </button>
         </form>
@@ -71,6 +73,14 @@ const CreateUser = () => {
           <button onClick={() => signIn('google')}>
             Login
           </button>
+          <div className='flex flex-row'>
+            <h1>
+              ¿Ya tienes cuenta?
+            </h1>
+            <button onClick={() => router.push('/login')}>
+              Inicia sesión aquí
+            </button>
+          </div>
       </div>
     </div>
   );
