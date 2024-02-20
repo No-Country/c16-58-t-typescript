@@ -25,10 +25,10 @@ const CreateUser = () => {
     }
     const {data: session} = useSession()
     
-    const handleChange = (e: React.FormEvent) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const property = (e.target as HTMLInputElement).name;
         const value = (e.target as HTMLInputElement).value;
-
+      
     setUser({ ...user, [property]: value });
   };
 
@@ -46,10 +46,10 @@ const CreateUser = () => {
      <div className='flex flex-col w-full mx-96 my-14 py-16 px-24 rounded-3xl bg-white items-center justify-center'>
       <h1 className='text-black text-2xl font-bold'>¡Crea tu cuenta gratis!</h1>
         <form onSubmit={handleSubmit} className='flex flex-col mt-12 w-full'>
-          <Input placeholder="Nombre/s" value={user.name} onChangeFunction={handleChange}/>
-          <Input placeholder="Aapellido/s" value={user.lastname} onChangeFunction={handleChange}/>
-          <Input placeholder="Email" value={user.email} onChangeFunction={handleChange}/>
-          <Input placeholder="Contraseña" value={user.password} onChangeFunction={handleChange}/>
+          <Input name='name' placeholder="Nombre/s" value={user.name} onChangeFunction={handleChange}/>
+          <Input name='lastname' placeholder="Apellido/s" value={user.lastname} onChangeFunction={handleChange}/>
+          <Input name='email' placeholder="Email" value={user.email} onChangeFunction={handleChange}/>
+          <Input name='password' placeholder="Contraseña" value={user.password} onChangeFunction={handleChange}/>
           <div className='flex flex-row items-center'>
             <button type="button" onClick={isAcepted} className="flex items-center">
               {

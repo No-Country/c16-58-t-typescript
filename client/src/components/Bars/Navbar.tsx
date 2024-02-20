@@ -10,7 +10,7 @@ const Navbar = () => {
       <Image
         width={30}
         height={30}
-        src='/logo.png'
+        src='/logo.svg'
         alt='Logo de la app'
         />
       </div>
