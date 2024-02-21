@@ -55,6 +55,7 @@ const CreateUser = () => {
             placeholder="Nombre/s"
             value={user.name}
             onChangeFunction={handleChange}
+            
           />
           <Input
             name="lastname"
@@ -121,3 +122,6 @@ const CreateUser = () => {
 };
 
 export default CreateUser;
+
+
+

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import Input from "../../components/Inputs/Input";
+import Input from "../../../components/Inputs/Input";
 import createUser from "@/requests/createUser";
 import { useSession, signIn } from "next-auth/react";
 import { IoIosRadioButtonOff, IoIosRadioButtonOn } from "react-icons/io";
@@ -9,13 +9,13 @@ import { useRouter } from "next/navigation";
 import { FaGoogle } from "react-icons/fa";
 import Link from "next/link";
 
-const login = () => {
+const recoverPassword = () => {
   const [user, setUser] = useState({
     name: "",
     lastname: "",
     email: "",
     password: "",
-    repeatPassword:"",
+    repeatPassword: "",
     city: "",
     province: "",
     role: 3,
@@ -47,7 +47,13 @@ const login = () => {
   return (
     <div className="flex justify-center bg-blue-200 ">
       <div className="flex flex-col w-full h-max px-8 md:w-[55%] mx-auto max-wiht max-w-7xl md:my-14 py-10 md:px-24 md:rounded-3xl bg-white items-center justify-center">
-        <h1 className="text-black text-2xl font-bold">Ingresa a tu cuenta</h1>
+        <h1 className="text-black text-2xl font-bold">
+          Restablecer tu contaseña
+        </h1>
+        <p className="mt-8">
+          Ingresa tu nueva contraseña y el codigo que te enviamos por correo
+          electrónico
+        </p>
         <form onSubmit={handleSubmit} className="flex flex-col mt-12 w-full">
           <Input
             name="email"
@@ -55,56 +61,24 @@ const login = () => {
             value={user.email}
             onChangeFunction={handleChange}
           />
-          <Input
-            name="password"
-            placeholder="Contraseña"
-            value={user.password}
-            onChangeFunction={handleChange}
-          />
-          <div className="flex flex-row items-center mb-12">
+          <div className="flex justify-center">
             <button
-              type="button"
-              onClick={isAcepted}
-              className="flex items-center"
+              type="submit"
+              className="rounded-3xl my-10 px-10 py-2 border border-black font-bold text-black"
             >
-              {check ? <IoIosRadioButtonOn /> : <IoIosRadioButtonOff />}
-              <p className=" text-xs  ml-2">Recordarme</p>
+              Aceptar
             </button>
           </div>
-          <button
-            type="submit"
-            className="rounded-3xl py-2 w-full border border-black font-bold text-black"
-          >
-            Ingresar
-          </button>
-          <div className="flex flex-row mt-5 text-base items-center justify-center">
-          <p>¿Has olvidado tu contraseña?</p>
+          <div className="flex flex-row mt-5 text-base justify-center">
+          <p>¿Aun no recibes el correo? </p>
             <Link href="./createUser" className="text-black font-bold ml-2 underline">
-              Recuperar
+              Volver a enviar
             </Link>
         </div>
         </form>
-        <div className="flex items-center my-8 w-full">
-          <div className="flex-1 border-t border-gray-800"></div>
-          <div className="mx-2 text-gray-500">o</div>
-          <div className="flex-1 border-t border-gray-800"></div>
-        </div>
-        <button
-          className="rounded-3xl py-2 w-full border border-black font-bold text-black flex items-center justify-center"
-          onClick={() => signIn("google")}
-        >
-          <FaGoogle className="mr-2" />
-          Continúa con Google
-        </button>
-        <div className="flex flex-row mt-5 text-base">
-          <p>¿Aun no tienes cuenta? </p>
-            <Link href="./createUser" className="text-black font-bold ml-2 underline">
-              Registrate aquí
-            </Link>
-        </div>
       </div>
     </div>
   );
 };
 
-export default login;
+export default recoverPassword;

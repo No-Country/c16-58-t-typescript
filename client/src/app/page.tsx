@@ -13,9 +13,9 @@ export default function Home() {
   const router = useRouter();
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="w-full h-full bg-home  bg-cover flex items-center justify-center">
       <div className="{poppins.className}">
-        <h1 className="text-whit">Reserva tu mesa</h1>
+        <h1 className="">Reserva tu mesa</h1>
       </div>
     </main>
   );
