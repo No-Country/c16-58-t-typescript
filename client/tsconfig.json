@@ -13,20 +13,11 @@
   "extends": "@c16-58-t-typescript/typescript-config/nextjs.json",
   "compilerOptions": {
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
     },
     "esModuleInterop": true,
     "jsx": "preserve" // Configuración para JSX en React
   },
-  "include": [
-    ".",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": [
-    "dist",
-    "build",
-    "node_modules"
-  ]
+  "include": [".", ".next/types/**/*.ts"],
+  "exclude": ["dist", "build", "node_modules"]
 }
