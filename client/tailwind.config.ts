@@ -16,8 +16,20 @@ const config: Config = {
       // },
 
       backgroundImage: theme => ({
-        'home-image': "url('/home.jpg')",
+        'home-image': "linear-gradient(0deg, rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('/home.jpg')",
+        'foco-image': "linear-gradient(0deg, rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('/mapa.jpg')",
       }),
+        
+      backgroundPosition: {
+        'center': 'center', 
+      },
+      backgroundSize: {
+        'cover': 'cover',
+        'contain': 'contain',
+      },
+      backgroundRepeat: {
+        'no-repeat': 'no-repeat',
+      },
     },
   },
   plugins: [],
