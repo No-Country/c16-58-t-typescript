@@ -6,25 +6,29 @@ const handler = NextAuth({
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        username: { label: "Username", type: "text", placeholder: "test@test.com" },
+        username: {
+          label: "Username",
+          type: "text",
+          placeholder: "test@test.com",
+        },
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
         const formData = new FormData();
-        formData.append('username', credentials?.username ?? '');
-        formData.append('password', credentials?.password ?? '');
+        formData.append("username", credentials?.username ?? "");
+        formData.append("password", credentials?.password ?? "");
         const res = await fetch(
           `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/login`,
           {
             method: "POST",
             body: formData,
-          }
+          },
         );
         const user = await res.json();
         if (res.status !== 200) {
-          throw new Error('Credenciales incorrectas');
+          throw new Error("Credenciales incorrectas");
         } else {
-          return user
+          return user;
         }
       },
     }),
@@ -43,4 +47,4 @@ const handler = NextAuth({
   },
 });
 
-  export { handler as GET, handler as POST };
+export { handler as GET, handler as POST };
