@@ -45,7 +45,7 @@ const newPassword = () => {
     }
   };
   return (
-    <div className="flex justify-center bg-blue-200 ">
+    <div className="flex justify-center bg-[#D38B48] ">
       <div className="flex flex-col w-full h-max px-8 md:w-[55%] mx-auto max-wiht max-w-7xl md:my-14 py-10 md:px-24 md:rounded-3xl bg-white items-center justify-center">
         <h1 className="text-black text-2xl font-bold">
           Restablecer tu contaseña

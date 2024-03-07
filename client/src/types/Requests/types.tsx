@@ -1,6 +1,6 @@
 export interface PostUserInterface {
   name: string;
-  lastname: string;
+  lastName: string;
   email: string;
   password: string;
   city: string;

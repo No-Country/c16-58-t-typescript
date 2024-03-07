@@ -37,15 +37,23 @@ const login = () => {
     setUser({ ...user, [property]: value });
   };
 
-  const handleSubmit = async () => {
-    try {
-      const res = await createUser(session?.user.token, user);
-    } catch (error) {
-      console.error(error);
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (user.email === "juangaliano@gmail.com" && user.password === "password123") {
+      try {
+        const res = await createUser(session?.user.token, user);
+        // Redireccionar a la pantalla de "Reservar"
+        router.push("../carta");
+      } catch (error) {
+        console.error(error);
+      }
+    } else {
+      alert("Credenciales incorrectas");
+      // Aquí podrías mostrar un mensaje de error al usuario indicando que las credenciales son incorrectas
     }
   };
   return (
-    <div className="flex justify-center bg-blue-200 ">
+    <div className="flex justify-center  bg-[#D38B48] ">
       <div className="flex flex-col w-full h-max px-8 md:w-[55%] mx-auto max-wiht max-w-7xl md:my-14 py-10 md:px-24 md:rounded-3xl bg-white items-center justify-center">
         <h1 className="text-black text-2xl font-bold">Ingresa a tu cuenta</h1>
         <form onSubmit={handleSubmit} className="flex flex-col mt-12 w-full">
