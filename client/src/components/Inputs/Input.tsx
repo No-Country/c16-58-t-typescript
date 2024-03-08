@@ -2,7 +2,7 @@ import React from "react";
 import { InputProps } from "../../types/Inputs/interfaces";
 
 function Input(props: InputProps) {
-  const { name, placeholder, onChangeFunction, value, } = props;
+  const { name, placeholder, onChangeFunction, value } = props;
   return (
     <input
       name={name}

@@ -3,12 +3,11 @@
 import React from "react";
 import AdminNav from "@/components/Bars/AdminNav";
 
-
 export default function AdminUser() {
   return (
     <>
-    <AdminNav/>
-     
+      <AdminNav />
+
       <table className="table-auto bg-blue-gray-500 text-white w-full h-screen">
         <thead className="bg-blue-gray-900">
           <tr>

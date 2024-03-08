@@ -153,7 +153,7 @@ const Reserva = () => {
   });
 
   const handleChange = (
-    e: ChangeEvent<HTMLSelectElement> | ChangeEvent<HTMLInputElement>
+    e: ChangeEvent<HTMLSelectElement> | ChangeEvent<HTMLInputElement>,
   ) => {
     const { name, value } = e.target;
     setUser((prevUser) => ({ ...prevUser, [name]: value }));
@@ -162,12 +162,11 @@ const Reserva = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(user); // Imprimir el estado actual del usuario en la consola
-    
 
     Swal.fire({
       icon: "success",
       title: "Reserva Exitosa",
-      text: `${user.name} ¡Su reserva fue exitosa! para el dia ${user.date} a las ${user.time} hs, para ${user.personas} personas`
+      text: `${user.name} ¡Su reserva fue exitosa! para el dia ${user.date} a las ${user.time} hs, para ${user.personas} personas`,
     });
   };
 

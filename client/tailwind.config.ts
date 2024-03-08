@@ -20,8 +20,8 @@ module.exports = withMT({
           "linear-gradient(0deg, rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('/imgCarta.jpg')",
         "header-image":
           "linear-gradient(0deg, rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('/header2.jpg')",
-        "close": "url('/close.svg')",
-        "menu":"url('/menu.svg')",
+        close: "url('/close.svg')",
+        menu: "url('/menu.svg')",
       },
       fontFamily: {
         "dancing-script": ['"Dancing Script"', "cursive"], // Aquí se define la fuente y el tipo de fuente
