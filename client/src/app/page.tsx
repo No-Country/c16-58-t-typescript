@@ -117,7 +117,7 @@ export default function Home() {
           <button onClick={() => router.push("/carta")}>
             <div className="shadow-2xl w-[300px] h-[300px] flex flex-col items-center justify-center cursor-pointer gap-10">
               <img src="/motorbike.svg" alt="" className="w-[100px]" />
-              <span className="text-black text-xl">TAKE AWAYS takeaways</span>
+              <span className="text-black text-xl">TAKE AWAYS</span>
             </div>
           </button>
 
